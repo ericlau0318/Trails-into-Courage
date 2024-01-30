@@ -6,19 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class StateController : MonoBehaviour
 {
-    public int STRValue = 0;
+    public static int STRValue = 0;
     public Text STRValueText;
 
-    public int INTValue = 0;
+    public static int INTValue = 0;
     public Text INTValueText;
 
-    public int HPValue = 0;
+    public static int HPValue = 0;
     public Text HPValueText;
 
-    public int MPValue = 0;
+    public static int MPValue = 0;
     public Text MPValueText;
 
-    public int SPValue = 0;
+    public static int SPValue = 0;
     public Text SPValueText;
 
     public float gridOffset = 50f;
