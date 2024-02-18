@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
 
     private PlayerState playerState;
-
+    public float CheckGroundPointSize=0.2f;
 
     private void Start()
     {
@@ -79,12 +79,13 @@ public class PlayerController : MonoBehaviour
             moveDirection.z = 0;
             moveDirection.x = 0;
         }
+
         PlayerAnimation();
     }
 
     private void Movement()
     {
-        isGrounded = Physics.CheckSphere(groundChecker.position, 0.2f, WhatLayerCanJump);
+        isGrounded = Physics.CheckSphere(groundChecker.position, CheckGroundPointSize, WhatLayerCanJump);
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
@@ -108,17 +109,17 @@ public class PlayerController : MonoBehaviour
             rollCD += Time.deltaTime;
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             pressLStime = 0f;
         }
 
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftControl))
         {
             pressLStime += Time.deltaTime;
         }
 
-        if (Input.GetKeyUp(KeyCode.LeftShift) && pressLStime < 0.2f && isGrounded && rollCD >= rollingCoolDown && playerState.currentStamina >= rollingStaminaCost)
+        if (Input.GetKeyUp(KeyCode.LeftControl) && pressLStime < 0.2f && isGrounded && rollCD >= rollingCoolDown && playerState.currentStamina >= rollingStaminaCost)
         {
             rollCD = 0;
             anim.SetTrigger("Rolling");
@@ -126,7 +127,7 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(Roll());
         }
 
-        else if (Input.GetKey(KeyCode.LeftShift) && pressLStime >= 0.2f && isGrounded)
+        else if (Input.GetKey(KeyCode.LeftShift) /*&& pressLStime >= 0.2f*/ && isGrounded)
         {
             rb.velocity = new Vector3(moveDirection.x * runningSpeed, rb.velocity.y, moveDirection.z * runningSpeed);
         }
@@ -179,7 +180,7 @@ public class PlayerController : MonoBehaviour
             {
                 attackCD = 0;
                 anim.SetTrigger("WeaponAttack");
-                StartCoroutine(WeaponAttack(1f));
+                StartCoroutine(WeaponAttack(0.5f));
             }
 
         }
@@ -248,32 +249,42 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerAnimation()
     {
-        if (moveDirection.z != 0 || moveDirection.x != 0)
-        {
-            anim.SetBool("Walk", true);
-        }
-        else
+        if (isPlayerTalking == true)
         {
             anim.SetBool("Walk", false);
             anim.SetBool("Running", false);
-        }
-
-        if (isGrounded == true)
-        {
             anim.SetBool("isGrounded", true);
         }
-        else
-        {
-            anim.SetBool("isGrounded", false);
-        }
+        if (isPlayerTalking == false)
+            {
+                if ((moveDirection.z != 0 || moveDirection.x != 0))
+                {
+                anim.SetBool("Walk", true);
+                }
+            else
+                {
+                anim.SetBool("Walk", false);
+                anim.SetBool("Running", false);
+                }   
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && (moveDirection.z != 0 || moveDirection.x != 0))
-        {
-            anim.SetBool("Running", true);
-        }
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            anim.SetBool("Running", false);
+            if (isGrounded == true)
+            {
+                anim.SetBool("isGrounded", true);
+            }
+            else
+            {
+                anim.SetBool("isGrounded", false);
+            }
+
+
+            if (Input.GetKeyDown(KeyCode.LeftShift) && (moveDirection.z != 0 || moveDirection.x != 0))
+                {
+                anim.SetBool("Running", true);
+                }
+            if (Input.GetKeyUp(KeyCode.LeftShift))
+                {
+                anim.SetBool("Running", false);
+                }
         }
     }
 
