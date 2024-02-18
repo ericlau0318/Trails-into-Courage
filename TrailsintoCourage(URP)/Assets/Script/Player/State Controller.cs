@@ -89,7 +89,7 @@ public class StateController : MonoBehaviour
 
     private void OpenStatePanel()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !isPanelMoving && currentSceneName == "Main Town")
+        if (Input.GetKeyDown(KeyCode.Escape) && !isPanelMoving && currentSceneName == "Main Town" && PlayerController.isPlayerTalking == false)
         {
             if (isPanelVisible)
             {
@@ -123,7 +123,7 @@ public class StateController : MonoBehaviour
         {
             STRValue++;
             StatePoint--;
-            PlayerState.attackDamage = 5 + STRValue * 2;
+            PlayerState.attackDamage = 5 + STRValue * 1;
             // Debug.Log(PlayerState.attackDamage);
             //CreateGrid(STRValue,STRGridPrefab,STRGridParent,ref STRGridObjects);
             UpdateValueText(STRValue, STRValueText);
