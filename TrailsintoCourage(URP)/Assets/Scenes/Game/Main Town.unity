@@ -3421,6 +3421,7 @@ MonoBehaviour:
   isPlayerDead: 0
   PlayerDeadBody: {fileID: 5537780249410168252, guid: 61669a4f53eee094ab5fcbf91273c24a,
     type: 3}
+  CheckGroundPointSize: 0.2
 --- !u!1 &6528096303627115179
 GameObject:
   m_ObjectHideFlags: 0
