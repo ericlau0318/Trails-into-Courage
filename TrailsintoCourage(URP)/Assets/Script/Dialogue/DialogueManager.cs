@@ -171,7 +171,7 @@ public class DialogueManager : MonoBehaviour
             {
                 choiceButton2.gameObject.SetActive(true);
                 choiceButton2.GetComponentInChildren<Text>().text = "Yes";
-                interactable.choice2Number = 0;
+                //interactable.choice2Number = 0;
                 FinalChoice = true;
             }
             awaitingChoice = true;
@@ -179,11 +179,10 @@ public class DialogueManager : MonoBehaviour
         }
         else if (FinalChoice) // Check if "Yes" has been selected
         {
-            LoadChoiceSentences(choice1Sentences); // Load Choice 1 sentences
+            LoadChoiceSentences(choice1Sentences); // Load Choice 1 sentences`
             FinalChoice = false; // Reset the flag
         }
     }
-
     private void LoadChoiceSentences(Queue<string> choiceSentences)
     {
         if (interactable.choice2Number == 0)

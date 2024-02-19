@@ -557,9 +557,64 @@ PrefabInstance:
       objectReference: {fileID: 1245073666}
     - target: {fileID: 1913952884336125293, guid: 712c6ea71d325c64590e9c9fb22acdd1,
         type: 3}
+      propertyPath: sentencesNumber
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913952884336125293, guid: 712c6ea71d325c64590e9c9fb22acdd1,
+        type: 3}
       propertyPath: dialogueAnimator
       value: 
       objectReference: {fileID: 927532716}
+    - target: {fileID: 1913952884336125293, guid: 712c6ea71d325c64590e9c9fb22acdd1,
+        type: 3}
+      propertyPath: allowRepeatedChoices
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913952884336125293, guid: 712c6ea71d325c64590e9c9fb22acdd1,
+        type: 3}
+      propertyPath: sentenceChoiceNumber
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913952884336125293, guid: 712c6ea71d325c64590e9c9fb22acdd1,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913952884336125293, guid: 712c6ea71d325c64590e9c9fb22acdd1,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[1]
+      value: 'Hey there. My Name is Anson. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913952884336125293, guid: 712c6ea71d325c64590e9c9fb22acdd1,
+        type: 3}
+      propertyPath: dialogue.finishSentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913952884336125293, guid: 712c6ea71d325c64590e9c9fb22acdd1,
+        type: 3}
+      propertyPath: dialogue.choice1Sentences.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913952884336125293, guid: 712c6ea71d325c64590e9c9fb22acdd1,
+        type: 3}
+      propertyPath: dialogue.finishSentences.Array.data[0]
+      value: 1234567
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913952884336125293, guid: 712c6ea71d325c64590e9c9fb22acdd1,
+        type: 3}
+      propertyPath: dialogue.choice1Sentences.Array.data[0]
+      value: ABC
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913952884336125293, guid: 712c6ea71d325c64590e9c9fb22acdd1,
+        type: 3}
+      propertyPath: dialogue.choice1Sentences.Array.data[1]
+      value: DEA
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913952884336125293, guid: 712c6ea71d325c64590e9c9fb22acdd1,
+        type: 3}
+      propertyPath: dialogue.choice1Sentences.Array.data[2]
+      value: DEA
+      objectReference: {fileID: 0}
     - target: {fileID: 4083572233794909934, guid: 712c6ea71d325c64590e9c9fb22acdd1,
         type: 3}
       propertyPath: m_Name
@@ -568,7 +623,7 @@ PrefabInstance:
     - target: {fileID: 4083572233794909934, guid: 712c6ea71d325c64590e9c9fb22acdd1,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5435394347457667068, guid: 712c6ea71d325c64590e9c9fb22acdd1,
         type: 3}
@@ -583,7 +638,7 @@ PrefabInstance:
     - target: {fileID: 5435394347457667068, guid: 712c6ea71d325c64590e9c9fb22acdd1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 15.4
+      value: -6.77
       objectReference: {fileID: 0}
     - target: {fileID: 5435394347457667068, guid: 712c6ea71d325c64590e9c9fb22acdd1,
         type: 3}
