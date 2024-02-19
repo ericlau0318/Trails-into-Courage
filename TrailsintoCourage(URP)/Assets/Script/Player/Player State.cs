@@ -117,7 +117,7 @@ public class PlayerState : MonoBehaviour
         {
             currentHealth -= damage;
             Debug.Log("HP: " + currentHealth);
-            StartCoroutine(InvincibleTime(1));
+            StartCoroutine(InvincibleTime(0.5f));
         }
         StopRecoverHealth();
     }

@@ -122,6 +122,8 @@ public class DialogueManager : MonoBehaviour
         animator.SetBool("IsOpen", false);
         StartCoroutine(CheckPlayerInZoneAfterDelay(1f));
         isDialogueActive = false;
+        PlayerController.isPlayerTalking = false;
+
     }
 
     private IEnumerator CheckPlayerInZoneAfterDelay(float delay)

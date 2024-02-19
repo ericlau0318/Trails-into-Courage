@@ -5283,19 +5283,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf43028c78cbf8943996551c4277c916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  STRValue: 0
   STRValueText: {fileID: 1304681796}
-  INTValue: 0
   INTValueText: {fileID: 199825455}
-  HPValue: 0
   HPValueText: {fileID: 1157519319}
-  MPValue: 0
   MPValueText: {fileID: 1504283551}
-  SPValue: 0
   SPValueText: {fileID: 1383518880}
   gridOffset: 50
   ExpText: {fileID: 162134185}
-  Level: 1
   LevelText: {fileID: 1965514745}
   StatePointText: {fileID: 295800177}
   panelRectTransform: {fileID: 1917706542}
@@ -6904,10 +6898,10 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.45
-  m_Height: 1.8202338
+  m_Radius: 0.5
+  m_Height: 1.7
   m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!4 &1776203194528749217
@@ -8063,7 +8057,6 @@ GameObject:
   - component: {fileID: 8757740321750803646}
   - component: {fileID: 1299750262152788124}
   - component: {fileID: 6291581419791377176}
-  - component: {fileID: 8757740321750803647}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -8251,6 +8244,7 @@ MonoBehaviour:
   isPlayerDead: 0
   PlayerDeadBody: {fileID: 5537780249410168252, guid: 61669a4f53eee094ab5fcbf91273c24a,
     type: 3}
+  CheckGroundPointSize: 0.2
 --- !u!1 &6528096303627115179
 GameObject:
   m_ObjectHideFlags: 0
@@ -8965,27 +8959,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!65 &8757740321750803647
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5615848604784860279}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.7946523, y: 1.751794, z: 0.9515648}
-  m_Center: {x: 0.006713867, y: 0.920943, z: 0.024217615}
 --- !u!1 &8809494539548253461
 GameObject:
   m_ObjectHideFlags: 0

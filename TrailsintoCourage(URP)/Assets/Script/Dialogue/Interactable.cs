@@ -37,6 +37,7 @@ public class Interactable : MonoBehaviour
         {
             if (playerCurrentlyInZone && !isPlayerInZone && !hasInteracted)
             {
+                PlayerController.isPlayerTalking = true;
                 dialogueManager.StartDialogue(dialogue, this);
                 hasInteracted = true;
             }
@@ -59,6 +60,7 @@ public class Interactable : MonoBehaviour
         dialogueAnimator.SetBool("IsOpen", false);
         hasInteracted = false;
         isPlayerInZone = false;
+        PlayerController.isPlayerTalking = false;
         dialogueManager.awaitingChoice = false;
     }
     /*void OnTriggerEnter(Collider other)

@@ -36,7 +36,8 @@ public class CameraFollow : MonoBehaviour
 
     private void Update()
     {
-
+        if (PlayerController.isPlayerTalking == false && PlayerState.StatePanelOpen==false)
+        {
             if (player == null)
             {
                 return;
@@ -45,7 +46,7 @@ public class CameraFollow : MonoBehaviour
             mouseY -= Input.GetAxis("Mouse Y") * rotationSpeed;
 
             mouseY = Mathf.Clamp(mouseY, minMouseY, maxMouseY);
-
+        }
             Quaternion rotation = Quaternion.Euler(mouseY, mouseX, 0f);
             transform.rotation = rotation;
             if (firstPersonPerspective == true)
