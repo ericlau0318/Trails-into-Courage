@@ -46,8 +46,9 @@ public class DialogueManager : MonoBehaviour
         animator.SetBool("IsOpen", true);
         nameText.text = dialogue.name;
         npc.sentencesNumber = 0;
-        if (interactable.choiceMode == true)
+        if (interactable.choiceMode == true )
         {
+            finishSentences.Clear();
             foreach (string sentence in dialogue.finishSentences)
             {
                 sentences.Enqueue(sentence);
@@ -71,6 +72,11 @@ public class DialogueManager : MonoBehaviour
             {
                 choice2Sentences.Enqueue(sentence);
             }
+            finishSentences.Clear();
+            foreach (string sentence in dialogue.finishSentences)
+            {
+                finishSentences.Enqueue(sentence);
+            }
         }
 
         choiceButton1.GetComponentInChildren<Text>().text = npc.choice1Text;
@@ -81,7 +87,8 @@ public class DialogueManager : MonoBehaviour
     }
     public void DisplayNextSentence()
     {
-        if (sentences.Count == 0 || choice1Sentences.Count == 0 || choice2Sentences.Count == 0)
+        //if (sentences.Count == 0 || choice1Sentences.Count == 0 || choice2Sentences.Count == 0)
+        if (sentences.Count == 0)
         {
             EndDialogue();
             return;
@@ -173,7 +180,7 @@ public class DialogueManager : MonoBehaviour
             {
                 choiceButton2.gameObject.SetActive(true);
                 choiceButton2.GetComponentInChildren<Text>().text = "Yes";
-                //interactable.choice2Number = 0;
+                interactable.choice2Number = 0;
                 FinalChoice = true;
             }
             awaitingChoice = true;
