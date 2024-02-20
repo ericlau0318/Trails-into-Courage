@@ -573,7 +573,7 @@ PrefabInstance:
     - target: {fileID: 1913952884336125293, guid: 712c6ea71d325c64590e9c9fb22acdd1,
         type: 3}
       propertyPath: sentenceChoiceNumber
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1913952884336125293, guid: 712c6ea71d325c64590e9c9fb22acdd1,
         type: 3}
@@ -593,7 +593,12 @@ PrefabInstance:
     - target: {fileID: 1913952884336125293, guid: 712c6ea71d325c64590e9c9fb22acdd1,
         type: 3}
       propertyPath: dialogue.choice1Sentences.Array.size
-      value: 2
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913952884336125293, guid: 712c6ea71d325c64590e9c9fb22acdd1,
+        type: 3}
+      propertyPath: dialogue.choice2Sentences.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1913952884336125293, guid: 712c6ea71d325c64590e9c9fb22acdd1,
         type: 3}
@@ -1217,6 +1222,17 @@ PrefabInstance:
         type: 3}
       propertyPath: dialogue.choice2Sentences.Array.data[4]
       value: But i think you are the first time go out the town
+      objectReference: {fileID: 0}
+    - target: {fileID: 1133497777528489570, guid: 7e26f8fab358428499f26939b9da49c2,
+        type: 3}
+      propertyPath: dialogue.choice2Sentences.Array.data[5]
+      value: Sure enough, it works! I'm not afraid to tell you that this city should
+        require me to recognize people, but are you ready?
+      objectReference: {fileID: 0}
+    - target: {fileID: 1133497777528489570, guid: 7e26f8fab358428499f26939b9da49c2,
+        type: 3}
+      propertyPath: dialogue.choice2Sentences.Array.data[6]
+      value: It sounds that you are ready now, please remember to visit me again.
       objectReference: {fileID: 0}
     - target: {fileID: 5659769725158349162, guid: 7e26f8fab358428499f26939b9da49c2,
         type: 3}

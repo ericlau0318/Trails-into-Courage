@@ -22,7 +22,8 @@ public class Interactable : MonoBehaviour
     public bool isPlayerInZone = false;
     public GameObject dialogueBox;
     public bool choiceMode = false;
-    public bool allowRepeatedChoices;
+    private bool allowRepeatedChoices;
+    public bool hasCompletedDialogue = false;
     void Start()
     {
         dialogueAnimator = GameObject.Find("DialogueBox").GetComponent<Animator>();

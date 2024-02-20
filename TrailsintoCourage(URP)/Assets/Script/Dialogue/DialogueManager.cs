@@ -22,6 +22,7 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> finishSentences;
     public bool isDialogueActive = false;
     private bool FinalChoice = false;
+
     void Start()
     {
         sentences = new Queue<string>();
@@ -46,7 +47,7 @@ public class DialogueManager : MonoBehaviour
         animator.SetBool("IsOpen", true);
         nameText.text = dialogue.name;
         npc.sentencesNumber = 0;
-        if (interactable.choiceMode == true )
+        if (interactable.choiceMode == true || npc.hasCompletedDialogue)
         {
             finishSentences.Clear();
             foreach (string sentence in dialogue.finishSentences)
@@ -87,8 +88,8 @@ public class DialogueManager : MonoBehaviour
     }
     public void DisplayNextSentence()
     {
-        //if (sentences.Count == 0 || choice1Sentences.Count == 0 || choice2Sentences.Count == 0)
-        if (sentences.Count == 0)
+        if (sentences.Count == 0 || choice1Sentences.Count == 0 || choice2Sentences.Count == 0)
+        //if (sentences.Count == 0)
         {
             EndDialogue();
             return;
@@ -129,6 +130,7 @@ public class DialogueManager : MonoBehaviour
         animator.SetBool("IsOpen", false);
         StartCoroutine(CheckPlayerInZoneAfterDelay(1f));
         isDialogueActive = false;
+        interactable.hasCompletedDialogue = true;
         PlayerController.isPlayerTalking = false;
 
     }
@@ -167,7 +169,7 @@ public class DialogueManager : MonoBehaviour
     }
     public void ChooseOption2()
     {
-        if (!showAllSentence)
+        if (!showAllSentence && !FinalChoice)
         {
             LoadChoiceSentences(choice2Sentences);
             interactable.choiceMode = true;
@@ -176,7 +178,7 @@ public class DialogueManager : MonoBehaviour
                 choiceButton1.gameObject.SetActive(false);
                 choiceButton2.gameObject.SetActive(true);
             }
-            else
+            else 
             {
                 choiceButton2.gameObject.SetActive(true);
                 choiceButton2.GetComponentInChildren<Text>().text = "Yes";
