@@ -24,10 +24,10 @@ public class StateController : MonoBehaviour
     public float gridOffset = 50f;
 
     public static int Exp = 0;
-    private int NextLevelExp = 10;
+    public static int NextLevelExp = 12;
     public Text ExpText;
 
-    public static int Level = 1;
+    public static int Level=1;
     public Text LevelText;
     
     public static int StatePoint=10;
@@ -70,6 +70,7 @@ public class StateController : MonoBehaviour
 
         player = GameObject.Find("Player");
         playerController = player.GetComponent<PlayerController>();
+        LevelText.text = "Level: " + Level;
 
     }
     private void Update()
@@ -77,6 +78,7 @@ public class StateController : MonoBehaviour
         LevelUp();
         OpenStatePanel();
         OpenGameOverPanel();
+        LevelText.text = "Level: " + Level;
         ExpText.text = "Exp: " + Exp + " / " + NextLevelExp;
     }
     private void OpenGameOverPanel()
@@ -296,7 +298,7 @@ public class StateController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-       //     Exp += 4;
+           Exp += 4;
             ExpText.text = "Exp: " + Exp + " / " + NextLevelExp;
         }
 

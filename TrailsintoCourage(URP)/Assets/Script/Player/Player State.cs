@@ -48,11 +48,17 @@ public class PlayerState : MonoBehaviour
     {
         canvas = GameObject.Find("Canvas");
         if (healthBar == null)
+        {
             healthBar = canvas.transform.Find("Health Bar").gameObject;
+        }
         if (manaBar == null)
+        {
             manaBar = canvas.transform.Find("Mana Bar").gameObject;
+        }
         if (staminaBar == null)
+        {
             staminaBar = canvas.transform.Find("Stamina Bar").gameObject;
+        }
 
         healthSlider = healthBar.GetComponent<Slider>();
         manaSlider = manaBar.GetComponent<Slider>();

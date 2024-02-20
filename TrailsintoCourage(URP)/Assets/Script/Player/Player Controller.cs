@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody rb;
     private Transform mainCamera;
-    public Transform FPPfixationPoint;
+    //public Transform FPPfixationPoint;
     public Transform TPPfixationPoint;
     private Vector3 moveDirection;
 

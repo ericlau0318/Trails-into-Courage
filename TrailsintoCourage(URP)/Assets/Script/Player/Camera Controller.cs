@@ -22,7 +22,7 @@ public class CameraFollow : MonoBehaviour
     {
         player = GameObject.Find("Player");
         playerController = player.GetComponent<PlayerController>();
-        FPP_FP = playerController.FPPfixationPoint;
+        //FPP_FP = playerController.FPPfixationPoint;
         TPP_FP = playerController.TPPfixationPoint;
         if (FPP_FP == true)
         {
