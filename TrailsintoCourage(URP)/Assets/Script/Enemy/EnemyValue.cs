@@ -9,7 +9,7 @@ using UnityEditor.SearchService;
 public class EnemyValue : MonoBehaviour
 {
     // enemy state value
-    public int   damage;
+    public int damage;
     public float enemyHealth;
     public float attackPeriod;
     public float attackRadius;
@@ -59,32 +59,37 @@ public class EnemyValue : MonoBehaviour
         if (enemyHealth <= 0 && !isdead)
         {
             isdead = true;
-            level1GameManager.AddKilledCount();
             stateController.GainExp(4);
-            spawner.monsterCount--;
+
             Destroy(gameObject, 0.5f);
+            if (spawner.grassLand)
+            {
+                level1GameManager.AddKilledCount();
+                spawner.monsterCount--;
+            }
+
 
         }
     }
     // collect UI object / state controller 
     public void InitialObjectCollect(GameObject enemy)
     {
-        stateController     =   FindObjectOfType<StateController>();
-        parentTransform     =   enemy.transform;
-        canvas              =   parentTransform.Find("Canvas");
-        healthBar           =   canvas.transform.Find("HPSlider").gameObject;
-        healthSlider        =   healthBar.GetComponent<Slider>();
-        level1GameManager   =   FindObjectOfType<Level1GameManager>();
-        playerState         =   FindObjectOfType<PlayerState>();
-        spawner             =   FindObjectOfType<Spawner>();
-        hurtTime            =   1;
-        isdead              =   false;
+        stateController = FindObjectOfType<StateController>();
+        parentTransform = enemy.transform;
+        canvas = parentTransform.Find("Canvas");
+        healthBar = canvas.transform.Find("HPSlider").gameObject;
+        healthSlider = healthBar.GetComponent<Slider>();
+        level1GameManager = FindObjectOfType<Level1GameManager>();
+        playerState = FindObjectOfType<PlayerState>();
+        spawner = FindObjectOfType<Spawner>();
+        hurtTime = 1;
+        isdead = false;
     }
     // update hp UI
     public void UpdateEnemyUI(float currentValue, float max)
     {
-        float current       = currentValue;
-        healthSlider.value  = current / max;
+        float current = currentValue;
+        healthSlider.value = current / max;
     }
     // collect enemy & player position
     public void UpdateCurrentPosition(GameObject enemy)
@@ -102,7 +107,7 @@ public class EnemyValue : MonoBehaviour
         playerCurrentPosition = new Vector3(playerCurrentPositionX, playerCurrentPositionY, playerCurrentPositionZ);
     }
     // rotate to face to player
-    public void Rotation(Vector3 targetPosition, GameObject enemy,Rigidbody rb)
+    public void Rotation(Vector3 targetPosition, GameObject enemy, Rigidbody rb)
     {
         Vector3 directionToPlayer = targetPosition - enemy.transform.position;
         // Zero out the y component to keep the slime upright

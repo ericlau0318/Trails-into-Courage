@@ -15,7 +15,7 @@ public class Archer : EnemyValue
     // enemy setting
     private float attackTime;
     [SerializeField]
-    private bool isAttack, inAttackArea, startSwan, isSwan, cycle;
+    private bool isAttack, inAttackArea;
     private Vector3 swanTargetPosition;
     // UI hp
     private float maxHealth;
@@ -26,13 +26,13 @@ public class Archer : EnemyValue
     {
         InitialArcher();
         InitialObjectCollect(this.gameObject);
-        
+
     }
     // Update is called once per frame
     void Update()
     {
         currentHealth = enemyHealth;
-        hurtTime     -= Time.deltaTime;
+        hurtTime -= Time.deltaTime;
         DrawLineArea();
         UpdateEnemyUI(currentHealth, maxHealth);
         UpdateCurrentPosition(this.gameObject);
@@ -44,21 +44,21 @@ public class Archer : EnemyValue
     // Archer setting / component
     private void InitialArcher()
     {
-        damage          =   3;
-        enemyHealth     =   12;
-        attackPeriod    =   3f;
-        movingSpeed     =   1.5f;
-        attackRadius    =   5f;
-        senseRadius     =   7;
-        rotateSpeed     =   125f;
+        damage = 3;
+        enemyHealth = 12;
+        attackPeriod = 3f;
+        movingSpeed = 1.5f;
+        attackRadius = 5f;
+        senseRadius = 7;
+        rotateSpeed = 125f;
 
-        maxHealth       =   enemyHealth;
-        currentHealth   =   maxHealth;
-        rb              =   GetComponent<Rigidbody>();
-        enemyAnimator   =   GetComponent<Animator>();
+        maxHealth = enemyHealth;
+        currentHealth = maxHealth;
+        rb = GetComponent<Rigidbody>();
+        enemyAnimator = GetComponent<Animator>();
 
-        isAttack        =   false;
-        inAttackArea    =   false;
+        isAttack = false;
+        inAttackArea = false;
     }
     private void CheckAttack()
     {   // check inside or outside the attack area
@@ -93,7 +93,7 @@ public class Archer : EnemyValue
     private void OnTriggerEnter(Collider other)
     {
         EnemyHurt(other, "Spell(Clone)", archer, PlayerState.spellDamage);
-        if (hurtTime <=0)
+        if (hurtTime <= 0)
         {
             EnemyHurt(other, "Sword(Clone)", archer, PlayerState.attackDamage);
             hurtTime = 1;
@@ -106,37 +106,10 @@ public class Archer : EnemyValue
         {
             transform.position = Vector3.MoveTowards(transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
         }
-        else if (spawner.desert || spawner.volcano && !isAttack && !inAttackArea && enemyHealth > 00)
-        {   // check for swaning/ÓÎ×ß or not
-            if (DetectCircleArea(senseRadius))
-            {
-                isSwan = false;
-                startSwan = false;
-                cycle = false;
-            }
-            if (!DetectCircleArea(senseRadius))
-            {
-                isSwan = true;
-                /*if (isSwan)
-                {
-                    enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, swanTargetPosition, movingSpeed * Time.deltaTime);
-                }
-                if(!cycle)
-                {
-                    RandomCirclePoint();
-                    cycle = true;
-                }
-                if(swanTargetPosition == enemy.transform.position)
-                {
-                    RandomCirclePoint();
-                }*/
-            }
-            // chasing player
-            if (!isSwan)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
-
-            }
+        else if (spawner.desert || spawner.volcano)
+        {
+            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
     // find player position and desire moving direction

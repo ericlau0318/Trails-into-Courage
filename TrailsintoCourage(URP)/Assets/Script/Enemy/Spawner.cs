@@ -2,37 +2,58 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Spawner : MonoBehaviour
 {   // spawner setting
     public float radius;
-    public float spawnerX, spawnerY,spawnerZ;
+    public float spawnerX, spawnerY, spawnerZ;
     //place chasing
     public bool grassLand, desert, volcano;
     // enemy type & count
-    public GameObject [] enemy;
+    public GameObject[] enemy;
     public int monsterCount;
     public int maxMonsterCount;
     public float spawnTime;
     private bool isMax;
+    private string currentSceneName;
 
     // Start is called before the first frame update
     void Start()
     {
         VariableSetting();
         InvokeRepeating(nameof(SpawnMonster), 0f, spawnTime);
+        currentSceneName = SceneManager.GetActiveScene().name;
+        if (currentSceneName == ("Level"))
+        {
+            grassLand   =   true;
+            desert      =   false;
+            volcano     =   false;
+        }
+        else if (currentSceneName == ("Desert"))
+        {
+            //grassLand   =   false;
+            //desert      =   true;
+            //volcano     =   false;
+        }
+        else
+        {
+            //grassLand   =  false;
+            //desert      =   false;
+            //volcano     =   true;
+        }
     }
-    
+
     private void VariableSetting()
-    {   
-        spawnerX    =   this.transform.position.x;
-        spawnerY    =   this.transform.position.y;
-        spawnerZ    =   this.transform.position.z;
-        radius      =   18;
+    {
+        spawnerX = this.transform.position.x;
+        spawnerY = this.transform.position.y;
+        spawnerZ = this.transform.position.z;
+        radius = 18;
     }
     private void SpawnMonster()
     {
-        if(monsterCount == maxMonsterCount) 
+        if (monsterCount == maxMonsterCount)
         {
             isMax = true;
         }
@@ -44,7 +65,7 @@ public class Spawner : MonoBehaviour
         {
             float randomX = Random.Range(spawnerX + radius, spawnerX - radius);
             float randomZ = Random.Range(spawnerZ + radius, spawnerZ - radius);
-            Instantiate(enemy[Random.Range(0,enemy.Length)], new Vector3(randomX, spawnerY, randomZ), Quaternion.identity);
+            Instantiate(enemy[Random.Range(0, enemy.Length)], new Vector3(randomX, spawnerY, randomZ), Quaternion.identity);
             monsterCount++;
         }
     }
@@ -55,7 +76,7 @@ public class Spawner : MonoBehaviour
         // radius
         float randomRadius = Random.Range(-radius, radius);
         // 2d interface: a center of circle x, b center of circle y, but this is 3d so y is z 
-        float centerX = spawnerX; 
+        float centerX = spawnerX;
         float centerY = spawnerZ;
         // 2d interface: target position x, y, but this is 3d so y is z
         float randomX = Random.Range(-radius, radius);

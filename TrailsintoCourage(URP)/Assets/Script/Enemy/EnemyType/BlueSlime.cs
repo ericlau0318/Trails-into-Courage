@@ -11,8 +11,7 @@ public class BlueSlime : EnemyValue
     // enemy setting
     private float attackTime;
     [SerializeField]
-    private bool isAttack, inAttackArea, startSwan, isSwan, cycle;
-    private Vector3 swanTargetPosition;
+    private bool isAttack, inAttackArea;
     // UI hp
     private float maxHealth;
     private float currentHealth;
@@ -27,7 +26,7 @@ public class BlueSlime : EnemyValue
     void Update()
     {
         currentHealth = enemyHealth;
-        hurtTime     -= Time.deltaTime;
+        hurtTime -= Time.deltaTime;
         DrawLineArea();
         UpdateEnemyUI(currentHealth, maxHealth);
         UpdateCurrentPosition(this.gameObject);
@@ -39,21 +38,21 @@ public class BlueSlime : EnemyValue
     // Blue Slime settin value / component
     private void InitialBlueSlime()
     {
-        damage          =   2;
-        enemyHealth     =   20;
-        attackPeriod    =   0.8f;
-        movingSpeed     =   2.5f;
-        attackRadius    =   1.54f;
-        senseRadius     =   4;
-        rotateSpeed     =   125f;
+        damage = 2;
+        enemyHealth = 20;
+        attackPeriod = 0.8f;
+        movingSpeed = 2.5f;
+        attackRadius = 1.54f;
+        senseRadius = 4;
+        rotateSpeed = 125f;
 
-        maxHealth       =   enemyHealth;
-        currentHealth   =   maxHealth;
-        rb              =   GetComponent<Rigidbody>();
-        enemyAnimator   =   GetComponent<Animator>();
+        maxHealth = enemyHealth;
+        currentHealth = maxHealth;
+        rb = GetComponent<Rigidbody>();
+        enemyAnimator = GetComponent<Animator>();
 
-        isAttack        =   false;
-        inAttackArea    =   false;
+        isAttack = false;
+        inAttackArea = false;
     }
     private void CheckAttack()
     {   // check inside or outside the attack area
@@ -71,7 +70,7 @@ public class BlueSlime : EnemyValue
             isAttack = false;
         }*/
         // attack fector attack time/ attack area/ attacking?
-        if (attackTime <= 0 && inAttackArea && !isAttack && enemyHealth> 0)
+        if (attackTime <= 0 && inAttackArea && !isAttack && enemyHealth > 0)
         {   // atual attack
             isAttack = true;
             // attack
@@ -111,62 +110,10 @@ public class BlueSlime : EnemyValue
         {
             transform.position = Vector3.MoveTowards(transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
         }
-        else if (spawner.desert || spawner.volcano && !isAttack && !inAttackArea && enemyHealth > 0)
-        {   // check for swaning/ÓÎ×ß or not
-            if (DetectCircleArea(senseRadius))
-            {
-                isSwan = false;
-                startSwan = false;
-                cycle = false;
-            }
-            if (!DetectCircleArea(senseRadius))
-            {
-                isSwan = true;
-                /*if (isSwan)
-                {
-                    enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, swanTargetPosition, movingSpeed * Time.deltaTime);
-                }
-                if(!cycle)
-                {
-                    RandomCirclePoint();
-                    cycle = true;
-                }
-                if(swanTargetPosition == enemy.transform.position)
-                {
-                    RandomCirclePoint();
-                }*/
-            }
-            // chasing player
-            if (!isSwan)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
-
-            }
-        }
-    }
-    // find player position and desire moving direction
-    private Vector3 ChasingPosition()
-    {   // 4 direction movement checking
-        Vector3 finalChasingPosition = Vector3.zero;
-        if (enemyCurrentPositionX > playerCurrentPositionX && enemyCurrentPositionZ > playerCurrentPositionZ)
+        else if (spawner.desert || spawner.volcano)
         {
-            finalChasingPosition = new Vector3(enemyCurrentPositionX - 1, enemyCurrentPositionY, enemyCurrentPositionZ - 1);
+            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
-
-        else if (enemyCurrentPositionX < playerCurrentPositionX && enemyCurrentPositionZ > playerCurrentPositionZ)
-        {
-            finalChasingPosition = new Vector3(enemyCurrentPositionX + 1, enemyCurrentPositionY, enemyCurrentPositionZ - 1);
-        }
-
-        else if (enemyCurrentPositionX < playerCurrentPositionX && enemyCurrentPositionZ < playerCurrentPositionZ)
-        {
-            finalChasingPosition = new Vector3(enemyCurrentPositionX + 1, enemyCurrentPositionY, enemyCurrentPositionZ + 1);
-        }
-
-        else if (enemyCurrentPositionX > playerCurrentPositionX && enemyCurrentPositionZ < playerCurrentPositionZ)
-        {
-            finalChasingPosition = new Vector3(enemyCurrentPositionX - 1, enemyCurrentPositionY, enemyCurrentPositionZ + 1);
-        }
-        return finalChasingPosition;
     }
 }

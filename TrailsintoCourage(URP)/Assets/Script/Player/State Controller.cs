@@ -282,6 +282,18 @@ public class StateController : MonoBehaviour
         Valuetext.text = value.ToString();
         StatePointText.text = "Points: " + StatePoint.ToString();
     }
+    // upadate UI after save data
+    public void UpdateUIForLoad()
+    {
+        ExpText.text = "Exp: " + Exp + " / " + NextLevelExp;
+        LevelText.text = "Level: " + Level;
+        StatePointText.text = "Points: " + StatePoint;
+        UpdateValueText(STRValue, STRValueText);
+        UpdateValueText(INTValue, INTValueText);
+        UpdateValueText(HPValue, HPValueText);
+        UpdateValueText(MPValue, MPValueText);
+        UpdateValueText(SPValue, SPValueText);
+    }
 
     private void LevelUp()
     {
