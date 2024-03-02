@@ -11,6 +11,8 @@ public class Portal : MonoBehaviour
     private float teleportTimer;
     private GameObject player;
     public bool isTeleporting;
+    public LoadingScene loadingScene;
+    public int nextSceneIndex;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,7 +47,8 @@ public class Portal : MonoBehaviour
 
     private void Teleport()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        loadingScene.LoadScene(nextSceneIndex);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         isTeleporting = false;
     }
 }
