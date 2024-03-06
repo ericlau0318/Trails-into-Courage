@@ -42,7 +42,7 @@ public class BlueSlime : EnemyValue
         enemyHealth = 20;
         attackPeriod = 0.8f;
         movingSpeed = 2.5f;
-        attackRadius = 1.54f;
+        attackRadius = 3f;
         senseRadius = 4;
         rotateSpeed = 125f;
 
@@ -91,6 +91,13 @@ public class BlueSlime : EnemyValue
         {
             EnemyHurt(other, "Sword(Clone)", blueSlime, PlayerState.attackDamage);
             hurtTime = 1;
+        }
+        if (isAttack)
+        {
+            if (other.CompareTag("Player"))
+            {
+                playerState.TakeDamage(damage);
+            }
         }
     }
     private void OnCollisionStay(Collision collision)
