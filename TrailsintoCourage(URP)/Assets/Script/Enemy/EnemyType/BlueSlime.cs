@@ -92,13 +92,6 @@ public class BlueSlime : EnemyValue
             EnemyHurt(other, "Sword(Clone)", blueSlime, PlayerState.attackDamage);
             hurtTime = 1;
         }
-        if (isAttack)
-        {
-            if (other.CompareTag("Player"))
-            {
-                playerState.TakeDamage(damage);
-            }
-        }
     }
     private void OnCollisionStay(Collision collision)
     {
