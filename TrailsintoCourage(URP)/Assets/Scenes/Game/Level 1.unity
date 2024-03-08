@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1806177381}
-  m_IndirectSpecularColor: {r: 0.5851287, g: 0.8475449, b: 0.9742986, a: 1}
+  m_IndirectSpecularColor: {r: 0.5903998, g: 0.8548243, b: 0.98257303, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5741,7 +5741,7 @@ MonoBehaviour:
   spellManaCost: 10
   spellCoolDown: 1
   isPlayerDead: 0
-  PlayerDeadBody: {fileID: 5537780249410168252, guid: 61669a4f53eee094ab5fcbf91273c24a,
+  PlayerDeadBody: {fileID: 4536341684322481143, guid: 4b7bccb8e6e5db34a8203edcf058ade7,
     type: 3}
   CheckGroundPointSize: 0.2
 --- !u!54 &1984103193
