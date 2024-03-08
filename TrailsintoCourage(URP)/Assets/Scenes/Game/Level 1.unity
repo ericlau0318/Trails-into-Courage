@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1806177381}
-  m_IndirectSpecularColor: {r: 0.58999646, g: 0.8547118, b: 0.9825549, a: 1}
+  m_IndirectSpecularColor: {r: 0.59081686, g: 0.8530135, b: 0.979709, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6665,6 +6665,12 @@ PrefabInstance:
       propertyPath: staminaBar
       value: 
       objectReference: {fileID: 1344029719}
+    - target: {fileID: 5762672570019846332, guid: 5564e08ee5a8fd04b91d0f4e682bba05,
+        type: 3}
+      propertyPath: PlayerDeadBody
+      value: 
+      objectReference: {fileID: 2275705248258542821, guid: 15a95217441c42b48b84bc7f87151416,
+        type: 3}
     - target: {fileID: 7042442757102663263, guid: 5564e08ee5a8fd04b91d0f4e682bba05,
         type: 3}
       propertyPath: m_Name
