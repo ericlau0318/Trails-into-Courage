@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using static UnityEngine.LightAnchor;
 
 public class PlayerController : MonoBehaviour
 {
@@ -51,6 +52,7 @@ public class PlayerController : MonoBehaviour
     private PlayerState playerState;
     public float CheckGroundPointSize=0.2f;
 
+
     private void Start()
     {
         anim = gameObject.GetComponent<Animator>();
@@ -72,7 +74,7 @@ public class PlayerController : MonoBehaviour
             Jump();
             WeaponAttacking();
             SpellingCast();
-
+            CheckFalling();
             PlayerDead();
         }
         if (isPlayerTalking == true)
@@ -83,7 +85,13 @@ public class PlayerController : MonoBehaviour
 
         PlayerAnimation();
     }
-
+    private void CheckFalling()
+    {
+        if (!isGrounded && rb.velocity.y < 0)
+        {
+            anim.SetTrigger("Falling");
+        }
+    }
     private void Movement()
     {
         isGrounded = Physics.CheckSphere(groundChecker.position, CheckGroundPointSize, WhatLayerCanJump);
