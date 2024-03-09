@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.UIElements;
 using UnityEngine;
 
 public class EnemyMagic : MonoBehaviour
@@ -31,8 +32,10 @@ public class EnemyMagic : MonoBehaviour
             player.TakeDamage(archer.damage);
             Destroy(gameObject);
         }
-        else
-        Destroy(gameObject);
+        else if(other.CompareTag("Ground"))
+        {
+            Destroy(gameObject);
+        }
     }
 
 }

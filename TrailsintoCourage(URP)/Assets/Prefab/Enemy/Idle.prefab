@@ -761,9 +761,9 @@ GameObject:
   - component: {fileID: 724457869294365092}
   - component: {fileID: 7586500280984450992}
   - component: {fileID: -4758155662539227044}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Idle
-  m_TagString: Slime
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -325,7 +325,7 @@ GameObject:
   - component: {fileID: 2698349511867029548}
   - component: {fileID: 5833618357380270992}
   - component: {fileID: 5524030533204873857}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SlimeIdle 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

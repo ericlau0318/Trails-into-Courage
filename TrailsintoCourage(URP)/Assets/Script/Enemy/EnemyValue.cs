@@ -67,8 +67,6 @@ public class EnemyValue : MonoBehaviour
                 level1GameManager.AddKilledCount();
                 spawner.monsterCount--;
             }
-
-
         }
     }
     // collect UI object / state controller 
@@ -104,7 +102,7 @@ public class EnemyValue : MonoBehaviour
         playerCurrentPositionX = player.transform.position.x;
         playerCurrentPositionY = player.transform.position.y;
         playerCurrentPositionZ = player.transform.position.z;
-        playerCurrentPosition = new Vector3(playerCurrentPositionX, playerCurrentPositionY, playerCurrentPositionZ);
+        playerCurrentPosition  = new Vector3(playerCurrentPositionX, playerCurrentPositionY, playerCurrentPositionZ);
     }
     // rotate to face to player
     public void Rotation(Vector3 targetPosition, GameObject enemy, Rigidbody rb)
@@ -150,7 +148,7 @@ public class EnemyValue : MonoBehaviour
         }
         return inside;
     }
-    public void RandomCirclePoint()
+    /*public void RandomCirclePoint()
     {
         float randomAngle = Random.Range(0f, Mathf.PI * 2f);
         float randomRadius = Random.Range(0f, spawner.radius);
@@ -160,7 +158,7 @@ public class EnemyValue : MonoBehaviour
 
         Vector3 swanTargetPosition = new Vector3(spawner.spawnerX, spawner.spawnerY, spawner.spawnerZ) + new Vector3(x, enemyCurrentPositionY, z);
         Debug.Log(swanTargetPosition);
-    }
+    }*/
     // area SerializeField using debug draw line(显示十字但实质圆形)
     public void DrawLineArea()
     {   // sense area point
