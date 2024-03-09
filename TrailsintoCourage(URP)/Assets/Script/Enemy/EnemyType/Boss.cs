@@ -7,6 +7,12 @@ public class Boss : EnemyValue
     private readonly string boss = "BOSS";
     private Animator enemyAnimator;
     private Rigidbody rb;
+    // attack mood/state
+    [SerializeField]
+    private int shortDamage;
+    [SerializeField]
+    private int longDamage;
+    private float longAttactRadius, shortAttackRadius;
 
     public Transform point2;
     public Transform point1;
@@ -14,7 +20,7 @@ public class Boss : EnemyValue
     // enemy setting
     private float attackTime;
     [SerializeField]
-    private bool isAttack, inAttackArea, movingToPoint1;
+    private bool isAttack, inAttackArea, switchLongMod;
     // UI hp
     private float maxHealth;
     private float currentHealth;
@@ -22,10 +28,10 @@ public class Boss : EnemyValue
     // Start is called before the first frame update
     void Start()
     {
-        InitialMummy();
+        InitialBoss();
         InitialObjectCollect(this.gameObject);
         target = point1;
-        movingToPoint1 = true;
+        switchLongMod = true;
     }
     // Update is called once per frame
     void Update()
@@ -40,14 +46,20 @@ public class Boss : EnemyValue
         EnemyDied();
     }
     // Archer setting / component
-    private void InitialMummy()
+    private void InitialBoss()
     {
-        damage = 4;
+        shortDamage  =   5;
+        longDamage   =   10;
+
         enemyHealth = 20;
         attackPeriod = 1.5f;
         movingSpeed = 2f;
-        attackRadius = 3f;
-        senseRadius = 6;
+
+        longAttactRadius = 10f;
+        shortAttackRadius = 4f;
+
+
+        senseRadius = 15;
         rotateSpeed = 125f;
 
         maxHealth = enemyHealth;
@@ -60,7 +72,17 @@ public class Boss : EnemyValue
 
     }
     private void CheckAttack()
-    {   // check inside or outside the attack area
+    {   
+        //check distance between player to switch attack mod
+        if(Vector3.Distance(transform.position, playerCurrentPosition) > 20f)
+        {
+            switchLongMod = true;
+        }
+        else
+        {
+            switchLongMod = false;
+        }
+        // check inside or outside the attack area
         if (DetectCircleArea(attackRadius))
         {
             inAttackArea = true;
@@ -96,20 +118,12 @@ public class Boss : EnemyValue
     }
     private void ChasingPlayer()
     {
-        if (enemyHealth > 00)
-        {   // check for swaning/??¡Á? or not
+        // check sence area for action
+        if (enemyHealth > 00 && DetectCircleArea(senseRadius) && !isAttack && !inAttackArea)
+        {   
 
-            // check sence area if false swan to walk point to point
-            if (!DetectCircleArea(senseRadius))
-            {
-
-            }
-
-            else if (DetectCircleArea(senseRadius) && !isAttack && !inAttackArea)
-            {
-                Rotation(playerCurrentPosition, this.gameObject, rb);
-                transform.position = Vector3.MoveTowards(transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
-            }
+            Rotation(playerCurrentPosition, this.gameObject, rb);
+            transform.position = Vector3.MoveTowards(transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
         }
     }
 }
