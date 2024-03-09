@@ -36,7 +36,7 @@ public class Archer : EnemyValue
         UpdateEnemyUI(currentHealth, maxHealth);
         UpdateCurrentPosition(this.gameObject);
         CheckAttack();
-        ChasingPlayer();
+        ChasingPlayerGrassLand(this.gameObject, rb, isAttack, inAttackArea);
         EnemyDied();
         //RandomCirclePoint();
     }
@@ -98,19 +98,6 @@ public class Archer : EnemyValue
         {
             EnemyHurt(other, "Sword(Clone)", archer, PlayerState.attackDamage);
             hurtTime = 0.5f;
-        }
-    }
-    private void ChasingPlayer()
-    {
-        Rotation(playerCurrentPosition, this.gameObject, rb);
-        if (spawner.grassLand && !isAttack && !inAttackArea && enemyHealth > 0)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
-        }
-        else if (spawner.desert || spawner.volcano)
-        {
-            gameObject.SetActive(false);
-            Destroy(gameObject);
         }
     }
     // find player position and desire moving direction
