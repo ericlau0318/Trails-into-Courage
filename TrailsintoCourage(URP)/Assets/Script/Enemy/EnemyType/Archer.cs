@@ -36,7 +36,7 @@ public class Archer : EnemyValue
         UpdateEnemyUI(currentHealth, maxHealth);
         UpdateCurrentPosition(this.gameObject);
         CheckAttack();
-        ChasingPlayerGrassLand(this.gameObject, rb, isAttack, inAttackArea);
+        ChasingPlayerGrassLand(this.gameObject, rb, isAttack, inAttackArea, movingSpeed);
         EnemyDied();
         //RandomCirclePoint();
     }
@@ -91,6 +91,18 @@ public class Archer : EnemyValue
             isAttack = false;
         }
     }
+    /*private void ChasingPlayer()
+    {
+        Rotation(playerCurrentPosition, this.gameObject, rb);
+        if (spawner.grassLand && !isAttack && !inAttackArea && enemyHealth > 0)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
+        }
+        else if (spawner.desert || spawner.volcano)
+        {
+            Destroy(gameObject);
+        }
+    }*/
     private void OnTriggerEnter(Collider other)
     {
         EnemyHurt(other, "Spell(Clone)", archer, PlayerState.spellDamage);

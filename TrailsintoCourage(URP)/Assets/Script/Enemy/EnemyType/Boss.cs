@@ -12,15 +12,13 @@ public class Boss : EnemyValue
     private int shortDamage;
     [SerializeField]
     private int longDamage;
-    private float longAttactRadius, shortAttackRadius;
+    private float longAttackRadius, shortAttackRadius;
 
-    public Transform point2;
-    public Transform point1;
-    private Transform target;
     // enemy setting
-    private float attackTime;
+    private float longAttackTime, shortAttackTime;
+    private float longAttackPeriod, shortAttackPeriod;
     [SerializeField]
-    private bool isAttack, inAttackArea, switchLongMod;
+    private bool isAttack, inLongAttackArea, inShortAttackArea, switchLongMod;
     // UI hp
     private float maxHealth;
     private float currentHealth;
@@ -30,7 +28,6 @@ public class Boss : EnemyValue
     {
         InitialBoss();
         InitialObjectCollect(this.gameObject);
-        target = point1;
         switchLongMod = true;
     }
     // Update is called once per frame
@@ -45,21 +42,19 @@ public class Boss : EnemyValue
         ChasingPlayer();
         EnemyDied();
     }
-    // Archer setting / component
+    // Boss setting / component
     private void InitialBoss()
-    {
-        shortDamage  =   5;
-        longDamage   =   10;
+    {   
+        movingSpeed         =   3;
+        shortDamage         =   5;
+        longDamage          =   10;
 
-        enemyHealth = 20;
-        attackPeriod = 1.5f;
-        movingSpeed = 2f;
+        enemyHealth         =   20;
+        longAttackPeriod    =   3;
+        shortAttackPeriod   =   1;       
+        longAttackRadius    =   12;
+        shortAttackRadius   =   1;
 
-        longAttactRadius = 10f;
-        shortAttackRadius = 4f;
-
-
-        senseRadius = 15;
         rotateSpeed = 125f;
 
         maxHealth = enemyHealth;
@@ -67,43 +62,70 @@ public class Boss : EnemyValue
         rb = GetComponent<Rigidbody>();
         enemyAnimator = GetComponent<Animator>();
 
-        isAttack = false;
-        inAttackArea = false;
+        isAttack            =   false;
+        inLongAttackArea    =   false;
+        inShortAttackArea   =   false;
 
     }
     private void CheckAttack()
     {   
         //check distance between player to switch attack mod
-        if(Vector3.Distance(transform.position, playerCurrentPosition) > 20f)
+        if(Vector3.Distance(transform.position, playerCurrentPosition) > 10.5f)
         {
             switchLongMod = true;
+            // check inside or outside the attack area
+            if (DetectCircleArea(longAttackRadius))
+            {
+                inLongAttackArea = true;
+            }
+            else if (!DetectCircleArea(longAttackRadius))
+            {
+                inLongAttackArea = false;
+            }
         }
         else
         {
             switchLongMod = false;
+            // check inside or outside the attack area
+            if (DetectCircleArea(shortAttackRadius))
+            {
+                inLongAttackArea = true;
+            }
+            else if (!DetectCircleArea(shortAttackRadius))
+            {
+                inLongAttackArea = false;
+            }
         }
-        // check inside or outside the attack area
-        if (DetectCircleArea(attackRadius))
-        {
-            inAttackArea = true;
-        }
-        else if (!DetectCircleArea(attackRadius))
-        {
-            inAttackArea = false;
-        }
+        
         // attack fector attack time/ attack area/ attacking?
-        if (attackTime <= 0 && inAttackArea && !isAttack && enemyHealth > 0 )
+        if (longAttackTime <= 0 && inLongAttackArea && !isAttack && enemyHealth > 0 )
         {   // atual attack
             isAttack = true;
-            // attack
             //enemyAnimator.SetTrigger("isAttack");
+            Debug.Log("long");
             // reset attack period time
-            attackTime = attackPeriod;
+            longAttackTime = longAttackPeriod;
         }
         // count attack period time
-        else if (attackTime > 0)
+        else if (longAttackTime > 0)
         {
-            attackTime -= Time.deltaTime;
+            longAttackTime -= Time.deltaTime;
+            isAttack = false;
+        }
+
+        // attack fector attack time/ attack area/ attacking?
+        if (shortAttackTime <= 0 && inShortAttackArea && !isAttack && enemyHealth > 0)
+        {   // atual attack
+            isAttack = true;
+            //enemyAnimator.SetTrigger("isAttack");
+            Debug.Log("short");
+            // reset attack period time
+            shortAttackTime = shortAttackPeriod;
+        }
+        // count attack period time
+        else if (shortAttackTime > 0)
+        {
+            shortAttackTime -= Time.deltaTime;
             isAttack = false;
         }
     }
@@ -118,12 +140,28 @@ public class Boss : EnemyValue
     }
     private void ChasingPlayer()
     {
-        // check sence area for action
-        if (enemyHealth > 00 && DetectCircleArea(senseRadius) && !isAttack && !inAttackArea)
-        {   
+        if (switchLongMod)
+        {
+            senseRadius = longAttackRadius + 10;
+            // check sence area for action
+            if (enemyHealth > 00 && DetectCircleArea(senseRadius) && !isAttack && !inLongAttackArea)
+            {   
 
-            Rotation(playerCurrentPosition, this.gameObject, rb);
-            transform.position = Vector3.MoveTowards(transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
+                Rotation(playerCurrentPosition, this.gameObject, rb);
+                transform.position = Vector3.MoveTowards(transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
+            }
         }
+        else
+        {
+            senseRadius = shortAttackRadius + 8;
+            // check sence area for action
+            if (enemyHealth > 00 && DetectCircleArea(senseRadius) && !isAttack && !DetectCircleArea(shortAttackRadius))
+            {
+
+                Rotation(playerCurrentPosition, this.gameObject, rb);
+                transform.position = Vector3.MoveTowards(transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
+            }
+        }
+
     }
 }

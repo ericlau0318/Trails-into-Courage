@@ -31,7 +31,7 @@ public class BlueSlime : EnemyValue
         UpdateEnemyUI(currentHealth, maxHealth);
         UpdateCurrentPosition(this.gameObject);
         CheckAttack();
-        ChasingPlayerGrassLand(this.gameObject, rb, isAttack, inAttackArea);
+        ChasingPlayerGrassLand(this.gameObject, rb, isAttack, inAttackArea, movingSpeed);
         EnemyDied();
         //RandomCirclePoint();
     }
@@ -101,19 +101,6 @@ public class BlueSlime : EnemyValue
                 // reset attack period time
                 attackTime = attackPeriod;
             }
-        }
-    }
-    private void ChasingPlayer()
-    {
-        Rotation(playerCurrentPosition, this.gameObject, rb);
-        if (spawner.grassLand && !isAttack && !inAttackArea && enemyHealth > 0)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
-        }
-        else if (spawner.desert || spawner.volcano)
-        {
-            gameObject.SetActive(false);
-            Destroy(gameObject);
         }
     }
 }

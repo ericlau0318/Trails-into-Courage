@@ -148,16 +148,16 @@ public class EnemyValue : MonoBehaviour
         }
         return inside;
     }
-    public void ChasingPlayerGrassLand(GameObject enemy,Rigidbody rb,bool isAttack, bool inAttackArea)
+    public void ChasingPlayerGrassLand(GameObject enemy,Rigidbody rb,bool isAttack, bool inAttackArea, float movingSpeed)
     {
         Rotation(playerCurrentPosition, enemy, rb);
-        if (spawner.grassLand && !isAttack && !inAttackArea && enemyHealth > 0)
+        if (spawner.grassLand && !isAttack && !inAttackArea)
         {
-            transform.position = Vector3.MoveTowards(transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
+            enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
         }
         else if (spawner.desert || spawner.volcano)
         {
-            Destroy(gameObject);
+            Destroy(enemy);
         }
     }
     /*public void RandomCirclePoint()
