@@ -29,8 +29,6 @@ public class EnemyValue : MonoBehaviour
     private StateController stateController;
     public PlayerState playerState;
     // UI
-    [SerializeField]
-    private Transform parentTransform;
     private Transform canvas;
     private GameObject healthBar;
     [SerializeField]
@@ -73,9 +71,8 @@ public class EnemyValue : MonoBehaviour
     public void InitialObjectCollect(GameObject enemy)
     {
         stateController = FindObjectOfType<StateController>();
-        parentTransform = enemy.transform;
-        canvas = parentTransform.Find("Canvas");
-        healthBar = canvas.transform.Find("HPSlider").gameObject;
+        canvas = enemy.transform.Find("Canvas");
+        healthBar = canvas.Find("HPSlider").gameObject;
         healthSlider = healthBar.GetComponent<Slider>();
         level1GameManager = FindObjectOfType<Level1GameManager>();
         playerState = FindObjectOfType<PlayerState>();
@@ -155,7 +152,7 @@ public class EnemyValue : MonoBehaviour
         {
             enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
         }
-        else if (spawner.desert || spawner.volcano)
+        else if (spawner.volcano)
         {
             Destroy(enemy);
         }
