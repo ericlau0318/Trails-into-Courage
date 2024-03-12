@@ -91,7 +91,7 @@ public class Mummy : EnemyValue
         if (hurtTime <= 0)
         {
             EnemyHurt(other, "Sword(Clone)", archer, PlayerState.attackDamage);
-            hurtTime = 1;
+            hurtTime = 0.5f;
         }
     }
     private void ChasingPlayer()
@@ -129,7 +129,6 @@ public class Mummy : EnemyValue
                 }
 
             }
-
 
             else if (DetectCircleArea(senseRadius) && !isAttack && !inAttackArea)
             {

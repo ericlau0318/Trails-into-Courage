@@ -29,8 +29,6 @@ public class EnemyValue : MonoBehaviour
     private StateController stateController;
     public PlayerState playerState;
     // UI
-    [SerializeField]
-    private Transform parentTransform;
     private Transform canvas;
     private GameObject healthBar;
     [SerializeField]
@@ -67,17 +65,14 @@ public class EnemyValue : MonoBehaviour
                 level1GameManager.AddKilledCount();
                 spawner.monsterCount--;
             }
-
-
         }
     }
     // collect UI object / state controller 
     public void InitialObjectCollect(GameObject enemy)
     {
         stateController = FindObjectOfType<StateController>();
-        parentTransform = enemy.transform;
-        canvas = parentTransform.Find("Canvas");
-        healthBar = canvas.transform.Find("HPSlider").gameObject;
+        canvas = enemy.transform.Find("Canvas");
+        healthBar = canvas.Find("HPSlider").gameObject;
         healthSlider = healthBar.GetComponent<Slider>();
         level1GameManager = FindObjectOfType<Level1GameManager>();
         playerState = FindObjectOfType<PlayerState>();
@@ -104,7 +99,7 @@ public class EnemyValue : MonoBehaviour
         playerCurrentPositionX = player.transform.position.x;
         playerCurrentPositionY = player.transform.position.y;
         playerCurrentPositionZ = player.transform.position.z;
-        playerCurrentPosition = new Vector3(playerCurrentPositionX, playerCurrentPositionY, playerCurrentPositionZ);
+        playerCurrentPosition  = new Vector3(playerCurrentPositionX, playerCurrentPositionY, playerCurrentPositionZ);
     }
     // rotate to face to player
     public void Rotation(Vector3 targetPosition, GameObject enemy, Rigidbody rb)
@@ -150,7 +145,19 @@ public class EnemyValue : MonoBehaviour
         }
         return inside;
     }
-    public void RandomCirclePoint()
+    public void ChasingPlayerGrassLand(GameObject enemy,Rigidbody rb,bool isAttack, bool inAttackArea, float movingSpeed)
+    {
+        Rotation(playerCurrentPosition, enemy, rb);
+        if (spawner.grassLand && !isAttack && !inAttackArea)
+        {
+            enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
+        }
+        else if (spawner.volcano)
+        {
+            Destroy(enemy);
+        }
+    }
+    /*public void RandomCirclePoint()
     {
         float randomAngle = Random.Range(0f, Mathf.PI * 2f);
         float randomRadius = Random.Range(0f, spawner.radius);
@@ -160,7 +167,7 @@ public class EnemyValue : MonoBehaviour
 
         Vector3 swanTargetPosition = new Vector3(spawner.spawnerX, spawner.spawnerY, spawner.spawnerZ) + new Vector3(x, enemyCurrentPositionY, z);
         Debug.Log(swanTargetPosition);
-    }
+    }*/
     // area SerializeField using debug draw line(显示十字但实质圆形)
     public void DrawLineArea()
     {   // sense area point

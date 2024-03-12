@@ -16,7 +16,6 @@ public class Archer : EnemyValue
     private float attackTime;
     [SerializeField]
     private bool isAttack, inAttackArea;
-    private Vector3 swanTargetPosition;
     // UI hp
     private float maxHealth;
     private float currentHealth;
@@ -37,7 +36,7 @@ public class Archer : EnemyValue
         UpdateEnemyUI(currentHealth, maxHealth);
         UpdateCurrentPosition(this.gameObject);
         CheckAttack();
-        ChasingPlayer();
+        ChasingPlayerGrassLand(this.gameObject, rb, isAttack, inAttackArea, movingSpeed);
         EnemyDied();
         //RandomCirclePoint();
     }
@@ -51,6 +50,8 @@ public class Archer : EnemyValue
         attackRadius = 5f;
         senseRadius = 7;
         rotateSpeed = 125f;
+
+        hurtTime = 0.5f;
 
         maxHealth = enemyHealth;
         currentHealth = maxHealth;
@@ -70,11 +71,6 @@ public class Archer : EnemyValue
         {
             inAttackArea = false;
         }
-        // check the attack animation when finish
-        /*if (!enemyAnimator.GetBool("Attack"))
-        {
-            isAttack = false;
-        }*/
         // attack fector attack time/ attack area/ attacking?
         if (attackTime <= 0 && inAttackArea && !isAttack && enemyHealth > 0)
         {   // atual attack
@@ -96,24 +92,11 @@ public class Archer : EnemyValue
         if (hurtTime <= 0)
         {
             EnemyHurt(other, "Sword(Clone)", archer, PlayerState.attackDamage);
-            hurtTime = 1;
-        }
-    }
-    private void ChasingPlayer()
-    {
-        Rotation(playerCurrentPosition, this.gameObject, rb);
-        if (spawner.grassLand && !isAttack && !inAttackArea && enemyHealth > 0)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
-        }
-        else if (spawner.desert || spawner.volcano)
-        {
-            gameObject.SetActive(false);
-            Destroy(gameObject);
+            hurtTime = 0.5f;
         }
     }
     // find player position and desire moving direction
-    private Vector3 ChasingPosition()
+    /*private Vector3 ChasingPosition()
     {   // 4 direction movement checking
         Vector3 finalChasingPosition = Vector3.zero;
         if (enemyCurrentPositionX > playerCurrentPositionX && enemyCurrentPositionZ > playerCurrentPositionZ)
@@ -136,5 +119,5 @@ public class Archer : EnemyValue
             finalChasingPosition = new Vector3(enemyCurrentPositionX - 1, enemyCurrentPositionY, enemyCurrentPositionZ + 1);
         }
         return finalChasingPosition;
-    }
+    }*/
 }

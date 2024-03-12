@@ -30,7 +30,7 @@ public class Spawner : MonoBehaviour
             desert      =   false;
             volcano     =   false;
         }
-        else if (currentSceneName == ("Desert"))
+        else if (currentSceneName == ("Level2"))
         {
             //grassLand   =   false;
             //desert      =   true;

@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 3584301301139856174}
   - component: {fileID: 1342294638482182285}
   - component: {fileID: 7267559560855203397}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Archer
-  m_TagString: Archer
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -162,6 +162,7 @@ MonoBehaviour:
   enemyCurrentPositionX: 0
   enemyCurrentPositionY: 0
   enemyCurrentPositionZ: 0
+  spawner: {fileID: 0}
   playerCurrentPositionX: 0
   playerCurrentPositionY: 0
   playerCurrentPositionZ: 0
@@ -173,9 +174,6 @@ MonoBehaviour:
   magicPosition: {fileID: 3783371512833524818}
   isAttack: 0
   inAttackArea: 0
-  startSwan: 0
-  isSwan: 0
-  cycle: 0
 --- !u!1 &3783371512833524818
 GameObject:
   m_ObjectHideFlags: 0

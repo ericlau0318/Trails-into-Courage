@@ -11,7 +11,7 @@ public class Portal : MonoBehaviour
     private float teleportTimer;
     private GameObject player;
     public bool isTeleporting;
-    public LoadingScene loadingScene;
+    private LoadingScene loadingScene;
     public int nextSceneIndex;
     // Start is called before the first frame update
     void Start()
