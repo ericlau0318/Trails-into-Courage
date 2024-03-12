@@ -71,11 +71,6 @@ public class Archer : EnemyValue
         {
             inAttackArea = false;
         }
-        // check the attack animation when finish
-        /*if (!enemyAnimator.GetBool("Attack"))
-        {
-            isAttack = false;
-        }*/
         // attack fector attack time/ attack area/ attacking?
         if (attackTime <= 0 && inAttackArea && !isAttack && enemyHealth > 0)
         {   // atual attack
@@ -91,18 +86,6 @@ public class Archer : EnemyValue
             isAttack = false;
         }
     }
-    /*private void ChasingPlayer()
-    {
-        Rotation(playerCurrentPosition, this.gameObject, rb);
-        if (spawner.grassLand && !isAttack && !inAttackArea && enemyHealth > 0)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
-        }
-        else if (spawner.desert || spawner.volcano)
-        {
-            Destroy(gameObject);
-        }
-    }*/
     private void OnTriggerEnter(Collider other)
     {
         EnemyHurt(other, "Spell(Clone)", archer, PlayerState.spellDamage);

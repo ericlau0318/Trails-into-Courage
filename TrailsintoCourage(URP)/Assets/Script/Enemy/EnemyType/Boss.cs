@@ -10,9 +10,9 @@ public class Boss : EnemyValue
     // attack mood/state
     [SerializeField]
     private int shortDamage;
-    [SerializeField]
-    private int longDamage;
+    public int longDamage;
     private float longAttackRadius, shortAttackRadius;
+    public GameObject fire;
 
     // enemy setting
     private float longAttackTime, shortAttackTime;
@@ -46,8 +46,8 @@ public class Boss : EnemyValue
     private void InitialBoss()
     {   
         movingSpeed         =   3;
-        shortDamage         =   5;
-        longDamage          =   10;
+        shortDamage         =   6;
+        longDamage          =   8;
 
         enemyHealth         =   20;
         longAttackPeriod    =   3;
@@ -78,7 +78,7 @@ public class Boss : EnemyValue
             {
                 inLongAttackArea = true;
             }
-            else if (!DetectCircleArea(longAttackRadius))
+            else
             {
                 inLongAttackArea = false;
             }
@@ -91,7 +91,7 @@ public class Boss : EnemyValue
             {
                 inLongAttackArea = true;
             }
-            else if (!DetectCircleArea(shortAttackRadius))
+            else
             {
                 inLongAttackArea = false;
             }
@@ -101,7 +101,9 @@ public class Boss : EnemyValue
         if (longAttackTime <= 0 && inLongAttackArea && !isAttack && enemyHealth > 0 )
         {   // atual attack
             isAttack = true;
+
             //enemyAnimator.SetTrigger("isAttack");
+            Instantiate(fire, playerCurrentPosition, Quaternion.identity);
             Debug.Log("long");
             // reset attack period time
             longAttackTime = longAttackPeriod;
