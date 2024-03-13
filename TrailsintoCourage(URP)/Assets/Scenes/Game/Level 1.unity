@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1806177381}
-  m_IndirectSpecularColor: {r: 0.5851979, g: 0.8475394, b: 0.9743186, a: 1}
+  m_IndirectSpecularColor: {r: 0.644843, g: 0.73091185, b: 0.79002464, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7797,12 +7797,37 @@ PrefabInstance:
       propertyPath: staminaBar
       value: 
       objectReference: {fileID: 1344029719}
+    - target: {fileID: 2477063550585413284, guid: 5564e08ee5a8fd04b91d0f4e682bba05,
+        type: 3}
+      propertyPath: RecoverManaDelay
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2477063550585413284, guid: 5564e08ee5a8fd04b91d0f4e682bba05,
+        type: 3}
+      propertyPath: RecoverHealthDelay
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2477063550585413284, guid: 5564e08ee5a8fd04b91d0f4e682bba05,
+        type: 3}
+      propertyPath: RecoverManaQuantity
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2477063550585413284, guid: 5564e08ee5a8fd04b91d0f4e682bba05,
+        type: 3}
+      propertyPath: RecoverHealthQuantity
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5762672570019846332, guid: 5564e08ee5a8fd04b91d0f4e682bba05,
         type: 3}
       propertyPath: PlayerDeadBody
       value: 
       objectReference: {fileID: 2275705248258542821, guid: 15a95217441c42b48b84bc7f87151416,
         type: 3}
+    - target: {fileID: 5762672570019846332, guid: 5564e08ee5a8fd04b91d0f4e682bba05,
+        type: 3}
+      propertyPath: attackCoolDown
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5762672570019846332, guid: 5564e08ee5a8fd04b91d0f4e682bba05,
         type: 3}
       propertyPath: MaxJumpVelocity
