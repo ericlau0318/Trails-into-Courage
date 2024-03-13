@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class LavaSlime : EnemyValue
 {
-    private readonly string lavaSlime = "LavaSlime";
+    private readonly string archer = "LavaSlime";
+    private Animator enemyAnimator;
     private Rigidbody rb;
     public GameObject fireBall;
     public Transform magicPoint;
@@ -54,6 +55,7 @@ public class LavaSlime : EnemyValue
         maxHealth = enemyHealth;
         currentHealth = maxHealth;
         rb = GetComponent<Rigidbody>();
+        enemyAnimator = GetComponent<Animator>();
 
         isAttack = false;
         inAttackArea = false;
@@ -87,12 +89,21 @@ public class LavaSlime : EnemyValue
     }
     private void OnTriggerEnter(Collider other)
     {
-        EnemyHurtBySpell(other, lavaSlime);
-        EnemyHurtBySword(other, lavaSlime);
+        EnemyHurt(other, "Spell(Clone)", archer, PlayerState.spellDamage);
+        if (hurtTime <= 0)
+        {
+            EnemyHurt(other, "Sword(Clone)", archer, PlayerState.attackDamage);
+            hurtTime = 0.5f;
+        }
     }
     private void ChasingPlayer()
     {
-        if (spawner.volcano && enemyHealth > 00)
+        if (spawner.desert || spawner.grassLand)
+        {
+            gameObject.SetActive(false);
+            Destroy(gameObject);
+        }
+        else if (spawner.volcano && enemyHealth > 00)
         {   // check for swaning/??¡Á? or not
 
             // check sence area if false swan to walk point to point
@@ -108,13 +119,13 @@ public class LavaSlime : EnemyValue
                     {
 
                         target = point2;
-                        Rotation(target.transform.position, this.gameObject, rb, 90);
+                        Rotation(target.transform.position, this.gameObject, rb);
                         movingToPoint1 = false;
                     }
                     else
                     {
                         target = point1;
-                        Rotation(target.transform.position, this.gameObject, rb, 90);
+                        Rotation(target.transform.position, this.gameObject, rb);
                         movingToPoint1 = true;
                     }
                 }
@@ -123,7 +134,7 @@ public class LavaSlime : EnemyValue
 
             else if (DetectCircleArea(senseRadius) && !isAttack && !inAttackArea)
             {
-                Rotation(playerCurrentPosition, this.gameObject, rb, 90);
+                Rotation(playerCurrentPosition, this.gameObject, rb);
                 transform.position = Vector3.MoveTowards(transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
             }
         }

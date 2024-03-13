@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Searcher;
 using UnityEngine;
 
 public class Boss : EnemyValue
 {
     private readonly string boss = "BOSS";
+    private Animator enemyAnimator;
     private Rigidbody rb;
     // attack mood/state
     [SerializeField]
@@ -60,6 +60,7 @@ public class Boss : EnemyValue
         maxHealth = enemyHealth;
         currentHealth = maxHealth;
         rb = GetComponent<Rigidbody>();
+        enemyAnimator = GetComponent<Animator>();
 
         isAttack            =   false;
         inLongAttackArea    =   false;
@@ -132,8 +133,12 @@ public class Boss : EnemyValue
     }
     private void OnTriggerEnter(Collider other)
     {
-        EnemyHurtBySpell(other, boss);
-        EnemyHurtBySword(other, boss);
+        EnemyHurt(other, "Spell(Clone)", boss, PlayerState.spellDamage);
+        if (hurtTime <= 0)
+        {
+            EnemyHurt(other, "Sword(Clone)", boss, PlayerState.attackDamage);
+            hurtTime = 0.5f;
+        }
     }
     private void ChasingPlayer()
     {
@@ -144,7 +149,7 @@ public class Boss : EnemyValue
             if (enemyHealth > 00 && DetectCircleArea(senseRadius) && !isAttack && !inLongAttackArea)
             {   
 
-                Rotation(playerCurrentPosition, this.gameObject, rb, 0);
+                Rotation(playerCurrentPosition, this.gameObject, rb);
                 transform.position = Vector3.MoveTowards(transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
             }
         }
@@ -155,7 +160,7 @@ public class Boss : EnemyValue
             if (enemyHealth > 00 && DetectCircleArea(senseRadius) && !isAttack && !DetectCircleArea(shortAttackRadius))
             {
 
-                Rotation(playerCurrentPosition, this.gameObject, rb, 0);
+                Rotation(playerCurrentPosition, this.gameObject, rb);
                 transform.position = Vector3.MoveTowards(transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
             }
         }
