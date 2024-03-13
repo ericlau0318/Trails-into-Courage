@@ -1,14 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class Archer : EnemyValue
+public class Magician : EnemyValue
 {
     private readonly string magician = "Magician";
     private Rigidbody rb;
-
+    
     public GameObject magic;
     public GameObject magicPosition;
     // enemy setting
@@ -18,13 +16,13 @@ public class Archer : EnemyValue
     // UI hp
     private float maxHealth;
     private float currentHealth;
-
+    
     // Start is called before the first frame update
     void Start()
     {
         InitialArcher();
         InitialObjectCollect(this.gameObject);
-
+    
     }
     // Update is called once per frame
     void Update()
@@ -49,13 +47,13 @@ public class Archer : EnemyValue
         attackRadius = 5f;
         senseRadius = 7;
         rotateSpeed = 125f;
-
+    
         hurtTime = 0.5f;
-
+    
         maxHealth = enemyHealth;
         currentHealth = maxHealth;
         rb = GetComponent<Rigidbody>();
-
+    
         isAttack = false;
         inAttackArea = false;
     }
@@ -97,17 +95,17 @@ public class Archer : EnemyValue
         {
             finalChasingPosition = new Vector3(enemyCurrentPositionX - 1, enemyCurrentPositionY, enemyCurrentPositionZ - 1);
         }
-
+    
         else if (enemyCurrentPositionX < playerCurrentPositionX && enemyCurrentPositionZ > playerCurrentPositionZ)
         {
             finalChasingPosition = new Vector3(enemyCurrentPositionX + 1, enemyCurrentPositionY, enemyCurrentPositionZ - 1);
         }
-
+    
         else if (enemyCurrentPositionX < playerCurrentPositionX && enemyCurrentPositionZ < playerCurrentPositionZ)
         {
             finalChasingPosition = new Vector3(enemyCurrentPositionX + 1, enemyCurrentPositionY, enemyCurrentPositionZ + 1);
         }
-
+    
         else if (enemyCurrentPositionX > playerCurrentPositionX && enemyCurrentPositionZ < playerCurrentPositionZ)
         {
             finalChasingPosition = new Vector3(enemyCurrentPositionX - 1, enemyCurrentPositionY, enemyCurrentPositionZ + 1);

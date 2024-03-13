@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 8004384578712014887}
   - component: {fileID: 3584301301139856174}
   - component: {fileID: 1342294638482182285}
-  - component: {fileID: 7267559560855203397}
+  - component: {fileID: 5399931995255746123}
   m_Layer: 8
-  m_Name: Archer
+  m_Name: Magician
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 6}
-  m_LocalScale: {x: 1, y: 0.8, z: 0.8}
+  m_LocalScale: {x: 1.2, y: 1, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4293951296813672390}
@@ -139,7 +139,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &7267559560855203397
+--- !u!114 &5399931995255746123
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,9 +148,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 560001178365454048}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2efafa53c60bea49839b98ef2b2175c, type: 3}
+  m_Script: {fileID: 11500000, guid: ed0f0b96fffb0e3438981b5187a7ab35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyAnimator: {fileID: 0}
   damage: 0
   enemyHealth: 0
   attackPeriod: 0
@@ -168,7 +169,6 @@ MonoBehaviour:
   playerCurrentPositionZ: 0
   playerCurrentPosition: {x: 0, y: 0, z: 0}
   playerState: {fileID: 0}
-  parentTransform: {fileID: 0}
   healthSlider: {fileID: 0}
   magic: {fileID: 1568549803077103259, guid: f76b5a4d5e8b0344c8de693c1a39d7f3, type: 3}
   magicPosition: {fileID: 3783371512833524818}

@@ -46,7 +46,7 @@ public class Mummy : EnemyValue
         damage = 4;
         enemyHealth = 30;
         attackPeriod = 1.5f;
-        movingSpeed = 2f;
+        movingSpeed = 3f;
         attackRadius = 1.6f;
         senseRadius = 6;
         rotateSpeed = 125f;
@@ -100,7 +100,6 @@ public class Mummy : EnemyValue
     }
     private void ChasingPlayer()
     {
-        Rotation(playerCurrentPosition, this.gameObject, rb, r);
         if (spawner.grassLand || spawner.volcano)
         {
             //gameObject.SetActive(false);
