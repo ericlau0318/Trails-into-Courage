@@ -667,9 +667,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3791131903665625129, guid: 77c7aa01bcea5724c95d1d2959b416da,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3791131903665625129, guid: 77c7aa01bcea5724c95d1d2959b416da,
+        type: 3}
       propertyPath: loadingScene
       value: 
-      objectReference: {fileID: 839619706}
+      objectReference: {fileID: 0}
+    - target: {fileID: 3791131903665625129, guid: 77c7aa01bcea5724c95d1d2959b416da,
+        type: 3}
+      propertyPath: LoadingScreen
+      value: 
+      objectReference: {fileID: 1581587846}
+    - target: {fileID: 3791131903665625129, guid: 77c7aa01bcea5724c95d1d2959b416da,
+        type: 3}
+      propertyPath: LoadingBarFill
+      value: 
+      objectReference: {fileID: 967632453}
     - target: {fileID: 3791131903665625129, guid: 77c7aa01bcea5724c95d1d2959b416da,
         type: 3}
       propertyPath: nextSceneIndex
@@ -1098,18 +1113,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!114 &839619706 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 378119414533417501, guid: b73ec28311beca14cb7531218259bfa6,
-    type: 3}
-  m_PrefabInstance: {fileID: 5586086914004961333}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94ff83e2adc136b4a98d40348d97bd18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &877277962
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1185,9 +1188,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3791131903665625129, guid: 77c7aa01bcea5724c95d1d2959b416da,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3791131903665625129, guid: 77c7aa01bcea5724c95d1d2959b416da,
+        type: 3}
       propertyPath: loadingScene
       value: 
-      objectReference: {fileID: 839619706}
+      objectReference: {fileID: 0}
+    - target: {fileID: 3791131903665625129, guid: 77c7aa01bcea5724c95d1d2959b416da,
+        type: 3}
+      propertyPath: LoadingScreen
+      value: 
+      objectReference: {fileID: 1581587846}
+    - target: {fileID: 3791131903665625129, guid: 77c7aa01bcea5724c95d1d2959b416da,
+        type: 3}
+      propertyPath: LoadingBarFill
+      value: 
+      objectReference: {fileID: 967632453}
     - target: {fileID: 3791131903665625129, guid: 77c7aa01bcea5724c95d1d2959b416da,
         type: 3}
       propertyPath: nextSceneIndex
@@ -1317,6 +1335,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 798488761470418296}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &967632453 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5604431249916634671, guid: de635fb0c7c8df94d9df5017342c1af6,
+    type: 3}
+  m_PrefabInstance: {fileID: 798488761470418296}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967632451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &969889720 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4297186302223103467, guid: aee6fc1cd0294a54da5a2f07fd69e984,
@@ -1440,9 +1470,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3791131903665625129, guid: 77c7aa01bcea5724c95d1d2959b416da,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3791131903665625129, guid: 77c7aa01bcea5724c95d1d2959b416da,
+        type: 3}
       propertyPath: loadingScene
       value: 
-      objectReference: {fileID: 839619706}
+      objectReference: {fileID: 0}
+    - target: {fileID: 3791131903665625129, guid: 77c7aa01bcea5724c95d1d2959b416da,
+        type: 3}
+      propertyPath: LoadingScreen
+      value: 
+      objectReference: {fileID: 1581587846}
+    - target: {fileID: 3791131903665625129, guid: 77c7aa01bcea5724c95d1d2959b416da,
+        type: 3}
+      propertyPath: LoadingBarFill
+      value: 
+      objectReference: {fileID: 967632453}
     - target: {fileID: 3791131903665625129, guid: 77c7aa01bcea5724c95d1d2959b416da,
         type: 3}
       propertyPath: nextSceneIndex
@@ -1549,6 +1594,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1581587846 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2259696965265250673, guid: b73ec28311beca14cb7531218259bfa6,
+    type: 3}
+  m_PrefabInstance: {fileID: 5586086914004961333}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1631442526
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -17,6 +18,7 @@ public class Portal : MonoBehaviour
     void Start()
     {
         teleportTimer = timeToTeleport;
+        loadingScene = FindObjectOfType<LoadingScene>();
     }
 
     // OnTriggerEnter is called when the Collider other enters the trigger
