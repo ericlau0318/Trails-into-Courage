@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Mummy : EnemyValue
 {
-    private readonly string archer = "Mummy";
-    private Animator enemyAnimator;
+    private readonly string mummy = "Mummy";
     private Rigidbody rb;
 
     public Transform point2;
@@ -14,11 +13,12 @@ public class Mummy : EnemyValue
     // enemy setting
     private float attackTime;
     [SerializeField]
-    private bool isAttack, inAttackArea, movingToPoint1;
+    private bool isAttack, inAttackArea, movingToPoint1, isSwan;
     // UI hp
     private float maxHealth;
     private float currentHealth;
-
+    private float damageTime;
+    public float r;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +32,7 @@ public class Mummy : EnemyValue
     {
         currentHealth = enemyHealth;
         hurtTime -= Time.deltaTime;
+        damageTime -= Time.deltaTime;
         DrawLineArea();
         UpdateEnemyUI(currentHealth, maxHealth);
         UpdateCurrentPosition(this.gameObject);
@@ -43,17 +44,17 @@ public class Mummy : EnemyValue
     private void InitialMummy()
     {
         damage = 4;
-        enemyHealth = 20;
+        enemyHealth = 30;
         attackPeriod = 1.5f;
         movingSpeed = 2f;
-        attackRadius = 3f;
+        attackRadius = 1.6f;
         senseRadius = 6;
         rotateSpeed = 125f;
 
         maxHealth = enemyHealth;
         currentHealth = maxHealth;
         rb = GetComponent<Rigidbody>();
-        enemyAnimator = GetComponent<Animator>();
+        damageTime = 0.5f;
 
         isAttack = false;
         inAttackArea = false;
@@ -74,7 +75,7 @@ public class Mummy : EnemyValue
         {   // atual attack
             isAttack = true;
             // attack
-            //enemyAnimator.SetTrigger("isAttack");
+            enemyAnimator.SetTrigger("isAttack");
             // reset attack period time
             attackTime = attackPeriod;
         }
@@ -87,19 +88,23 @@ public class Mummy : EnemyValue
     }
     private void OnTriggerEnter(Collider other)
     {
-        EnemyHurt(other, "Spell(Clone)", archer, PlayerState.spellDamage);
-        if (hurtTime <= 0)
+        EnemyHurtBySpell(other, mummy);
+        EnemyHurtBySword(other, mummy);
+
+        if (other.CompareTag("Player") && damageTime <0)
         {
-            EnemyHurt(other, "Sword(Clone)", archer, PlayerState.attackDamage);
-            hurtTime = 0.5f;
+            Debug.Log("Player has collided with the model's collider");
+            playerState.TakeDamage(damage);
+            damageTime = 1f;
         }
     }
     private void ChasingPlayer()
     {
+        Rotation(playerCurrentPosition, this.gameObject, rb, r);
         if (spawner.grassLand || spawner.volcano)
         {
-            gameObject.SetActive(false);
-            Destroy(gameObject);
+            //gameObject.SetActive(false);
+            //Destroy(gameObject);
         }
         else if (spawner.desert && enemyHealth > 00)
         {   // check for swaning/??¡Á? or not
@@ -107,34 +112,40 @@ public class Mummy : EnemyValue
             // check sence area if false swan to walk point to point
             if (!DetectCircleArea(senseRadius))
             {
+                isSwan = true;
+                Rotation(target.transform.position, this.gameObject, rb, r);
                 transform.position = Vector3.MoveTowards(transform.position, target.position, movingSpeed * Time.deltaTime);
 
                 // Check if the target is reached
-                if (Vector3.Distance(transform.position, target.position) < 0.1f)
+                if (Vector3.Distance(transform.position, target.position) < 0.1f && isSwan)
                 {
                     // Toggle the target
                     if (movingToPoint1)
                     {
-
                         target = point2;
-                        Rotation(target.transform.position, this.gameObject, rb);
                         movingToPoint1 = false;
                     }
                     else
                     {
                         target = point1;
-                        Rotation(target.transform.position, this.gameObject, rb);
                         movingToPoint1 = true;
                     }
                 }
 
             }
 
-            else if (DetectCircleArea(senseRadius) && !isAttack && !inAttackArea)
+            else if (DetectCircleArea(senseRadius))
             {
-                Rotation(playerCurrentPosition, this.gameObject, rb);
-                transform.position = Vector3.MoveTowards(transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
+                isSwan = false;
+                Rotation(playerCurrentPosition, this.gameObject, rb, r);
+                if (!isAttack && !inAttackArea)
+                {
+                    transform.position = Vector3.MoveTowards(transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
+                }
+                
             }
         }
     }
+
+
 }

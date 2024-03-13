@@ -8,6 +8,7 @@ using UnityEditor.SearchService;
 
 public class EnemyValue : MonoBehaviour
 {
+    public Animator enemyAnimator;
     // enemy state value
     public int damage;
     public float enemyHealth;
@@ -36,20 +37,21 @@ public class EnemyValue : MonoBehaviour
     private Level1GameManager level1GameManager;
 
     // player attack demage
-    public void EnemyHurt(Collider other, string damageType, string enemyType, float damage)
+    public void EnemyHurtBySpell(Collider other, string enemyType)
     {
-        if (other.gameObject.name == damageType)
+        if (other.gameObject.name == "Spellbullet" || other.gameObject.name == "Spellbullet1" || other.gameObject.name == "Spellbullet2")
         {
-            enemyHealth -= damage;
+            enemyHealth -= PlayerState.spellDamage;
             Debug.Log(enemyType + "_HP: " + enemyHealth);
         }
     }
-    public void EnemyOneHurt(Collider other, string damageType, string enemyType, float damage)
+    public void EnemyHurtBySword(Collider other, string enemyType)
     {
-        if (other.gameObject.name == damageType)
+        if (other.gameObject.name == "Sword(Clone)" && hurtTime <= 0)
         {
-            enemyHealth -= damage;
-            Debug.Log(enemyType + "_HP: " + enemyHealth);
+            enemyHealth -= PlayerState.attackDamage;
+            Debug.Log(enemyType + "_HP: " + enemyHealth); 
+            hurtTime = 0.5f;
         }
     }
     public void EnemyDied()
@@ -70,6 +72,7 @@ public class EnemyValue : MonoBehaviour
     // collect UI object / state controller 
     public void InitialObjectCollect(GameObject enemy)
     {
+        enemyAnimator = enemy.GetComponent<Animator>();
         stateController = FindObjectOfType<StateController>();
         canvas = enemy.transform.Find("Canvas");
         healthBar = canvas.Find("HPSlider").gameObject;
@@ -77,7 +80,7 @@ public class EnemyValue : MonoBehaviour
         level1GameManager = FindObjectOfType<Level1GameManager>();
         playerState = FindObjectOfType<PlayerState>();
         spawner = FindObjectOfType<Spawner>();
-        hurtTime = 1;
+        hurtTime = 0.5f;
         isdead = false;
     }
     // update hp UI
@@ -102,7 +105,7 @@ public class EnemyValue : MonoBehaviour
         playerCurrentPosition  = new Vector3(playerCurrentPositionX, playerCurrentPositionY, playerCurrentPositionZ);
     }
     // rotate to face to player
-    public void Rotation(Vector3 targetPosition, GameObject enemy, Rigidbody rb)
+    public void Rotation(Vector3 targetPosition, GameObject enemy, Rigidbody rb, float angle)
     {
         Vector3 directionToPlayer = targetPosition - enemy.transform.position;
         // Zero out the y component to keep the slime upright
@@ -113,7 +116,9 @@ public class EnemyValue : MonoBehaviour
 
         // Adjust for the slime's actual forward direction if it's not the global Z-axis
         // For example, if the slime's forward is the positive X-axis, we rotate the quaternion
-        Quaternion correctedRotation = Quaternion.Euler(lookRotation.eulerAngles.x, lookRotation.eulerAngles.y - 90, lookRotation.eulerAngles.z);
+
+        // inital setting is - 90 angle, but someone moodle 0 angle is different rotation state so need to try different change
+        Quaternion correctedRotation = Quaternion.Euler(lookRotation.eulerAngles.x, lookRotation.eulerAngles.y -(angle), lookRotation.eulerAngles.z);
         // Smoothly rotate the slime towards the player
         rb.MoveRotation(Quaternion.Slerp(transform.rotation, correctedRotation, rotateSpeed * Time.deltaTime));
     }
@@ -147,14 +152,15 @@ public class EnemyValue : MonoBehaviour
     }
     public void ChasingPlayerGrassLand(GameObject enemy,Rigidbody rb,bool isAttack, bool inAttackArea, float movingSpeed)
     {
-        Rotation(playerCurrentPosition, enemy, rb);
+        // inital setting is 90 angle, but someone moodle 0 angle is different rotation state so need to try different change
+        Rotation(playerCurrentPosition, enemy, rb, 90);
         if (spawner.grassLand && !isAttack && !inAttackArea)
         {
             enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
         }
-        else if (spawner.volcano)
+        else if (spawner.volcano || spawner.desert)
         {
-            Destroy(enemy);
+            //Destroy(enemy);
         }
     }
     /*public void RandomCirclePoint()
