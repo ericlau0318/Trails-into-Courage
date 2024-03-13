@@ -107,7 +107,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 106d3cc0233099b42b8cd1411706ac12,
         type: 3}
       propertyPath: m_Name
-      value: Player Variant
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 106d3cc0233099b42b8cd1411706ac12,
         type: 3}
@@ -204,7 +204,7 @@ MonoBehaviour:
   spellManaCost: 10
   spellCoolDown: 1
   isPlayerDead: 0
-  PlayerDeadBody: {fileID: 4536341684322481143, guid: 4b7bccb8e6e5db34a8203edcf058ade7,
+  PlayerDeadBody: {fileID: 2275705248258542821, guid: 15a95217441c42b48b84bc7f87151416,
     type: 3}
   CheckGroundPointSize: 0.2
 --- !u!114 &2477063550585413284
