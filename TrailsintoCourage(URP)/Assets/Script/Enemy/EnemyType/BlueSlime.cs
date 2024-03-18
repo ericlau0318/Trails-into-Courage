@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Searcher;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class BlueSlime : EnemyValue
 {
     private readonly string blueSlime = "blueSlime";
-    private Animator enemyAnimator;
     private Rigidbody rb;
     // enemy setting
     private float attackTime;
@@ -38,7 +38,7 @@ public class BlueSlime : EnemyValue
     // Blue Slime settin value / component
     private void InitialBlueSlime()
     {
-        damage = 2;
+        damage = 1;
         enemyHealth = 20;
         attackPeriod = 0.8f;
         movingSpeed = 2.5f;
@@ -49,7 +49,6 @@ public class BlueSlime : EnemyValue
         maxHealth = enemyHealth;
         currentHealth = maxHealth;
         rb = GetComponent<Rigidbody>();
-        enemyAnimator = GetComponent<Animator>();
 
         isAttack = false;
         inAttackArea = false;
@@ -84,12 +83,8 @@ public class BlueSlime : EnemyValue
     }
     private void OnTriggerEnter(Collider other)
     {
-        EnemyHurt(other, "Spell(Clone)", blueSlime, PlayerState.spellDamage);
-        if (hurtTime <= 0)
-        {
-            EnemyHurt(other, "Sword(Clone)", blueSlime, PlayerState.attackDamage);
-            hurtTime = 1;
-        }
+        EnemyHurtBySpell(other, blueSlime);
+        EnemyHurtBySword(other, blueSlime);
     }
     private void OnCollisionStay(Collision collision)
     {

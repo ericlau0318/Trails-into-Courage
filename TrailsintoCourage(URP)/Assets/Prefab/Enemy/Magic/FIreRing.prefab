@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9121383198347039110}
   - component: {fileID: 1260135013645798238}
   - component: {fileID: 209479928658797592}
+  - component: {fileID: 6586260849219038342}
   m_Layer: 0
   m_Name: FIreRing
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.02, y: 0.76, z: -0.76}
-  m_LocalScale: {x: 3, y: 0.13606258, z: 3}
+  m_LocalScale: {x: 4, y: 0.13606258, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2440543513619758945}
@@ -108,6 +109,18 @@ CapsuleCollider:
   m_Height: 16.93122
   m_Direction: 1
   m_Center: {x: 0.00000005174677, y: 3.7697406, z: -0.00000010349354}
+--- !u!114 &6586260849219038342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3602429811383533709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26699d1a2d4ab364a86b3c953de77d90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2980392500596073435
 PrefabInstance:
   m_ObjectHideFlags: 0

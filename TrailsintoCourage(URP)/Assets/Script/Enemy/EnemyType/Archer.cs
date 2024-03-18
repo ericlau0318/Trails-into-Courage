@@ -6,8 +6,7 @@ using UnityEngine.UI;
 
 public class Archer : EnemyValue
 {
-    private readonly string archer = "Archer";
-    private Animator enemyAnimator;
+    private readonly string magician = "Magician";
     private Rigidbody rb;
 
     public GameObject magic;
@@ -56,7 +55,6 @@ public class Archer : EnemyValue
         maxHealth = enemyHealth;
         currentHealth = maxHealth;
         rb = GetComponent<Rigidbody>();
-        enemyAnimator = GetComponent<Animator>();
 
         isAttack = false;
         inAttackArea = false;
@@ -88,12 +86,8 @@ public class Archer : EnemyValue
     }
     private void OnTriggerEnter(Collider other)
     {
-        EnemyHurt(other, "Spell(Clone)", archer, PlayerState.spellDamage);
-        if (hurtTime <= 0)
-        {
-            EnemyHurt(other, "Sword(Clone)", archer, PlayerState.attackDamage);
-            hurtTime = 0.5f;
-        }
+        EnemyHurtBySpell(other, magician);
+        EnemyHurtBySword(other, magician);
     }
     // find player position and desire moving direction
     /*private Vector3 ChasingPosition()

@@ -7,14 +7,14 @@ public class EnemyMagic : MonoBehaviour
 {
     public float magicFlyingSpeed;
     private Vector3 shootPosition;
-    private Archer archer;
+    private Magician magician;
     private PlayerState player;
     // Start is called before the first frame update
     void Start()
     {
         player          = FindObjectOfType<PlayerState>();
-        archer          = FindObjectOfType<Archer>();
-        shootPosition   = (archer.playerCurrentPosition - transform.position).normalized;
+        magician = FindObjectOfType<Magician>();
+        shootPosition   = (magician.playerCurrentPosition - transform.position).normalized;
         Destroy(gameObject, 5f);
     }
     // Update is called once per frame
@@ -29,7 +29,7 @@ public class EnemyMagic : MonoBehaviour
     { 
         if (other.CompareTag("Player"))
         {
-            player.TakeDamage(archer.damage);
+            player.TakeDamage(magician.damage);
             Destroy(gameObject);
         }
         else if(other.CompareTag("Ground"))
