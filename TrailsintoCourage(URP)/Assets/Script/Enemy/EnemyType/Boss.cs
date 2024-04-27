@@ -152,7 +152,7 @@ public class Boss : EnemyValue
             if (enemyHealth > 0 && DetectCircleArea(senseRadius) && !isAttack && !inLongAttackArea)
             {   
 
-                Rotation(playerCurrentPosition, this.gameObject, rb, 0);
+                Rotation(playerCurrentPosition, this.gameObject, rb, 90);
                 transform.position = Vector3.MoveTowards(transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
             }
         }
