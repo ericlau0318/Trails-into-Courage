@@ -46,8 +46,8 @@ public class Magician : EnemyValue
         enemyHealth = 12;
         attackPeriod = 3f;
         movingSpeed = 1.5f;
-        attackRadius = 5f;
-        senseRadius = 7;
+        attackRadius = 6f;
+        senseRadius = 7.5f;
         rotateSpeed = 125f;
     
         hurtTime = 0.5f;

@@ -12,7 +12,7 @@ public class FireRing : MonoBehaviour
 
     void Start()
     {
-        //boss        = FindObjectOfType<Boss>();
+        boss        = FindObjectOfType<Boss>();
         player      = FindObjectOfType<PlayerState>();
         cycleDamgeTime = 0.8f;
         cycleDamgePeriod = -1;
