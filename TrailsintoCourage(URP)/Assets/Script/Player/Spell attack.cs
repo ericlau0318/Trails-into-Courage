@@ -7,7 +7,7 @@ public class Spellattack : MonoBehaviour
     public float spellspeed=10f;
     public float rotationSpeed = 180f;
     public float destroyDelay = 2f;
-
+    public GameObject Explosion;
     private void Start()
     {
             Destroy(transform.parent.gameObject, destroyDelay);
@@ -21,7 +21,10 @@ public class Spellattack : MonoBehaviour
     {
         if (other.gameObject)
         {
-            Destroy(gameObject);
+            Instantiate(Explosion, transform.position, transform.rotation);
+            this.gameObject.SetActive(false);
+            Explosion.gameObject.SetActive(true);
+            Destroy(gameObject , 0.5f);
         }
     }
 }
