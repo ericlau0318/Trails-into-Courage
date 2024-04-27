@@ -38,7 +38,7 @@ public class EnemyValue : MonoBehaviour
     // player attack demage
     public void EnemyHurtBySpell(Collider other, string enemyType)
     {
-        if (other.gameObject.name == "Spellbullet" || other.gameObject.name == "Spellbullet1" || other.gameObject.name == "Spellbullet2")
+        if (other.gameObject.name == "Fireball 1(Clone)")
         {
             enemyHealth -= PlayerState.spellDamage;
             Debug.Log(enemyType + "_HP: " + enemyHealth);
