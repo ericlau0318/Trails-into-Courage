@@ -5,14 +5,17 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Level1GameManager : MonoBehaviour
-{   [SerializeField]
+{   
+    [SerializeField]
     private static int KilledEnemy;
     public Text KilledEnemyText;
     public GameObject WinPanel;
     public int targetNumber=50;
+    public bool fullfillTarget;
     void Start()
     {
         KilledEnemy = 0;
+        fullfillTarget = false;
         WinPanel.SetActive(false);
         KilledEnemyText.text = "Killed Enemy: " +  "0 / " + targetNumber;
     }
@@ -20,19 +23,18 @@ public class Level1GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
-
+        if (KilledEnemy >= targetNumber)
+        {
+            fullfillTarget = true;
+            WinPanel.SetActive(true);           
+        }
     }
     public void AddKilledCount()
     {
         KilledEnemy++;        
         KilledEnemyText.text = "Killed Enemy: "+KilledEnemy +" / "+ targetNumber;
-        if (KilledEnemy >= targetNumber)
-        {
-            //Time.timeScale = 0;
-            WinPanel.SetActive(true);
-        }
+        Debug.Log(KilledEnemy);
+        
     }
 
     public void BackToMainTown()
