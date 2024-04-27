@@ -187,7 +187,7 @@ MonoBehaviour:
     type: 3}
   destroyDelay: 2
   speed: 12
-  coolDown: 0
+  coolDown: 1
 --- !u!1 &839953216937087396
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,7 +292,7 @@ MonoBehaviour:
     type: 3}
   destroyDelay: 2
   speed: 12
-  coolDown: 0
+  coolDown: 1
 --- !u!1 &896495442029234302
 GameObject:
   m_ObjectHideFlags: 0
@@ -895,7 +895,7 @@ MonoBehaviour:
     type: 3}
   destroyDelay: 2
   speed: 12
-  coolDown: 0
+  coolDown: 1
 --- !u!1 &4016606752527957431
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,7 +1083,7 @@ MonoBehaviour:
     type: 3}
   destroyDelay: 2
   speed: 12
-  coolDown: 0
+  coolDown: 1
 --- !u!1 &4719258409279424241
 GameObject:
   m_ObjectHideFlags: 0
