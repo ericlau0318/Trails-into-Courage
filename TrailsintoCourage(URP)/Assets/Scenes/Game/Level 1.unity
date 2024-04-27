@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1806177381}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.65841484, g: 0.7029701, b: 0.7474811, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6457,31 +6457,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 456291511719145017, guid: 5564e08ee5a8fd04b91d0f4e682bba05,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 456291511719145017, guid: 5564e08ee5a8fd04b91d0f4e682bba05,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 456291511719145017, guid: 5564e08ee5a8fd04b91d0f4e682bba05,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 456291511719145017, guid: 5564e08ee5a8fd04b91d0f4e682bba05,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 456291511719145017, guid: 5564e08ee5a8fd04b91d0f4e682bba05,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2477063550585413284, guid: 5564e08ee5a8fd04b91d0f4e682bba05,
         type: 3}
       propertyPath: manaBar
@@ -6497,28 +6472,6 @@ PrefabInstance:
       propertyPath: staminaBar
       value: 
       objectReference: {fileID: 1344029719}
-    - target: {fileID: 5762672570019846332, guid: 5564e08ee5a8fd04b91d0f4e682bba05,
-        type: 3}
-      propertyPath: spell
-      value: 
-      objectReference: {fileID: 4192257203904126702, guid: 0b1266e9fe6ad254987c1cb0159fe03b,
-        type: 3}
-    - target: {fileID: 5762672570019846332, guid: 5564e08ee5a8fd04b91d0f4e682bba05,
-        type: 3}
-      propertyPath: PlayerDeadBody
-      value: 
-      objectReference: {fileID: 2275705248258542821, guid: 15a95217441c42b48b84bc7f87151416,
-        type: 3}
-    - target: {fileID: 5762672570019846332, guid: 5564e08ee5a8fd04b91d0f4e682bba05,
-        type: 3}
-      propertyPath: MaxJumpVelocity
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5762672570019846332, guid: 5564e08ee5a8fd04b91d0f4e682bba05,
-        type: 3}
-      propertyPath: MinJumpVelocity
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 7042442757102663263, guid: 5564e08ee5a8fd04b91d0f4e682bba05,
         type: 3}
       propertyPath: m_Name

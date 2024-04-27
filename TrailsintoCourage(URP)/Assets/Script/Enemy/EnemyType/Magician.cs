@@ -27,15 +27,17 @@ public class Magician : EnemyValue
     // Update is called once per frame
     void Update()
     {
-        currentHealth = enemyHealth;
-        hurtTime -= Time.deltaTime;
-        DrawLineArea();
-        UpdateEnemyUI(currentHealth, maxHealth);
-        UpdateCurrentPosition(this.gameObject);
-        CheckAttack();
-        ChasingPlayerGrassLand(this.gameObject, rb, isAttack, inAttackArea, movingSpeed);
-        EnemyDied();
-        //RandomCirclePoint();
+        if (!level1GameManager.fullfillTarget)
+        {
+            currentHealth = enemyHealth;
+            hurtTime -= Time.deltaTime;
+            DrawLineArea();
+            UpdateEnemyUI(currentHealth, maxHealth);
+            UpdateCurrentPosition(this.gameObject);
+            CheckAttack();
+            ChasingPlayerGrassLand(this.gameObject, rb, isAttack, inAttackArea, movingSpeed);
+            EnemyDied();
+        }
     }
     // Archer setting / component
     private void InitialArcher()
@@ -87,29 +89,4 @@ public class Magician : EnemyValue
         EnemyHurtBySpell(other, magician);
         EnemyHurtBySword(other, magician);
     }
-    // find player position and desire moving direction
-    /*private Vector3 ChasingPosition()
-    {   // 4 direction movement checking
-        Vector3 finalChasingPosition = Vector3.zero;
-        if (enemyCurrentPositionX > playerCurrentPositionX && enemyCurrentPositionZ > playerCurrentPositionZ)
-        {
-            finalChasingPosition = new Vector3(enemyCurrentPositionX - 1, enemyCurrentPositionY, enemyCurrentPositionZ - 1);
-        }
-    
-        else if (enemyCurrentPositionX < playerCurrentPositionX && enemyCurrentPositionZ > playerCurrentPositionZ)
-        {
-            finalChasingPosition = new Vector3(enemyCurrentPositionX + 1, enemyCurrentPositionY, enemyCurrentPositionZ - 1);
-        }
-    
-        else if (enemyCurrentPositionX < playerCurrentPositionX && enemyCurrentPositionZ < playerCurrentPositionZ)
-        {
-            finalChasingPosition = new Vector3(enemyCurrentPositionX + 1, enemyCurrentPositionY, enemyCurrentPositionZ + 1);
-        }
-    
-        else if (enemyCurrentPositionX > playerCurrentPositionX && enemyCurrentPositionZ < playerCurrentPositionZ)
-        {
-            finalChasingPosition = new Vector3(enemyCurrentPositionX - 1, enemyCurrentPositionY, enemyCurrentPositionZ + 1);
-        }
-        return finalChasingPosition;
-    }*/
 }
