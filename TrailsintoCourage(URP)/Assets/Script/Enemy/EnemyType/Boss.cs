@@ -51,7 +51,7 @@ public class Boss : EnemyValue
 
         enemyHealth         =   20;
         longAttackPeriod    =   3;
-        shortAttackPeriod   =   1;       
+        shortAttackPeriod   =   2;       
         longAttackRadius    =   12;
         shortAttackRadius   =   1;
 

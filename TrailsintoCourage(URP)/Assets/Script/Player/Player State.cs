@@ -14,15 +14,15 @@ public class PlayerState : MonoBehaviour
     private Slider manaSlider;
     private Slider staminaSlider;
 
-    public static float maxHealth = 50f;
+    public static float maxHealth = 100f;
     public float currentHealth;
-    public static float maxMana = 50f;
+    public static float maxMana = 100f;
     public float currentMana;
     public static float maxStamina = 50f;
     public float currentStamina;
 
-    public static float attackDamage = 5;
-    public static float spellDamage = 5;
+    public static float attackDamage = 7;
+    public static float spellDamage = 7;
 
     public static bool StatePanelOpen;
 

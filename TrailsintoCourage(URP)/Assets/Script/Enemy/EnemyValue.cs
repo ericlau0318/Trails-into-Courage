@@ -18,7 +18,6 @@ public class EnemyValue : MonoBehaviour
     public float movingSpeed;
     public float rotateSpeed;
     public float hurtTime;
-    private bool isdead;
     // collect enemy position
     public float enemyCurrentPositionX, enemyCurrentPositionY, enemyCurrentPositionZ;
     public Spawner spawner;
@@ -54,9 +53,8 @@ public class EnemyValue : MonoBehaviour
     }
     public void EnemyDied()
     {
-        if (enemyHealth <= 0 && !isdead)
+        if (enemyHealth <= 0)
         {
-            isdead = true;
             stateController.GainExp(4);
 
             Destroy(gameObject, 0.5f);
@@ -77,8 +75,12 @@ public class EnemyValue : MonoBehaviour
         level1GameManager = FindObjectOfType<Level1GameManager>();
         playerState = FindObjectOfType<PlayerState>();
         spawner = FindObjectOfType<Spawner>();
+<<<<<<< HEAD
         hurtTime = 1;
         isdead = false;
+=======
+        hurtTime = 0.5f;
+>>>>>>> main
     }
     // update hp UI
     public void UpdateEnemyUI(float currentValue, float max)

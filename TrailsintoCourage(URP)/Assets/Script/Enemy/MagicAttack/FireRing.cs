@@ -17,7 +17,6 @@ public class FireRing : MonoBehaviour
         cycleDamgeTime = 0.8f;
         cycleDamgePeriod = -1;
         Destroy(gameObject, 4f);
-
     }
 
     // Update is called once per frame
@@ -35,7 +34,6 @@ public class FireRing : MonoBehaviour
         {
             player.TakeDamage(boss.longDamage);
             cycleDamgePeriod = cycleDamgeTime;
-
         }
     }
 }

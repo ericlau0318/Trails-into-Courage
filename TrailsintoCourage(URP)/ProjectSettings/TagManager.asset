@@ -8,6 +8,7 @@ TagManager:
   - PurlePortal
   - RedPortal
   - Ground
+  - Wall
   layers:
   - Default
   - TransparentFX
