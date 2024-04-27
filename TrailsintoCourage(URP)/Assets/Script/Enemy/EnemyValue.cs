@@ -162,17 +162,6 @@ public class EnemyValue : MonoBehaviour
             //Destroy(enemy);
         }
     }
-    /*public void RandomCirclePoint()
-    {
-        float randomAngle = Random.Range(0f, Mathf.PI * 2f);
-        float randomRadius = Random.Range(0f, spawner.radius);
-
-        float x = Mathf.Cos(randomAngle) * randomRadius;
-        float z = Mathf.Sin(randomAngle) * randomRadius;
-
-        Vector3 swanTargetPosition = new Vector3(spawner.spawnerX, spawner.spawnerY, spawner.spawnerZ) + new Vector3(x, enemyCurrentPositionY, z);
-        Debug.Log(swanTargetPosition);
-    }*/
     // area SerializeField using debug draw line(显示十字但实质圆形)
     public void DrawLineArea()
     {   // sense area point
