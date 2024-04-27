@@ -8,7 +8,12 @@ public class LoadingScene : MonoBehaviour
 {
     public GameObject LoadingScreen;
     public Image LoadingBarFill;
- 
+
+    private void Start()
+    {
+        LoadingScreen.SetActive(false);
+    }
+
     public void LoadScene(int sceneId)
     {
         StartCoroutine(LoadSceneAsync(sceneId));
