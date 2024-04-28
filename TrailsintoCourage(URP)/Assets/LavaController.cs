@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class LavaController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public  Transform lastSavePoint= null;
+    public PlayerState playerState;
     void Start()
     {
-        
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag==("Player"))
+        {
+            Debug.Log("Player Lava");
+            playerState.TakeDamage(50);
+            other.gameObject.transform.position = lastSavePoint.position;
+        }
     }
 }
