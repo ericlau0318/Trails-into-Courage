@@ -24,16 +24,18 @@ public class BlueSlime : EnemyValue
     }
     // Update is called once per frame
     void Update()
-    {
-        currentHealth = enemyHealth;
-        hurtTime -= Time.deltaTime;
-        DrawLineArea();
-        UpdateEnemyUI(currentHealth, maxHealth);
-        UpdateCurrentPosition(this.gameObject);
-        CheckAttack();
-        ChasingPlayerGrassLand(this.gameObject, rb, isAttack, inAttackArea, movingSpeed);
-        EnemyDied();
-        //RandomCirclePoint();
+    {     
+        if (!level1GameManager.fullfillTarget)
+        {
+            currentHealth = enemyHealth;
+            hurtTime -= Time.deltaTime;
+            DrawLineArea();
+            UpdateEnemyUI(currentHealth, maxHealth);
+            UpdateCurrentPosition(this.gameObject);
+            CheckAttack();
+            ChasingPlayerGrassLand(this.gameObject, rb, isAttack, inAttackArea, movingSpeed);
+            EnemyDied();
+        }       
     }
     // Blue Slime settin value / component
     private void InitialBlueSlime()
@@ -64,11 +66,6 @@ public class BlueSlime : EnemyValue
         {
             inAttackArea = false;
         }
-        // check the attack animation when finish
-        /*if (!enemyAnimator.GetBool("Attack"))
-        {
-            isAttack = false;
-        }*/
         // attack fector attack time/ attack area/ attacking?
         if (attackTime <= 0 && inAttackArea && !isAttack && enemyHealth > 0)
         {   // atual attack

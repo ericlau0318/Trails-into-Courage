@@ -24,9 +24,13 @@ public class Interactable : MonoBehaviour
     public bool choiceMode = false;
     private bool allowRepeatedChoices;
     public bool hasCompletedDialogue = false;
+
+    public Animator GirlAnimator;
+     bool Talking;
     void Start()
     {
         dialogueAnimator = GameObject.Find("DialogueBox").GetComponent<Animator>();
+        GirlAnimator = GameObject.Find("Girl").GetComponent<Animator>();
     }
     void Update()
     {
@@ -39,6 +43,7 @@ public class Interactable : MonoBehaviour
         {
             if (playerCurrentlyInZone && !isPlayerInZone && !hasInteracted)
             {
+                GirlAnimator.SetTrigger("Talking");
                 PlayerController.isPlayerTalking = true;
                 dialogueManager.StartDialogue(dialogue, this);
                 hasInteracted = true;

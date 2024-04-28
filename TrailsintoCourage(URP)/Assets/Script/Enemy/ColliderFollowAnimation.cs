@@ -9,7 +9,7 @@ public class ColliderFollowAnimation : MonoBehaviour
     public Transform joint2;
     // Update is called once per frame
     public float colliderCenterYOffset = 0f; // Adjust this value as needed to lower the collider
-    public Vector3 colliderSize = new Vector3(0.02f, 0.015f, 0.02f); // Set your static collider size here
+    public Vector3 colliderSize = new(0.02f, 0.015f, 0.02f); // Set your static collider size here
     void LateUpdate()
     {
         // Calculate the center position between the two joints
