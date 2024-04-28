@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 6}
-  m_LocalScale: {x: 1.2, y: 1, z: 1.2}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4293951296813672390}
@@ -170,7 +170,8 @@ MonoBehaviour:
   playerCurrentPosition: {x: 0, y: 0, z: 0}
   playerState: {fileID: 0}
   healthSlider: {fileID: 0}
-  magic: {fileID: 1568549803077103259, guid: f76b5a4d5e8b0344c8de693c1a39d7f3, type: 3}
+  level1GameManager: {fileID: 0}
+  magic: {fileID: 4192257203904126702, guid: 46ad2dfa0c3a07644b7131dfeaba819e, type: 3}
   magicPosition: {fileID: 3783371512833524818}
   isAttack: 0
   inAttackArea: 0

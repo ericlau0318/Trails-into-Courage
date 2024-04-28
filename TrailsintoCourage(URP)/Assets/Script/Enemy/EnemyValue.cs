@@ -33,7 +33,7 @@ public class EnemyValue : MonoBehaviour
     private GameObject healthBar;
     [SerializeField]
     private Slider healthSlider;
-    private Level1GameManager level1GameManager;
+    public Level1GameManager level1GameManager;
 
     // player attack demage
     public void EnemyHurtBySpell(Collider other, string enemyType)
@@ -55,16 +55,18 @@ public class EnemyValue : MonoBehaviour
     }
     public void EnemyDied()
     {
-        if (enemyHealth <= 0)
+        if (enemyHealth <= 0 && spawner.grassLand)
+        {
+            stateController.GainExp(4);           
+            level1GameManager.AddKilledCount();
+            spawner.monsterCount--;
+            Destroy(gameObject);
+        }
+
+        else if(enemyHealth <= 0)
         {
             stateController.GainExp(4);
-
             Destroy(gameObject, 0.5f);
-            if (spawner.grassLand)
-            {
-                level1GameManager.AddKilledCount();
-                spawner.monsterCount--;
-            }
         }
     }
     // collect UI object / state controller 
@@ -160,27 +162,16 @@ public class EnemyValue : MonoBehaviour
             //Destroy(enemy);
         }
     }
-    /*public void RandomCirclePoint()
-    {
-        float randomAngle = Random.Range(0f, Mathf.PI * 2f);
-        float randomRadius = Random.Range(0f, spawner.radius);
-
-        float x = Mathf.Cos(randomAngle) * randomRadius;
-        float z = Mathf.Sin(randomAngle) * randomRadius;
-
-        Vector3 swanTargetPosition = new Vector3(spawner.spawnerX, spawner.spawnerY, spawner.spawnerZ) + new Vector3(x, enemyCurrentPositionY, z);
-        Debug.Log(swanTargetPosition);
-    }*/
     // area SerializeField using debug draw line(显示十字但实质圆形)
     public void DrawLineArea()
     {   // sense area point
-        Vector3 senseRightward = new(enemyCurrentPositionX + senseRadius, enemyCurrentPositionY, enemyCurrentPositionZ);
+        /*Vector3 senseRightward = new(enemyCurrentPositionX + senseRadius, enemyCurrentPositionY, enemyCurrentPositionZ);
         Vector3 senseLeftward = new(enemyCurrentPositionX - senseRadius, enemyCurrentPositionY, enemyCurrentPositionZ);
         Vector3 senseForward = new(enemyCurrentPositionX, enemyCurrentPositionY, enemyCurrentPositionZ + senseRadius);
         Vector3 senseBackward = new(enemyCurrentPositionX, enemyCurrentPositionY, enemyCurrentPositionZ - senseRadius);
         // sense area 十字
         Debug.DrawLine(senseBackward, senseForward, Color.blue);
-        Debug.DrawLine(senseLeftward, senseRightward, Color.blue);
+        Debug.DrawLine(senseLeftward, senseRightward, Color.blue);*/
         // attack area point
         Vector3 attackRightward = new(enemyCurrentPositionX + attackRadius, enemyCurrentPositionY, enemyCurrentPositionZ);
         Vector3 attackLeftward = new(enemyCurrentPositionX - attackRadius, enemyCurrentPositionY, enemyCurrentPositionZ);

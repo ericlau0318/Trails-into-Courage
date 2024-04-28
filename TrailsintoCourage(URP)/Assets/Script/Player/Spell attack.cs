@@ -10,11 +10,11 @@ public class Spellattack : MonoBehaviour
     public GameObject Explosion;
     private void Start()
     {
-            Destroy(gameObject, destroyDelay);
+        Destroy(transform.parent.gameObject, destroyDelay);
     }
     private void Update()
     {
-        transform.position += transform.forward * spellspeed * Time.deltaTime;
+        transform.position +=  Time.deltaTime * transform.forward;
         transform.Rotate(0f, 0f, rotationSpeed * Time.deltaTime);
     }
     private void OnTriggerEnter(Collider other)
@@ -23,7 +23,7 @@ public class Spellattack : MonoBehaviour
         {
             Instantiate(Explosion, transform.position, transform.rotation);
             this.gameObject.SetActive(false);
-            Explosion.gameObject.SetActive(true);
+            Explosion.SetActive(true);
             Destroy(gameObject , 0.5f);
         }
     }

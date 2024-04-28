@@ -199,7 +199,7 @@ MonoBehaviour:
   weapon: {fileID: 7669443511648536755, guid: 82be703730670b348aa7b08d622a31d3, type: 3}
   weaponHolder: {fileID: 4614428897415161602}
   attackCoolDown: 1
-  spell: {fileID: 1615777340149260323, guid: fe0f3a98ca6c35944944e63f64615a02, type: 3}
+  spell: {fileID: 4192257203904126702, guid: 0b1266e9fe6ad254987c1cb0159fe03b, type: 3}
   spellHolder: {fileID: 3390449212833921542}
   spellManaCost: 10
   spellCoolDown: 1
