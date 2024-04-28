@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Magician : EnemyValue
+public class Magician : GrassLandType
 {
     private readonly string magician = "Magician";
     private Rigidbody rb;
@@ -36,26 +36,27 @@ public class Magician : EnemyValue
             UpdateCurrentPosition(this.gameObject);
             CheckAttack();
             ChasingPlayerGrassLand(this.gameObject, rb, isAttack, inAttackArea, movingSpeed);
-            EnemyDied();
+            GrassLandEnemyDied();
         }
     }
     // Archer setting / component
     private void InitialArcher()
     {
-        damage = 3;
-        enemyHealth = 12;
-        attackPeriod = 3f;
-        movingSpeed = 1.5f;
-        attackRadius = 6f;
-        senseRadius = 7.5f;
-        rotateSpeed = 125f;
+        damage              =   3;
+        enemyHealth         =   12;
+        attackPeriod        =   3f;
+        movingSpeed         =   1.5f;
+        attackRadius        =   6f;
+        senseRadius         =   7.5f;
+        rotateSpeed         =   125f;
     
-        hurtTime = 0.5f;
+        hurtTime            =   0.5f;
     
-        maxHealth = enemyHealth;
-        currentHealth = maxHealth;
-        rb = GetComponent<Rigidbody>();
-    
+        maxHealth           =   enemyHealth;
+        currentHealth       =   maxHealth;
+        rb                  =   GetComponent<Rigidbody>();
+        level1GameManager   =   FindObjectOfType<Level1GameManager>();
+
         isAttack = false;
         inAttackArea = false;
     }

@@ -21,8 +21,8 @@ public class Boss : EnemyValue
     [SerializeField]
     private bool isAttack, inLongAttackArea, switchLongMod;
     // UI hp
-    private float maxHealth;
-    private float currentHealth;
+    public float maxHealth;
+    public float currentHealth;
 
     // Start is called before the first frame update
     void Start()
@@ -48,9 +48,9 @@ public class Boss : EnemyValue
     {
         enemyHealth                 =   100;
         movingSpeed                 =   3;
-        shortDamage                 =   6;
-        longSpecialDamage           =   8;
-        longDamage                  =   6;
+        shortDamage                 =   8;
+        longSpecialDamage           =   7;
+        longDamage                  =   5;
       
         longAttackPeriod            =   2;
         longSpecialAttackPeriod     =   4;
@@ -66,6 +66,7 @@ public class Boss : EnemyValue
 
         isAttack            =   false;
         inLongAttackArea    =   false;
+        switchLongMod       =   true;
     }
     private void CheckAttack()
     {   
@@ -145,14 +146,13 @@ public class Boss : EnemyValue
     }
     private void ChasingPlayer()
     {
+        Rotation(playerCurrentPosition, this.gameObject, rb, 0);
         if (switchLongMod)
         {
             senseRadius = longAttackRadius + 10;
             // check sence area for action
             if (enemyHealth > 0 && DetectCircleArea(senseRadius) && !isAttack && !inLongAttackArea)
-            {   
-
-                Rotation(playerCurrentPosition, this.gameObject, rb, 90);
+            {
                 transform.position = Vector3.MoveTowards(transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
             }
         }
@@ -162,8 +162,6 @@ public class Boss : EnemyValue
             // check sence area for action  // check inside or outside the attack area
             if (enemyHealth > 0 && DetectCircleArea(senseRadius) && !isAttack && !DetectCircleArea(shortAttackRadius))
             {
-
-                Rotation(playerCurrentPosition, this.gameObject, rb, 90);
                 transform.position = Vector3.MoveTowards(transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
             }
         }

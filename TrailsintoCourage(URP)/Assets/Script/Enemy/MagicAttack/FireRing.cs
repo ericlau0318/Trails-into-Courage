@@ -33,7 +33,7 @@ public class FireRing : MonoBehaviour
         if (other.CompareTag("Player") && cycleDamgePeriod < 0)
         {
             boss.enemyHealth += 5;
-            boss.UpdateEnemyUI(boss.currentHealth, boss.maxHealth, boss.enemyHealth);
+            //boss.UpdateEnemyUI(boss.currentHealth, boss.maxHealth, boss.enemyHealth);
             player.TakeDamage(boss.longSpecialDamage);
             cycleDamgePeriod = cycleDamgeTime;
         }

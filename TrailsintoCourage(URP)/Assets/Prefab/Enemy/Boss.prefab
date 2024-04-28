@@ -101,14 +101,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2847513841281721480}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.77500004, y: 0.775, z: 0.52423215}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5248416724927291663}
   m_Father: {fileID: 8521813006189200587}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0.84}
@@ -277,7 +277,7 @@ Transform:
   m_GameObject: {fileID: 6695384985124062405}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.07499999, z: -0.95500016}
+  m_LocalPosition: {x: 0.04, y: 0.07499999, z: 1.01}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -421,9 +421,9 @@ MonoBehaviour:
   playerCurrentPositionY: 0
   playerCurrentPositionZ: 0
   playerCurrentPosition: {x: 0, y: 0, z: 0}
+  stateController: {fileID: 0}
   playerState: {fileID: 0}
   healthSlider: {fileID: 0}
-  level1GameManager: {fileID: 0}
   shortDamage: 0
   longDamage: 0
   longSpecialDamage: 0
@@ -435,6 +435,8 @@ MonoBehaviour:
   isAttack: 0
   inLongAttackArea: 0
   switchLongMod: 0
+  maxHealth: 0
+  currentHealth: 0
 --- !u!54 &3228184401392969719
 Rigidbody:
   m_ObjectHideFlags: 0
