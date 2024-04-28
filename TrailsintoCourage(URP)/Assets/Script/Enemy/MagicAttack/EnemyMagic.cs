@@ -7,15 +7,27 @@ public class EnemyMagic : MonoBehaviour
 {
     public float magicFlyingSpeed;
     private Vector3 shootPosition;
+    private Boss boss;
     private Magician magician;
     public GameObject hitEffect; 
     private PlayerState player;
+    private bool isBossMagic;
     // Start is called before the first frame update
     void Start()
     {
-        player          = FindObjectOfType<PlayerState>();
-        magician        = FindObjectOfType<Magician>();
-        shootPosition   = (magician.playerCurrentPosition - transform.position).normalized;
+        player          = FindObjectOfType<PlayerState>();    
+        if (this.name == "WaterBall(Clone)")
+        {
+            magician = FindObjectOfType<Magician>();
+            shootPosition = (magician.playerCurrentPosition - transform.position).normalized;
+            isBossMagic = false;
+        }
+        else
+        {
+            boss = FindObjectOfType<Boss>();
+            shootPosition = (boss.playerCurrentPosition - transform.position).normalized;
+            isBossMagic = true;
+        }        
         Destroy(gameObject, 5f);
     }
     // Update is called once per frame
@@ -38,8 +50,16 @@ public class EnemyMagic : MonoBehaviour
     { 
         if (other.CompareTag("Player"))
         {
-            player.TakeDamage(magician.damage);
-            DestroyMagic();
+            if(!isBossMagic)
+            {
+                player.TakeDamage(magician.damage);
+                DestroyMagic();
+            }
+            else
+            {
+                player.TakeDamage(boss.longDamage);
+                DestroyMagic();
+            }
         }
         else if(other.CompareTag("Ground"))
         {

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2809136471153758364}
   - component: {fileID: 7563388220423280529}
   m_Layer: 0
-  m_Name: WaterBall
+  m_Name: BossMagicBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

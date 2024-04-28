@@ -16,7 +16,7 @@ public class FireRing : MonoBehaviour
         player      = FindObjectOfType<PlayerState>();
         cycleDamgeTime = 0.8f;
         cycleDamgePeriod = -1;
-        Destroy(gameObject, 4f);
+        Destroy(gameObject, 3f);
     }
 
     // Update is called once per frame
@@ -32,7 +32,7 @@ public class FireRing : MonoBehaviour
     {
         if (other.CompareTag("Player") && cycleDamgePeriod < 0)
         {
-            player.TakeDamage(boss.longDamage);
+            player.TakeDamage(boss.longSpecialDamage);
             cycleDamgePeriod = cycleDamgeTime;
         }
     }
