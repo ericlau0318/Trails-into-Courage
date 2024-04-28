@@ -252,7 +252,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &6695384985124062405
+--- !u!1 &5334890883376222322
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -260,29 +260,91 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6723337726367630510}
+  - component: {fileID: 4358990221461678262}
   m_Layer: 0
-  m_Name: magicPoint
+  m_Name: magicPoint02
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6723337726367630510
+--- !u!4 &4358990221461678262
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6695384985124062405}
+  m_GameObject: {fileID: 5334890883376222322}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.04, y: 0.07499999, z: 1.01}
+  m_LocalRotation: {x: -0, y: 0.30070576, z: -0, w: 0.953717}
+  m_LocalPosition: {x: 0.5, y: 0.05, z: 1.01}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8521813006189200587}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 35, z: 0}
+--- !u!1 &7542168914419209198
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1208079428752952646}
+  m_Layer: 0
+  m_Name: magicPoint01
+  m_TagString: Untagged
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1208079428752952646
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7542168914419209198}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.30070576, z: -0, w: 0.953717}
+  m_LocalPosition: {x: 0, y: 0.05, z: 1.01}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8521813006189200587}
+  m_LocalEulerAnglesHint: {x: 0, y: -35, z: 0}
+--- !u!1 &8152059434050121483
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8010302757464363233}
+  m_Layer: 0
+  m_Name: magicPoint03
+  m_TagString: Untagged
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8010302757464363233
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8152059434050121483}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.30070576, z: -0, w: 0.953717}
+  m_LocalPosition: {x: -0.5, y: 0.05, z: 1.01}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8521813006189200587}
+  m_LocalEulerAnglesHint: {x: 0, y: -35, z: 0}
 --- !u!1 &8203608495901944202
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,7 +380,9 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3465682053976578332}
-  - {fileID: 6723337726367630510}
+  - {fileID: 1208079428752952646}
+  - {fileID: 4358990221461678262}
+  - {fileID: 8010302757464363233}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7909981867138536018
@@ -431,7 +495,9 @@ MonoBehaviour:
     type: 3}
   magicBall: {fileID: 4192257203904126702, guid: 9300564a1886a234398d1ab5a6190408,
     type: 3}
-  magicPosition: {fileID: 6723337726367630510}
+  magicPosition01: {fileID: 1208079428752952646}
+  magicPosition02: {fileID: 4358990221461678262}
+  magicPosition03: {fileID: 8010302757464363233}
   isAttack: 0
   inLongAttackArea: 0
   switchLongMod: 0
