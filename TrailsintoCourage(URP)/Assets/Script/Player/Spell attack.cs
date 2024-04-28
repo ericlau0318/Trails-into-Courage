@@ -10,7 +10,7 @@ public class Spellattack : MonoBehaviour
     public GameObject Explosion;
     private void Start()
     {
-            Destroy(transform.parent.gameObject, destroyDelay);
+            Destroy(gameObject, destroyDelay);
     }
     private void Update()
     {
