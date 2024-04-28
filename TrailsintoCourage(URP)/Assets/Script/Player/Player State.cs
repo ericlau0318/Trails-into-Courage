@@ -44,6 +44,8 @@ public class PlayerState : MonoBehaviour
     private bool canRecoverMana = true;
     private bool canRecoverStamina = true;
 
+    //rivate Animator anim;
+
     private void Start()
     {
         canvas = GameObject.Find("Canvas");
@@ -60,6 +62,7 @@ public class PlayerState : MonoBehaviour
             staminaBar = canvas.transform.Find("Stamina Bar").gameObject;
         }
 
+        //anim = gameObject.GetComponent<Animator>();
         healthSlider = healthBar.GetComponent<Slider>();
         manaSlider = manaBar.GetComponent<Slider>();
         staminaSlider = staminaBar.GetComponent<Slider>();
@@ -121,6 +124,7 @@ public class PlayerState : MonoBehaviour
     {
         if (isInvincible == false)
         {
+           // anim.SetTrigger("Invincible");
             currentHealth -= damage;
             Debug.Log("HP: " + currentHealth);
             StartCoroutine(InvincibleTime(0.5f));

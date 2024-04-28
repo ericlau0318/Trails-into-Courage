@@ -225,7 +225,7 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            playerState.TakeDamage(50);
+            //playerState.TakeDamage(50);
         }
     }
 
