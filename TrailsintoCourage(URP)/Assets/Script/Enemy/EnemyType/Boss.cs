@@ -182,13 +182,13 @@ public class Boss : EnemyValue
     }
     private void DrawLine()
     {   // sense area point
-        /*Vector3 senseRightward = new(enemyCurrentPositionX + senseRadius, enemyCurrentPositionY, enemyCurrentPositionZ);
+        Vector3 senseRightward = new(enemyCurrentPositionX + senseRadius, enemyCurrentPositionY, enemyCurrentPositionZ);
         Vector3 senseLeftward = new(enemyCurrentPositionX - senseRadius, enemyCurrentPositionY, enemyCurrentPositionZ);
         Vector3 senseForward = new(enemyCurrentPositionX, enemyCurrentPositionY, enemyCurrentPositionZ + senseRadius);
         Vector3 senseBackward = new(enemyCurrentPositionX, enemyCurrentPositionY, enemyCurrentPositionZ - senseRadius);
         // sense area Ê®×Ö
         Debug.DrawLine(senseBackward, senseForward, Color.blue);
-        Debug.DrawLine(senseLeftward, senseRightward, Color.blue);*/
+        Debug.DrawLine(senseLeftward, senseRightward, Color.blue);
         // attack area point
         Vector3 attackRightward = new(enemyCurrentPositionX + longAttackRadius, enemyCurrentPositionY, enemyCurrentPositionZ);
         Vector3 attackLeftward = new(enemyCurrentPositionX - longAttackRadius, enemyCurrentPositionY, enemyCurrentPositionZ);

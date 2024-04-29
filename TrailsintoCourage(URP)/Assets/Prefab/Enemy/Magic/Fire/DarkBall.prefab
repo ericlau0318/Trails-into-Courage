@@ -57,7 +57,13 @@ VisualEffect:
     m_Vector2f:
       m_Array: []
     m_Vector3f:
-      m_Array: []
+      m_Array:
+      - m_Value: {x: -2, y: -2, z: 1}
+        m_Name: MinParticleSpeed
+        m_Overridden: 1
+      - m_Value: {x: 2, y: 2, z: -25}
+        m_Name: MaxParticleSpeed
+        m_Overridden: 1
     m_Vector4f:
       m_Array: []
     m_Uint:
@@ -175,5 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   magicFlyingSpeed: 10
+  shootPosition: {x: 0, y: 0, z: 0}
   hitEffect: {fileID: 7809726241217551564, guid: a00fe02636053e44c9a32211e4f200cc,
     type: 3}
+  player: {fileID: 0}
