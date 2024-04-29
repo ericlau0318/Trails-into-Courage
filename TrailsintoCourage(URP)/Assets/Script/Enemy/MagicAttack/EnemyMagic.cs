@@ -36,7 +36,9 @@ public class EnemyMagic : MonoBehaviour
         Vector3 newPosition     =   transform.position + magicFlyingSpeed * Time.deltaTime * shootPosition;
         newPosition.y           =   transform.position.y;
         transform.position      =   newPosition;
-
+        Vector3 flatShootPosition = new Vector3(shootPosition.x, 0, shootPosition.z).normalized;
+        Quaternion targetRotation = Quaternion.LookRotation(flatShootPosition);
+        transform.rotation = targetRotation;
     }
     public void DestroyMagic()
     {        
