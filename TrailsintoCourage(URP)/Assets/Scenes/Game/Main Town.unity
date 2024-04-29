@@ -2350,6 +2350,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 379177537468935286, guid: c066b8b4fc8135b47b72880741eab2a0,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4071275397887599612, guid: c066b8b4fc8135b47b72880741eab2a0,
         type: 3}
       propertyPath: dialogueBox
