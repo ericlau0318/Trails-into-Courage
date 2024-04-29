@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor.Searcher;
 using UnityEngine;
 
@@ -13,9 +14,10 @@ public class Boss : EnemyValue
     public int longDamage, longSpecialDamage;
     private float longAttackRadius, shortAttackRadius;
     public GameObject fireRing, magicBall, mutiMagicBall;
-    public Transform magicPosition01, magicPosition02, magicPosition03;
+    public Vector3 magicPosition01, magicPosition02, magicPosition03;
 
     // enemy setting
+    [SerializeField]
     private float longAttackTime, longSpecialAttackTime, shortAttackTime;
     private float longAttackPeriod, shortAttackPeriod, longSpecialAttackPeriod;
     [SerializeField]
@@ -94,22 +96,23 @@ public class Boss : EnemyValue
         
         // attack fector attack time/ attack area/ attacking?
         if (switchLongMod && inLongAttackArea && !isAttack && enemyHealth > 0 )
-        {   // atual attack
-            isAttack = true;           
+        {   // atual attack          
             if(longAttackTime <= 0)
             {
                 if(enemyHealth > maxHealth/2 )
                 {
-                    Instantiate(magicBall, magicPosition01.transform.position, Quaternion.identity);
+                    isAttack = true;
+                    Instantiate(magicBall, magicPosition01, Quaternion.identity);
                     Debug.Log("longSimple");
                     // reset attack period time
                     longAttackTime = longAttackPeriod;
                 }
                 else 
                 {
-                    Instantiate(magicBall, magicPosition01.transform.position, Quaternion.identity);
-                    Instantiate(mutiMagicBall, magicPosition02.transform.position, Quaternion.identity);
-                    Instantiate(mutiMagicBall, magicPosition03.transform.position, Quaternion.identity);
+                    isAttack = true;
+                    Instantiate(magicBall,     magicPosition01, Quaternion.identity);
+                    Instantiate(mutiMagicBall, magicPosition02, Quaternion.identity);
+                    Instantiate(mutiMagicBall, magicPosition03, Quaternion.identity);
                     Debug.Log("longSimple");
                     // reset attack period time
                     longAttackTime = longAttackPeriod;
@@ -117,6 +120,7 @@ public class Boss : EnemyValue
             }
             else if (enemyHealth <= maxHealth / 2 && longSpecialAttackTime <= 0)
             {
+                isAttack = true;
                 Instantiate(fireRing, playerCurrentPosition, Quaternion.identity);
                 Debug.Log("longSpecial");
                 // reset attack period time
@@ -124,12 +128,11 @@ public class Boss : EnemyValue
             }
         }
         // count attack period time
-        else if (longAttackTime > 0)
+        if (longAttackTime > 0)
         {
             longAttackTime -= Time.deltaTime;
             isAttack = false;
         }
-
         if(longSpecialAttackTime > 0)
         {
             longSpecialAttackTime -= Time.deltaTime;
@@ -146,7 +149,7 @@ public class Boss : EnemyValue
             shortAttackTime = shortAttackPeriod;
         }
         // count attack period time
-        else if (shortAttackTime > 0)
+        if (shortAttackTime > 0)
         {
             shortAttackTime -= Time.deltaTime;
             isAttack = false;
@@ -160,6 +163,8 @@ public class Boss : EnemyValue
     private void ChasingPlayer()
     {
         Rotation(playerCurrentPosition, this.gameObject, rb, rotate);
+        RotateMagicPoint(playerCurrentPosition, magicPosition02, 1);
+        RotateMagicPoint(playerCurrentPosition, magicPosition03, 1);
         if (switchLongMod)
         {
             senseRadius = longAttackRadius + 12;
@@ -178,6 +183,24 @@ public class Boss : EnemyValue
                 transform.position = Vector3.MoveTowards(transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
             }
         }
+    }
+
+    private void RotateMagicPoint(Vector3 targetPosition, Vector3 position, float angle)
+    {
+        Vector3 directionToPlayer = targetPosition - position;
+        // Zero out the y component to keep the slime upright
+        directionToPlayer.y = 0;
+
+        // Create a new rotation that looks in the direction of the player
+        Quaternion lookRotation = Quaternion.LookRotation(directionToPlayer);
+
+        // Adjust for the slime's actual forward direction if it's not the global Z-axis
+        // For example, if the slime's forward is the positive X-axis, we rotate the quaternion
+
+        // inital setting is - 90 angle, but someone moodle 0 angle is different rotation state so need to try different change
+        Quaternion correctedRotation = Quaternion.Euler(lookRotation.eulerAngles.x, lookRotation.eulerAngles.y - (angle), lookRotation.eulerAngles.z);
+        // Smoothly rotate the slime towards the player
+        rb.MoveRotation(Quaternion.Slerp(transform.rotation, correctedRotation, rotateSpeed * Time.deltaTime));
     }
     private void DrawLine()
     {   // sense area point

@@ -29,26 +29,26 @@ public class FireBall : MonoBehaviour
             if (!waitingForRemove)
             {
                 waitingForRemove=true;
-                Invoke("removeSelf", 0.5f);
+                Invoke(nameof(RemoveSelf), 0.5f);
             }
         }
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag=="Player")
+        if (other.CompareTag("Player"))
         {
             player.TakeDamage(damage);
             //Destroy(gameObject);
             if (!waitingForRemove)
             {
                 waitingForRemove= true;
-                removeSelf();
+                RemoveSelf();
                 Debug.Log("123");
             }
         }
     }
 
-    public void removeSelf()
+    public void RemoveSelf()
     {
         FireballPool.instance.ReleaseFireball(gameObject);
     }
