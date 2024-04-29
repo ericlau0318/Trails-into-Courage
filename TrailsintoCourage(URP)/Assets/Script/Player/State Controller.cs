@@ -318,6 +318,7 @@ public class StateController : MonoBehaviour
     public void GainExp(int exe)
     {
         Exp += exe;
+        Debug.Log("Level: " + Level);
     }
 
     private IEnumerator MovePanel(Vector2 destination, float duration)

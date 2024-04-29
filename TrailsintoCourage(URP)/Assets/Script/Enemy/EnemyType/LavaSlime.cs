@@ -38,18 +38,19 @@ public class LavaSlime : EnemyValue
         UpdateCurrentPosition(this.gameObject);
         CheckAttack();
         ChasingPlayer();
-        EnemyDied();
+        EnemyDied(exp);
     }
     // Archer setting / component
     private void InitialMummy()
     {
-        damage = 4;
-        enemyHealth = 20;
-        attackPeriod = 1.5f;
-        movingSpeed = 2f;
-        attackRadius = 3f;
-        senseRadius = 6;
-        rotateSpeed = 125f;
+        damage                  =       4;
+        enemyHealth             =       20;
+        exp                     =       7;
+        attackPeriod            =       1.5f;
+        movingSpeed             =       2f;
+        attackRadius            =       3f;
+        senseRadius             =       6;
+        rotateSpeed             =       125f;
 
         maxHealth = enemyHealth;
         currentHealth = maxHealth;

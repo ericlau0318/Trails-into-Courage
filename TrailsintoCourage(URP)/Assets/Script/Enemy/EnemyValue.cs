@@ -5,12 +5,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEditor.SearchService;
+using Unity.VisualScripting;
 
 public class EnemyValue : MonoBehaviour
 {
     public Animator enemyAnimator;
     // enemy state value
     public int damage;
+    public int exp;
     public float enemyHealth;
     public float attackPeriod;
     public float attackRadius;
@@ -19,6 +21,7 @@ public class EnemyValue : MonoBehaviour
     public float movingSpeed;
     public float rotateSpeed;
     public float hurtTime;
+    public bool isdead;
     // collect enemy position
     public float enemyCurrentPositionX, enemyCurrentPositionY, enemyCurrentPositionZ;
     public Spawner spawner;
@@ -52,12 +55,18 @@ public class EnemyValue : MonoBehaviour
             hurtTime = 0.5f;
         }
     }
-    public void EnemyDied()
+    public void EnemyDied(int exp)
     {
         if(enemyHealth <= 0)
         {
-            stateController.GainExp(4);
+            isdead = true;
             Destroy(gameObject, 0.5f);
+            this.gameObject.SetActive(false);
+        }
+        if(isdead)
+        {
+            stateController.GainExp(exp);
+            isdead = false;
         }
     }
     // collect UI object / state controller 
@@ -71,6 +80,7 @@ public class EnemyValue : MonoBehaviour
         playerState = FindObjectOfType<PlayerState>();
         spawner = FindObjectOfType<Spawner>();
         hurtTime = 0.5f;
+        isdead = false;
     }
     // update hp UI
     public void UpdateEnemyUI(float currentValue, float max)
