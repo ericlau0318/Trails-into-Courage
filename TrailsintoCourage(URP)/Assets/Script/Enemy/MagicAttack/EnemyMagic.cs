@@ -6,11 +6,11 @@ using UnityEngine;
 public class EnemyMagic : MonoBehaviour
 {
     public float magicFlyingSpeed;
-    private Vector3 shootPosition;
+    public Vector3 shootPosition;
     private Boss boss;
     private Magician magician;
     public GameObject hitEffect; 
-    private PlayerState player;
+    public PlayerState player;
     private bool isBossMagic;
     // Start is called before the first frame update
     void Start()
@@ -38,7 +38,7 @@ public class EnemyMagic : MonoBehaviour
         transform.position      =   newPosition;
 
     }
-    private void DestroyMagic()
+    public void DestroyMagic()
     {        
         Instantiate(hitEffect, transform.position, transform.rotation);
         this.gameObject.SetActive(false);
@@ -66,5 +66,4 @@ public class EnemyMagic : MonoBehaviour
             DestroyMagic();
         }
     }
-
 }

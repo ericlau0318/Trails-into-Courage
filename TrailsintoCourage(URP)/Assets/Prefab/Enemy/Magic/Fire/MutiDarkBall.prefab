@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 7152367550430496150}
   - component: {fileID: 3097172460383886315}
   - component: {fileID: 2809136471153758364}
-  - component: {fileID: 7563388220423280529}
-  m_Layer: 9
-  m_Name: WaterBall
+  - component: {fileID: 5089505015399969262}
+  m_Layer: 0
+  m_Name: MutiDarkBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.06, y: 0.06, z: 0.06}
+  m_LocalScale: {x: 0.08, y: 0.08, z: 0.08}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -44,7 +44,7 @@ VisualEffect:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4192257203904126702}
   m_Enabled: 1
-  m_Asset: {fileID: 8926484042661614526, guid: 2ec42e04d4a75754c9d034864584fafc, type: 3}
+  m_Asset: {fileID: 8926484042661614526, guid: da573bf895bfc6b4f923aecb372bf5ae, type: 3}
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 0
   m_StartSeed: 0
@@ -162,7 +162,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 7
   m_Center: {x: -0.008661509, y: 1.4014218, z: -0.018482447}
---- !u!114 &7563388220423280529
+--- !u!114 &5089505015399969262
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,9 +171,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4192257203904126702}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b2a9a88a4f5a6e44bd58b5fbf25d72a, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c2bf15b64e1cc0449c58be6d61c3141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  magicFlyingSpeed: 10
-  hitEffect: {fileID: 7809726241217551564, guid: ee7073370004b624f9f3ab94e1406981,
+  magicFlyingSpeed: 0
+  shootPosition: {x: 0, y: 0, z: 0}
+  hitEffect: {fileID: 7809726241217551564, guid: a00fe02636053e44c9a32211e4f200cc,
     type: 3}
+  player: {fileID: 0}

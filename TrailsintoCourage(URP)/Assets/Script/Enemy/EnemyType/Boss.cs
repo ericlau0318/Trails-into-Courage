@@ -12,8 +12,8 @@ public class Boss : EnemyValue
     private int shortDamage;
     public int longDamage, longSpecialDamage;
     private float longAttackRadius, shortAttackRadius;
-    public GameObject fireRing, magicBall;
-    public Transform magicPosition;
+    public GameObject fireRing, magicBall, mutiMagicBall;
+    public Transform magicPosition01, magicPosition02, magicPosition03;
 
     // enemy setting
     private float longAttackTime, longSpecialAttackTime, shortAttackTime;
@@ -21,8 +21,8 @@ public class Boss : EnemyValue
     [SerializeField]
     private bool isAttack, inLongAttackArea, switchLongMod;
     // UI hp
-    private float maxHealth;
-    private float currentHealth;
+    public float maxHealth;
+    public float currentHealth;
 
     // Start is called before the first frame update
     void Start()
@@ -47,16 +47,16 @@ public class Boss : EnemyValue
     private void InitialBoss()
     {
         enemyHealth                 =   100;
-        movingSpeed                 =   3;
-        shortDamage                 =   6;
-        longSpecialDamage           =   8;
-        longDamage                  =   6;
+        movingSpeed                 =   4;
+        shortDamage                 =   8;
+        longSpecialDamage           =   7;
+        longDamage                  =   5;
       
         longAttackPeriod            =   2;
         longSpecialAttackPeriod     =   4;
         shortAttackPeriod           =   2;       
-        longAttackRadius            =   12;
-        shortAttackRadius           =   1.5f;
+        longAttackRadius            =   14;
+        shortAttackRadius           =   1f;
 
         rotateSpeed                 =   125f;
 
@@ -66,6 +66,7 @@ public class Boss : EnemyValue
 
         isAttack            =   false;
         inLongAttackArea    =   false;
+        switchLongMod       =   true;
     }
     private void CheckAttack()
     {   
@@ -89,16 +90,30 @@ public class Boss : EnemyValue
         }
         
         // attack fector attack time/ attack area/ attacking?
-        if (inLongAttackArea && !isAttack && enemyHealth > 0 )
+        if (switchLongMod && inLongAttackArea && !isAttack && enemyHealth > 0 )
         {   // atual attack
             isAttack = true;           
             if(longAttackTime <= 0)
             {
+                if(enemyHealth > maxHealth/2 )
+                {
+                    Instantiate(magicBall, magicPosition01.transform.position, Quaternion.identity);
+                    Debug.Log("longSimple");
+                    // reset attack period time
+                    longAttackTime = longAttackPeriod;
+                }
+                else 
+                {
+                    Instantiate(magicBall, magicPosition01.transform.position, Quaternion.identity);
+                    Instantiate(mutiMagicBall, magicPosition02.transform.position, Quaternion.identity);
+                    Instantiate(mutiMagicBall, magicPosition03.transform.position, Quaternion.identity);
+                    Debug.Log("longSimple");
+                    // reset attack period time
+                    longAttackTime = longAttackPeriod;
+                }
+
                 //enemyAnimator.SetTrigger("isAttack");
-                Instantiate(magicBall, magicPosition.transform.position, Quaternion.identity);
-                Debug.Log("longSimple");
-                // reset attack period time
-                longAttackTime = longAttackPeriod;
+                
             }
             else if (enemyHealth <= maxHealth / 2 && longSpecialAttackTime <= 0)
             {
@@ -145,14 +160,13 @@ public class Boss : EnemyValue
     }
     private void ChasingPlayer()
     {
+        Rotation(playerCurrentPosition, this.gameObject, rb, 0);
         if (switchLongMod)
         {
             senseRadius = longAttackRadius + 10;
             // check sence area for action
             if (enemyHealth > 0 && DetectCircleArea(senseRadius) && !isAttack && !inLongAttackArea)
-            {   
-
-                Rotation(playerCurrentPosition, this.gameObject, rb, 90);
+            {
                 transform.position = Vector3.MoveTowards(transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
             }
         }
@@ -162,8 +176,6 @@ public class Boss : EnemyValue
             // check sence area for action  // check inside or outside the attack area
             if (enemyHealth > 0 && DetectCircleArea(senseRadius) && !isAttack && !DetectCircleArea(shortAttackRadius))
             {
-
-                Rotation(playerCurrentPosition, this.gameObject, rb, 90);
                 transform.position = Vector3.MoveTowards(transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
             }
         }

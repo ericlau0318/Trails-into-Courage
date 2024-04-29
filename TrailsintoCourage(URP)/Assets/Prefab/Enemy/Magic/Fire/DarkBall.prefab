@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2809136471153758364}
   - component: {fileID: 7563388220423280529}
   m_Layer: 0
-  m_Name: BossMagicBall
+  m_Name: DarkBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.06, y: 0.06, z: 0.06}
+  m_LocalScale: {x: 0.08, y: 0.08, z: 0.08}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -44,7 +44,7 @@ VisualEffect:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4192257203904126702}
   m_Enabled: 1
-  m_Asset: {fileID: 8926484042661614526, guid: 2ec42e04d4a75754c9d034864584fafc, type: 3}
+  m_Asset: {fileID: 8926484042661614526, guid: da573bf895bfc6b4f923aecb372bf5ae, type: 3}
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 0
   m_StartSeed: 0
@@ -175,5 +175,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   magicFlyingSpeed: 10
-  hitEffect: {fileID: 7809726241217551564, guid: ee7073370004b624f9f3ab94e1406981,
+  hitEffect: {fileID: 7809726241217551564, guid: a00fe02636053e44c9a32211e4f200cc,
     type: 3}

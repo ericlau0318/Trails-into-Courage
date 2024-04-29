@@ -26,14 +26,13 @@ public class EnemyValue : MonoBehaviour
     private GameObject player;
     public float playerCurrentPositionX, playerCurrentPositionY, playerCurrentPositionZ;
     public Vector3 playerCurrentPosition;
-    private StateController stateController;
+    public StateController stateController;
     public PlayerState playerState;
     // UI
     private Transform canvas;
     private GameObject healthBar;
     [SerializeField]
     private Slider healthSlider;
-    public Level1GameManager level1GameManager;
 
     // player attack demage
     public void EnemyHurtBySpell(Collider other, string enemyType)
@@ -55,15 +54,7 @@ public class EnemyValue : MonoBehaviour
     }
     public void EnemyDied()
     {
-        if (enemyHealth <= 0 && spawner.grassLand)
-        {
-            stateController.GainExp(4);           
-            level1GameManager.AddKilledCount();
-            spawner.monsterCount--;
-            Destroy(gameObject);
-        }
-
-        else if(enemyHealth <= 0)
+        if(enemyHealth <= 0)
         {
             stateController.GainExp(4);
             Destroy(gameObject, 0.5f);
@@ -77,7 +68,6 @@ public class EnemyValue : MonoBehaviour
         canvas = enemy.transform.Find("Canvas");
         healthBar = canvas.Find("HPSlider").gameObject;
         healthSlider = healthBar.GetComponent<Slider>();
-        level1GameManager = FindObjectOfType<Level1GameManager>();
         playerState = FindObjectOfType<PlayerState>();
         spawner = FindObjectOfType<Spawner>();
         hurtTime = 0.5f;
@@ -148,19 +138,6 @@ public class EnemyValue : MonoBehaviour
             inside = false;
         }
         return inside;
-    }
-    public void ChasingPlayerGrassLand(GameObject enemy,Rigidbody rb,bool isAttack, bool inAttackArea, float movingSpeed)
-    {
-        // inital setting is 90 angle, but someone moodle 0 angle is different rotation state so need to try different change
-        Rotation(playerCurrentPosition, enemy, rb, 90);
-        if (spawner.grassLand && !isAttack && !inAttackArea)
-        {
-            enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
-        }
-        else if (spawner.volcano || spawner.desert)
-        {
-            //Destroy(enemy);
-        }
     }
     // area SerializeField using debug draw line(显示十字但实质圆形)
     public void DrawLineArea()
