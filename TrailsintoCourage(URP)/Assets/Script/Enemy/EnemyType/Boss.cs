@@ -55,7 +55,7 @@ public class Boss : EnemyValue
         longSpecialDamage           =       7;
         longDamage                  =       5;
       
-        longAttackPeriod            =       2;
+        longAttackPeriod            =       1.8f;
         longSpecialAttackPeriod     =       4;
         shortAttackPeriod           =       2;       
         longAttackRadius            =       14;
