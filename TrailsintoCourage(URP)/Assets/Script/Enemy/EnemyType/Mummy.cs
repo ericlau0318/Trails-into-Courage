@@ -38,18 +38,19 @@ public class Mummy : EnemyValue
         UpdateCurrentPosition(this.gameObject);
         CheckAttack();
         ChasingPlayer();
-        EnemyDied();
+        EnemyDied(exp);
     }
     // Archer setting / component
     private void InitialMummy()
     {
-        damage = 4;
-        enemyHealth = 30;
-        attackPeriod = 1.5f;
-        movingSpeed = 3f;
-        attackRadius = 1.8f;
-        senseRadius = 8;
-        rotateSpeed = 125f;
+        damage                   =     4;
+        enemyHealth              =     30;
+        exp                      =     6;
+        attackPeriod             =     1.5f;
+        movingSpeed              =     3f;
+        attackRadius             =     1.8f;
+        senseRadius              =     8;
+        rotateSpeed              =     125f;
 
         maxHealth = enemyHealth;
         currentHealth = maxHealth;

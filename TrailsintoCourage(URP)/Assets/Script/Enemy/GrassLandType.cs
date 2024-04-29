@@ -19,14 +19,20 @@ public class GrassLandType : EnemyValue
             //Destroy(enemy);
         }
     }
-    public void GrassLandEnemyDied()
+    public void GrassLandEnemyDied(int exp)
     {
         if (enemyHealth <= 0)
+        {            
+            isdead = true;
+            Destroy(gameObject, 0.5f);
+            this.gameObject.SetActive(false);
+        }
+        if (isdead)
         {
-            stateController.GainExp(4);
+            stateController.GainExp(exp);
             level1GameManager.AddKilledCount();
             spawner.monsterCount--;
-            Destroy(gameObject);
+            isdead = false;
         }
     }
 }

@@ -34,24 +34,25 @@ public class BlueSlime : GrassLandType
             UpdateCurrentPosition(this.gameObject);
             CheckAttack();
             ChasingPlayerGrassLand(this.gameObject, rb, isAttack, inAttackArea, movingSpeed);
-            GrassLandEnemyDied();
+            GrassLandEnemyDied(exp);
         }       
     }
     // Blue Slime settin value / component
     private void InitialBlueSlime()
     {
-        damage              =   2;
-        enemyHealth         =   20;
-        attackPeriod        =   0.8f;
-        movingSpeed         =   2.5f;
-        attackRadius        =   3f;
-        senseRadius         =   4;
-        rotateSpeed         =   125f;
+        damage                  =       2;
+        enemyHealth             =       20;
+        exp                     =       4;
+        attackPeriod            =       0.8f;
+        movingSpeed             =       2.5f;
+        attackRadius            =       3f;
+        senseRadius             =       4;
+        rotateSpeed             =       125f;
 
-        maxHealth           =   enemyHealth;
-        currentHealth       =   maxHealth;
-        rb                  =   GetComponent<Rigidbody>();
-        level1GameManager   =   FindObjectOfType<Level1GameManager>();
+        maxHealth               =       enemyHealth;
+        currentHealth           =       maxHealth;
+        rb                      =       GetComponent<Rigidbody>();
+        level1GameManager       =       FindObjectOfType<Level1GameManager>();
 
         isAttack = false;
         inAttackArea = false;

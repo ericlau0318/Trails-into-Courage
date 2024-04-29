@@ -42,25 +42,26 @@ public class Boss : EnemyValue
         UpdateCurrentPosition(this.gameObject);
         CheckAttack();
         ChasingPlayer();
-        EnemyDied();
+        EnemyDied(exp);
     }
     // Boss setting / component
     private void InitialBoss()
     {
-        enemyHealth                 =   100;
-        recoverHealth               =   3;
-        movingSpeed                 =   4;
-        shortDamage                 =   8;
-        longSpecialDamage           =   7;
-        longDamage                  =   5;
+        enemyHealth                 =       100;
+        recoverHealth               =       3;
+        exp                         =       20;
+        movingSpeed                 =       4;
+        shortDamage                 =       8;
+        longSpecialDamage           =       7;
+        longDamage                  =       5;
       
-        longAttackPeriod            =   2;
-        longSpecialAttackPeriod     =   4;
-        shortAttackPeriod           =   2;       
-        longAttackRadius            =   14;
-        shortAttackRadius           =   1.5f;
+        longAttackPeriod            =       2;
+        longSpecialAttackPeriod     =       4;
+        shortAttackPeriod           =       2;       
+        longAttackRadius            =       14;
+        shortAttackRadius           =       1.5f;
 
-        rotateSpeed                 =   125f;
+        rotateSpeed                 =       125f;
 
         maxHealth = enemyHealth;
         currentHealth = maxHealth;

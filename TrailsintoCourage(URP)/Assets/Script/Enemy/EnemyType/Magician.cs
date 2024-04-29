@@ -20,7 +20,7 @@ public class Magician : GrassLandType
     // Start is called before the first frame update
     void Start()
     {
-        InitialArcher();
+        InitialMagician();
         InitialObjectCollect(this.gameObject);
     
     }
@@ -36,29 +36,30 @@ public class Magician : GrassLandType
             UpdateCurrentPosition(this.gameObject);
             CheckAttack();
             ChasingPlayerGrassLand(this.gameObject, rb, isAttack, inAttackArea, movingSpeed);
-            GrassLandEnemyDied();
+            GrassLandEnemyDied(exp);
         }
     }
     // Archer setting / component
-    private void InitialArcher()
+    private void InitialMagician()
     {
-        damage              =   4;
-        enemyHealth         =   12;
-        attackPeriod        =   3.5f;
-        movingSpeed         =   2f;
-        attackRadius        =   7f;
-        senseRadius         =   8f;
-        rotateSpeed         =   125f;
+        damage                  =       4;
+        enemyHealth             =       12;
+        attackPeriod            =       3.5f;
+        exp                     =       4;
+        movingSpeed             =       2f;
+        attackRadius            =       7f;
+        senseRadius             =       8f;
+        rotateSpeed             =       125f;
     
-        hurtTime            =   0.5f;
+        hurtTime                =       0.5f;
     
-        maxHealth           =   enemyHealth;
-        currentHealth       =   maxHealth;
-        rb                  =   GetComponent<Rigidbody>();
-        level1GameManager   =   FindObjectOfType<Level1GameManager>();
+        maxHealth               =       enemyHealth;
+        currentHealth           =       maxHealth;
+        rb                      =       GetComponent<Rigidbody>();
+        level1GameManager       =       FindObjectOfType<Level1GameManager>();
 
-        isAttack = false;
-        inAttackArea = false;
+        isAttack                =       false;
+        inAttackArea            =       false;
     }
     private void CheckAttack()
     {   // check inside or outside the attack area
