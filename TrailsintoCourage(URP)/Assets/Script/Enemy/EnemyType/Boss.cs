@@ -160,10 +160,10 @@ public class Boss : EnemyValue
     }
     private void ChasingPlayer()
     {
-        Rotation(playerCurrentPosition, this.gameObject, rb, 0);
+        Rotation(playerCurrentPosition, this.gameObject, rb, 90);
         if (switchLongMod)
         {
-            senseRadius = longAttackRadius + 10;
+            senseRadius = longAttackRadius + 12;
             // check sence area for action
             if (enemyHealth > 0 && DetectCircleArea(senseRadius) && !isAttack && !inLongAttackArea)
             {
