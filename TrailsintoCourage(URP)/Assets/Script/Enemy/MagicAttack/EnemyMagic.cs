@@ -12,10 +12,6 @@ public class EnemyMagic : MonoBehaviour
     public PlayerState player;
     public bool isBossMagic;
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
     public void InitialCollect()
     {
         player = FindObjectOfType<PlayerState>();
@@ -37,9 +33,9 @@ public class EnemyMagic : MonoBehaviour
     public void DestroyMagic(GameObject hitEffect)
     {        
         Instantiate(hitEffect, transform.position, transform.rotation);
+        Destroy(gameObject, 0.5f);
         this.gameObject.SetActive(false);
         hitEffect.SetActive(true);
-        Destroy(gameObject, 0.5f);
     }
     public void Moving()
     {
