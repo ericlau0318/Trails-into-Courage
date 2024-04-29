@@ -42,12 +42,12 @@ public class Magician : GrassLandType
     // Archer setting / component
     private void InitialArcher()
     {
-        damage              =   3;
+        damage              =   4;
         enemyHealth         =   12;
-        attackPeriod        =   3f;
-        movingSpeed         =   1.5f;
-        attackRadius        =   6f;
-        senseRadius         =   7.5f;
+        attackPeriod        =   3.5f;
+        movingSpeed         =   2f;
+        attackRadius        =   7f;
+        senseRadius         =   8f;
         rotateSpeed         =   125f;
     
         hurtTime            =   0.5f;

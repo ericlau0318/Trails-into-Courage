@@ -47,8 +47,8 @@ public class Mummy : EnemyValue
         enemyHealth = 30;
         attackPeriod = 1.5f;
         movingSpeed = 3f;
-        attackRadius = 1.6f;
-        senseRadius = 6;
+        attackRadius = 1.8f;
+        senseRadius = 8;
         rotateSpeed = 125f;
 
         maxHealth = enemyHealth;
@@ -100,18 +100,14 @@ public class Mummy : EnemyValue
     }
     private void ChasingPlayer()
     {
-        if (spawner.grassLand || spawner.volcano)
-        {
-            //gameObject.SetActive(false);
-            //Destroy(gameObject);
-        }
-        else if (spawner.desert && enemyHealth > 00)
+        if (spawner.desert && enemyHealth > 00)
         {   // check for swaning/??¡Á? or not
 
             // check sence area if false swan to walk point to point
             if (!DetectCircleArea(senseRadius))
             {
-                isSwan = true;
+                isSwan          =   true;
+                movingSpeed     =   3f;
                 Rotation(target.transform.position, this.gameObject, rb, r);
                 transform.position = Vector3.MoveTowards(transform.position, target.position, movingSpeed * Time.deltaTime);
 
@@ -130,21 +126,18 @@ public class Mummy : EnemyValue
                         movingToPoint1 = true;
                     }
                 }
-
             }
 
             else if (DetectCircleArea(senseRadius))
             {
-                isSwan = false;
+                isSwan          =   false;
+                movingSpeed     =   4f;
                 Rotation(playerCurrentPosition, this.gameObject, rb, r);
                 if (!isAttack && !inAttackArea)
                 {
                     transform.position = Vector3.MoveTowards(transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
-                }
-                
+                }               
             }
         }
     }
-
-
 }

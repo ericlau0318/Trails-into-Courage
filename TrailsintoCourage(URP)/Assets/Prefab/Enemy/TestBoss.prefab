@@ -360,7 +360,7 @@ GameObject:
   - component: {fileID: 8086983768808107389}
   - component: {fileID: 3228184401392969719}
   m_Layer: 0
-  m_Name: Boss
+  m_Name: TestBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

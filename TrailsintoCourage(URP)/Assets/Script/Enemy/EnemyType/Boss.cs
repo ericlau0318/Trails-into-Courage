@@ -23,7 +23,8 @@ public class Boss : EnemyValue
     // UI hp
     public float maxHealth;
     public float currentHealth;
-
+    public float rotate;
+    public float recoverHealth;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +48,7 @@ public class Boss : EnemyValue
     private void InitialBoss()
     {
         enemyHealth                 =   100;
+        recoverHealth               =   3;
         movingSpeed                 =   4;
         shortDamage                 =   8;
         longSpecialDamage           =   7;
@@ -56,7 +58,7 @@ public class Boss : EnemyValue
         longSpecialAttackPeriod     =   4;
         shortAttackPeriod           =   2;       
         longAttackRadius            =   14;
-        shortAttackRadius           =   1f;
+        shortAttackRadius           =   1.5f;
 
         rotateSpeed                 =   125f;
 
@@ -71,7 +73,7 @@ public class Boss : EnemyValue
     private void CheckAttack()
     {   
         //check distance between player to switch attack mod
-        if(Vector3.Distance(transform.position, playerCurrentPosition) > 10f)
+        if(Vector3.Distance(transform.position, playerCurrentPosition) > 9.5f)
         {
             switchLongMod = true;
             // check inside or outside the attack area
@@ -110,10 +112,7 @@ public class Boss : EnemyValue
                     Debug.Log("longSimple");
                     // reset attack period time
                     longAttackTime = longAttackPeriod;
-                }
-
-                //enemyAnimator.SetTrigger("isAttack");
-                
+                }                
             }
             else if (enemyHealth <= maxHealth / 2 && longSpecialAttackTime <= 0)
             {
@@ -135,7 +134,6 @@ public class Boss : EnemyValue
             longSpecialAttackTime -= Time.deltaTime;
             isAttack = false;
         }
-        
 
         // attack fector attack time/ attack area/ attacking?
         if (shortAttackTime <= 0 && DetectCircleArea(shortAttackRadius) && !isAttack && enemyHealth > 0)
@@ -160,10 +158,10 @@ public class Boss : EnemyValue
     }
     private void ChasingPlayer()
     {
-        Rotation(playerCurrentPosition, this.gameObject, rb, 0);
+        Rotation(playerCurrentPosition, this.gameObject, rb, rotate);
         if (switchLongMod)
         {
-            senseRadius = longAttackRadius + 10;
+            senseRadius = longAttackRadius + 12;
             // check sence area for action
             if (enemyHealth > 0 && DetectCircleArea(senseRadius) && !isAttack && !inLongAttackArea)
             {
@@ -182,13 +180,13 @@ public class Boss : EnemyValue
     }
     private void DrawLine()
     {   // sense area point
-        /*Vector3 senseRightward = new(enemyCurrentPositionX + senseRadius, enemyCurrentPositionY, enemyCurrentPositionZ);
+        Vector3 senseRightward = new(enemyCurrentPositionX + senseRadius, enemyCurrentPositionY, enemyCurrentPositionZ);
         Vector3 senseLeftward = new(enemyCurrentPositionX - senseRadius, enemyCurrentPositionY, enemyCurrentPositionZ);
         Vector3 senseForward = new(enemyCurrentPositionX, enemyCurrentPositionY, enemyCurrentPositionZ + senseRadius);
         Vector3 senseBackward = new(enemyCurrentPositionX, enemyCurrentPositionY, enemyCurrentPositionZ - senseRadius);
         // sense area Ê®×Ö
         Debug.DrawLine(senseBackward, senseForward, Color.blue);
-        Debug.DrawLine(senseLeftward, senseRightward, Color.blue);*/
+        Debug.DrawLine(senseLeftward, senseRightward, Color.blue);
         // attack area point
         Vector3 attackRightward = new(enemyCurrentPositionX + longAttackRadius, enemyCurrentPositionY, enemyCurrentPositionZ);
         Vector3 attackLeftward = new(enemyCurrentPositionX - longAttackRadius, enemyCurrentPositionY, enemyCurrentPositionZ);

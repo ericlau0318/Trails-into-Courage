@@ -398,6 +398,7 @@ MonoBehaviour:
   playerCurrentPositionY: 0
   playerCurrentPositionZ: 0
   playerCurrentPosition: {x: 0, y: 0, z: 0}
+  stateController: {fileID: 0}
   playerState: {fileID: 0}
   healthSlider: {fileID: 0}
   point2: {fileID: 0}
@@ -1700,32 +1701,32 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c2b253a883297504a85b046c28052226,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 49.999977
+      value: 55.117165
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c2b253a883297504a85b046c28052226,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 49.999985
+      value: 53.050278
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c2b253a883297504a85b046c28052226,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 49.99999
+      value: 55.117176
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c2b253a883297504a85b046c28052226,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.14143454
+      value: -0.145
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c2b253a883297504a85b046c28052226,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.1406776
+      value: -0.146
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c2b253a883297504a85b046c28052226,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.15832032
+      value: -0.164
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c2b253a883297504a85b046c28052226,
         type: 3}
