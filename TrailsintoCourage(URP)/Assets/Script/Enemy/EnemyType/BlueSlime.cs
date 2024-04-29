@@ -4,7 +4,7 @@ using UnityEditor.Searcher;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BlueSlime : EnemyValue
+public class BlueSlime : GrassLandType
 {
     private readonly string blueSlime = "blueSlime";
     private Rigidbody rb;
@@ -34,23 +34,25 @@ public class BlueSlime : EnemyValue
             UpdateCurrentPosition(this.gameObject);
             CheckAttack();
             ChasingPlayerGrassLand(this.gameObject, rb, isAttack, inAttackArea, movingSpeed);
-            EnemyDied();
+            GrassLandEnemyDied(exp);
         }       
     }
     // Blue Slime settin value / component
     private void InitialBlueSlime()
     {
-        damage = 1;
-        enemyHealth = 20;
-        attackPeriod = 0.8f;
-        movingSpeed = 2.5f;
-        attackRadius = 3f;
-        senseRadius = 4;
-        rotateSpeed = 125f;
+        damage                  =       2;
+        enemyHealth             =       20;
+        exp                     =       4;
+        attackPeriod            =       0.8f;
+        movingSpeed             =       2.5f;
+        attackRadius            =       3f;
+        senseRadius             =       4;
+        rotateSpeed             =       125f;
 
-        maxHealth = enemyHealth;
-        currentHealth = maxHealth;
-        rb = GetComponent<Rigidbody>();
+        maxHealth               =       enemyHealth;
+        currentHealth           =       maxHealth;
+        rb                      =       GetComponent<Rigidbody>();
+        level1GameManager       =       FindObjectOfType<Level1GameManager>();
 
         isAttack = false;
         inAttackArea = false;

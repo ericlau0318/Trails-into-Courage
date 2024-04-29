@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Magician : EnemyValue
+public class Magician : GrassLandType
 {
     private readonly string magician = "Magician";
     private Rigidbody rb;
@@ -20,7 +20,7 @@ public class Magician : EnemyValue
     // Start is called before the first frame update
     void Start()
     {
-        InitialArcher();
+        InitialMagician();
         InitialObjectCollect(this.gameObject);
     
     }
@@ -36,28 +36,30 @@ public class Magician : EnemyValue
             UpdateCurrentPosition(this.gameObject);
             CheckAttack();
             ChasingPlayerGrassLand(this.gameObject, rb, isAttack, inAttackArea, movingSpeed);
-            EnemyDied();
+            GrassLandEnemyDied(exp);
         }
     }
     // Archer setting / component
-    private void InitialArcher()
+    private void InitialMagician()
     {
-        damage = 3;
-        enemyHealth = 12;
-        attackPeriod = 3f;
-        movingSpeed = 1.5f;
-        attackRadius = 6f;
-        senseRadius = 7.5f;
-        rotateSpeed = 125f;
+        damage                  =       4;
+        enemyHealth             =       12;
+        attackPeriod            =       3.5f;
+        exp                     =       4;
+        movingSpeed             =       2f;
+        attackRadius            =       7f;
+        senseRadius             =       8f;
+        rotateSpeed             =       125f;
     
-        hurtTime = 0.5f;
+        hurtTime                =       0.5f;
     
-        maxHealth = enemyHealth;
-        currentHealth = maxHealth;
-        rb = GetComponent<Rigidbody>();
-    
-        isAttack = false;
-        inAttackArea = false;
+        maxHealth               =       enemyHealth;
+        currentHealth           =       maxHealth;
+        rb                      =       GetComponent<Rigidbody>();
+        level1GameManager       =       FindObjectOfType<Level1GameManager>();
+
+        isAttack                =       false;
+        inAttackArea            =       false;
     }
     private void CheckAttack()
     {   // check inside or outside the attack area
