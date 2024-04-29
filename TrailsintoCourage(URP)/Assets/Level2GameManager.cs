@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class Level2GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject WinPanel;
+
     void Start()
     {
         
@@ -22,4 +23,13 @@ public class Level2GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Main Town");
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Player"){
+            WinPanel.SetActive(true);
+        }
+    }
+
+
 }
