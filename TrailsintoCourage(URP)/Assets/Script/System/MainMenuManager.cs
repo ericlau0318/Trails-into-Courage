@@ -7,11 +7,12 @@ using UnityEngine.SceneManagement;
 public class MainMenuManager : MonoBehaviour
 {
     private LoadingScene loadingScene;
+    public GameObject howToPlayPanel;
 
     void Start()
     {
+        howToPlayPanel.SetActive(false);
         loadingScene = FindObjectOfType<LoadingScene>();
-
     }
 
     void Update()
@@ -28,5 +29,21 @@ public class MainMenuManager : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+    }
+
+    public void openHowtoPlay()
+    {
+        if (!howToPlayPanel.activeSelf)
+        {
+            howToPlayPanel.SetActive(true);
+        }
+        else { 
+            howToPlayPanel.SetActive(false);
+        }
+    }
+
+    public void closeHowtoPlay()
+    {
+        howToPlayPanel.SetActive(false);
     }
 }
