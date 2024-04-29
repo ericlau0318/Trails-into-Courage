@@ -49,7 +49,7 @@ public class Mummy : EnemyValue
         attackPeriod             =     1.5f;
         movingSpeed              =     3f;
         attackRadius             =     1.8f;
-        senseRadius              =     8;
+        senseRadius              =     10;
         rotateSpeed              =     125f;
 
         maxHealth = enemyHealth;

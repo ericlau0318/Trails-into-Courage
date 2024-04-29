@@ -32,5 +32,9 @@ public class MultipleMagic : EnemyMagic
         {
             DestroyMagic(hitEffect);
         }
+        else if(other.gameObject.name == "FireBall 1(Clone)")
+        {
+            DestroyMagic(hitEffect);
+        }
     }
 }

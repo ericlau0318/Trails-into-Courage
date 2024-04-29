@@ -188,7 +188,7 @@ public class Boss : EnemyValue
         // sense area Ê®×Ö
         Debug.DrawLine(senseBackward, senseForward, Color.blue);
         Debug.DrawLine(senseLeftward, senseRightward, Color.blue);
-        // attack area point
+        // long attack area point
         Vector3 attackRightward = new(enemyCurrentPositionX + longAttackRadius, enemyCurrentPositionY, enemyCurrentPositionZ);
         Vector3 attackLeftward = new(enemyCurrentPositionX - longAttackRadius, enemyCurrentPositionY, enemyCurrentPositionZ);
         Vector3 attackForward = new(enemyCurrentPositionX, enemyCurrentPositionY, enemyCurrentPositionZ + longAttackRadius);
@@ -196,5 +196,15 @@ public class Boss : EnemyValue
         // attack area Ê®×Ö
         Debug.DrawLine(attackForward, attackBackward, Color.red);
         Debug.DrawLine(attackLeftward, attackRightward, Color.red);
+        // short attack area point
+        Vector3 shortattackRightward    = new(enemyCurrentPositionX  + shortAttackRadius, enemyCurrentPositionY, enemyCurrentPositionZ);
+        Vector3 shortattackLeftward     = new(enemyCurrentPositionX  - shortAttackRadius, enemyCurrentPositionY, enemyCurrentPositionZ);
+        Vector3 shortattackForward      = new(enemyCurrentPositionX, enemyCurrentPositionY, enemyCurrentPositionZ  + shortAttackRadius);
+        Vector3 shortattackBackward     = new(enemyCurrentPositionX, enemyCurrentPositionY, enemyCurrentPositionZ  - shortAttackRadius);
+        // attack area Ê®×Ö
+        Debug.DrawLine(shortattackForward , shortattackBackward,  Color.green);
+        Debug.DrawLine(shortattackLeftward, shortattackRightward, Color.green);
+
+
     }
 }
