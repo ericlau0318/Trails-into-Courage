@@ -15,8 +15,10 @@ public class MultipleMagic : EnemyMagic
     // Update is called once per frame
     void Update()
     {
-        transform.position += magicFlyingSpeed * Time.deltaTime * transform.forward;
-        Vector3 flatShootPosition = new Vector3(transform.position.x, 0, transform.position.z).normalized;
+        Vector3 newPosition = transform.position + magicFlyingSpeed * Time.deltaTime * transform.forward;
+        newPosition.y = transform.position.y;
+        transform.position = newPosition;
+        Vector3 flatShootPosition = new Vector3(shootPosition.x, 0, shootPosition.z).normalized;
         Quaternion targetRotation = Quaternion.LookRotation(flatShootPosition);
         transform.rotation = targetRotation;
     }
@@ -31,7 +33,7 @@ public class MultipleMagic : EnemyMagic
         {
             DestroyMagic(hitEffect);
         }
-        else if(other.gameObject.name == "Fireball 1(Clone)")
+        else if (other.gameObject.name == "Fireball 1(Clone)")
         {
             DestroyMagic(hitEffect);
         }
