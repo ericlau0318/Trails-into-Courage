@@ -600,6 +600,7 @@ MonoBehaviour:
   GirlAnimator: {fileID: 0}
   isGirlTalking: 0
   ShopPanel: {fileID: 729557432}
+  showShopPanelAfterDialogue: 0
 --- !u!136 &389718606
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3699,6 +3700,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5038380228804129845, guid: 79b3ffdb30f609547a9dff346bf4e1d2,
+        type: 3}
+      propertyPath: girl
+      value: 
+      objectReference: {fileID: 389718604}
     - target: {fileID: 5038380228804129845, guid: 79b3ffdb30f609547a9dff346bf4e1d2,
         type: 3}
       propertyPath: animator

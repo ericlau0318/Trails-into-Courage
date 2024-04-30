@@ -134,9 +134,9 @@ public class DialogueManager : MonoBehaviour
         isDialogueActive = false;
         interactable.hasCompletedDialogue = true;
         PlayerController.isPlayerTalking = false;
-        if (npc.sentencesNumber == 1)
+        if (npc.showShopPanelAfterDialogue && npc.sentencesNumber == 1)
         {
-            interactable.ShopPanel.SetActive(true);
+            npc.ShopPanel.SetActive(true);
             PlayerController.isPlayerTalking = true;
         }
     }

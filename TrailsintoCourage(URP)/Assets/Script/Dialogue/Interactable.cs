@@ -28,7 +28,7 @@ public class Interactable : MonoBehaviour
     public Animator GirlAnimator;
     public bool isGirlTalking;
     public  GameObject ShopPanel;
-
+    public bool showShopPanelAfterDialogue = false;
     void Start()
     {
         dialogueAnimator = GameObject.Find("DialogueBox").GetComponent<Animator>();
@@ -43,6 +43,7 @@ public class Interactable : MonoBehaviour
         }
         if (gameObject.tag == "Girl" && !playerCurrentlyInZone)
         {
+            showShopPanelAfterDialogue = true;
             ShopPanel.SetActive(false);
         }
         if (Input.GetKeyDown(KeyCode.E))
