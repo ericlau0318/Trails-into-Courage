@@ -8,10 +8,9 @@ public class EnemyMagic : MonoBehaviour
     public float magicFlyingSpeed;
     public Vector3 shootPosition;
     public Boss boss;
-    public Magician magician; 
+    public Magician magician;
     public PlayerState player;
     public bool isBossMagic;
-    // Start is called before the first frame update
     public void InitialCollect()
     {
         player = FindObjectOfType<PlayerState>();
@@ -31,11 +30,11 @@ public class EnemyMagic : MonoBehaviour
         }
     }
     public void DestroyMagic(GameObject hitEffect)
-    {        
+    {
         Instantiate(hitEffect, transform.position, transform.rotation);
-        Destroy(gameObject, 0.5f);
         this.gameObject.SetActive(false);
         hitEffect.SetActive(true);
+        Destroy(gameObject, 0.5f);
     }
     public void Moving()
     {
