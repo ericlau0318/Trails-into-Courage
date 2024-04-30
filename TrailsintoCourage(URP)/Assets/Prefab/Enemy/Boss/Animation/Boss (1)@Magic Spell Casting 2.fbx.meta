@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 13c16492658a179488368c5ecfbe347a
+guid: 2776b4be8679f1c44b5dd671b8fb8ee7
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -57,8 +57,8 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.71497214
-        functionName: FinishMagicAttack
+      - time: 0.69477004
+        functionName: FinishMultipleMagic
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
