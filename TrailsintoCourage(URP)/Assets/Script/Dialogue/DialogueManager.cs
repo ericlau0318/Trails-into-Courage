@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO.Pipes;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -47,7 +48,8 @@ public class DialogueManager : MonoBehaviour
         animator.SetBool("IsOpen", true);
         nameText.text = dialogue.name;
         npc.sentencesNumber = 0;
-        if (interactable.choiceMode == true || npc.hasCompletedDialogue)
+
+        if (interactable.choiceMode == true || npc.hasCompletedDialogue )
         {
             finishSentences.Clear();
             foreach (string sentence in dialogue.finishSentences)
@@ -91,7 +93,7 @@ public class DialogueManager : MonoBehaviour
         if (sentences.Count == 0 || choice1Sentences.Count == 0 || choice2Sentences.Count == 0)
         //if (sentences.Count == 0)
         {
-            EndDialogue();
+            EndDialogue(interactable);
             return;
         }
         interactable.sentencesNumber++;
@@ -125,14 +127,18 @@ public class DialogueManager : MonoBehaviour
         isDialogueActive = true;
     }
 
-    public void EndDialogue()
+    public void EndDialogue(Interactable npc)
     {
         animator.SetBool("IsOpen", false);
         StartCoroutine(CheckPlayerInZoneAfterDelay(1f));
         isDialogueActive = false;
         interactable.hasCompletedDialogue = true;
         PlayerController.isPlayerTalking = false;
-
+        if (npc.sentencesNumber == 1)
+        {
+            interactable.ShopPanel.SetActive(true);
+            PlayerController.isPlayerTalking = true;
+        }
     }
 
     private IEnumerator CheckPlayerInZoneAfterDelay(float delay)
@@ -211,5 +217,9 @@ public class DialogueManager : MonoBehaviour
             DisplayNextSentence();
         }
     }
-
+    public void ClosePanel()
+    {
+        interactable.ShopPanel.SetActive(false);
+        PlayerController.isPlayerTalking = false;
+    }
 }
