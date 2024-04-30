@@ -498,7 +498,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 209774633}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 729557436}
+        m_TargetAssemblyTypeName: ShopPanelController, Assembly-CSharp
+        m_MethodName: IsUseBtn2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &209774633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1384,6 +1396,9 @@ MonoBehaviour:
   UsingBtn1: {fileID: 2031407639}
   UsingBtn2: {fileID: 209774630}
   UsingBtn3: {fileID: 1726588526}
+  UsingBtn1Text: {fileID: 757860578}
+  UsingBtn2Text: {fileID: 1656925809}
+  UsingBtn3Text: {fileID: 1423910205}
 --- !u!4 &732036884 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7881051709092356906, guid: 7e26f8fab358428499f26939b9da49c2,
@@ -3186,7 +3201,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1726588529}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 729557436}
+        m_TargetAssemblyTypeName: ShopPanelController, Assembly-CSharp
+        m_MethodName: IsUseBtn3
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1726588529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3958,7 +3985,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2031407642}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 729557436}
+        m_TargetAssemblyTypeName: ShopPanelController, Assembly-CSharp
+        m_MethodName: IsUseBtn1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2031407642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4010,6 +4049,11 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4071275397887599612, guid: c066b8b4fc8135b47b72880741eab2a0,
+        type: 3}
+      propertyPath: ShopPanel
+      value: 
+      objectReference: {fileID: 729557432}
     - target: {fileID: 4071275397887599612, guid: c066b8b4fc8135b47b72880741eab2a0,
         type: 3}
       propertyPath: dialogueBox
