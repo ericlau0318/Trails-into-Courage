@@ -26,7 +26,9 @@ public class Interactable : MonoBehaviour
     public bool hasCompletedDialogue = false;
 
     public Animator GirlAnimator;
-     bool Talking;
+    public bool isGirlTalking;
+    public  GameObject ShopPanel;
+
     void Start()
     {
         dialogueAnimator = GameObject.Find("DialogueBox").GetComponent<Animator>();
@@ -39,18 +41,26 @@ public class Interactable : MonoBehaviour
         {
             dialogueBox.SetActive(true);
         }
+        else
+        {
+            ShopPanel.SetActive(false);
+        }
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (playerCurrentlyInZone && !isPlayerInZone && !hasInteracted)
             {
-                GirlAnimator.SetTrigger("Talking");
+                if (gameObject.tag == "Girl")
+                {
+                    GirlAnimator.SetTrigger("Talking");
+                    hasCompletedDialogue = false;
+                }
                 PlayerController.isPlayerTalking = true;
                 dialogueManager.StartDialogue(dialogue, this);
                 hasInteracted = true;
             }
             if (!playerCurrentlyInZone)
             {
-                Debug.Log(playerCurrentlyInZone);
+                //Debug.Log(playerCurrentlyInZone);
                 hasInteracted = false;
                 isPlayerInZone = false;
             }
@@ -60,7 +70,6 @@ public class Interactable : MonoBehaviour
         {
             CloseDialogue();
         }
-
     }
     void CloseDialogue()
     {
