@@ -4496,7 +4496,7 @@ MonoBehaviour:
   shortDamage: 0
   longDamage: 0
   longSpecialDamage: 0
-  fireRing: {fileID: 3602429811383533709, guid: ec5b67d2bbcc47b479be1eaa3dc27210,
+  fireRing: {fileID: 6349104439549596030, guid: ec5b67d2bbcc47b479be1eaa3dc27210,
     type: 3}
   magicBall: {fileID: 4192257203904126702, guid: 9300564a1886a234398d1ab5a6190408,
     type: 3}

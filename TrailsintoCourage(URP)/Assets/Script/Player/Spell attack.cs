@@ -19,12 +19,17 @@ public class Spellattack : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject)
+        if (other.gameObject.name == "FireRing(Clone)")
+        {
+
+        }
+        else if (other.gameObject)
         {
             Instantiate(Explosion, transform.position, transform.rotation);
             this.gameObject.SetActive(false);
             Explosion.SetActive(true);
             Destroy(gameObject , 0.5f);
         }
+        
     }
 }

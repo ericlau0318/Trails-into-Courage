@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 public class MultipleMagic : EnemyMagic
 {
     public GameObject hitEffect;
+    private float rotationSpeed = 180f;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,9 +16,8 @@ public class MultipleMagic : EnemyMagic
     // Update is called once per frame
     void Update()
     {
-        Vector3 newPosition = transform.position + magicFlyingSpeed * Time.deltaTime * transform.forward;
-        newPosition.y = transform.position.y;
-        transform.position = newPosition;
+        transform.position += magicFlyingSpeed * Time.deltaTime * transform.forward;
+        //transform.Rotate(0f, 0f, rotationSpeed * Time.deltaTime);
         Vector3 flatShootPosition = new Vector3(shootPosition.x, 0, shootPosition.z).normalized;
         Quaternion targetRotation = Quaternion.LookRotation(flatShootPosition);
         transform.rotation = targetRotation;
