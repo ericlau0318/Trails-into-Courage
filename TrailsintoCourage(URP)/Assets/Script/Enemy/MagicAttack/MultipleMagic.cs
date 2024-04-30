@@ -17,7 +17,7 @@ public class MultipleMagic : EnemyMagic
     void Update()
     {
         transform.position += magicFlyingSpeed * Time.deltaTime * transform.forward;
-        transform.Rotate(0f, 0f, rotationSpeed * Time.deltaTime);
+        //transform.Rotate(0f, 0f, rotationSpeed * Time.deltaTime);
         Vector3 flatShootPosition = new Vector3(shootPosition.x, 0, shootPosition.z).normalized;
         Quaternion targetRotation = Quaternion.LookRotation(flatShootPosition);
         transform.rotation = targetRotation;
