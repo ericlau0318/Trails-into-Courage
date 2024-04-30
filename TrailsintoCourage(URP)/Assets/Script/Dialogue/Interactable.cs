@@ -41,7 +41,7 @@ public class Interactable : MonoBehaviour
         {
             dialogueBox.SetActive(true);
         }
-        else
+        if (gameObject.tag == "Girl" && !playerCurrentlyInZone)
         {
             ShopPanel.SetActive(false);
         }
