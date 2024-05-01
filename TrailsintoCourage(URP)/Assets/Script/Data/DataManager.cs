@@ -6,7 +6,6 @@ using static UnityEngine.Rendering.DebugUI;
 public class DataManager : Data
 {
     private StateController stateController;
-    private ShopPanelController shopPanelController;
     private static DataManager _instance;
     public static DataManager Instance
     {
@@ -21,7 +20,6 @@ public class DataManager : Data
         else
             _instance = this;
         stateController         =       FindObjectOfType<StateController>();
-        shopPanelController     =       FindObjectOfType<ShopPanelController>();
     }
     public void AutoSave()
     {
@@ -33,25 +31,9 @@ public class DataManager : Data
         hpValue                 =       StateController.HPValue;
         mpValue                 =       StateController.MPValue;
         spValue                 =       StateController.SPValue;
-  
-        if(ShopPanelController.spellFireUsing) 
-        {
-            isFire = 1;
-        }
-        else
-            isFire = 0;
-        if(ShopPanelController.spellIceUsing)
-        {
-            isIce = 1;
-        }
-        else 
-            isIce = 0;
-        if(ShopPanelController.spellFlashUsing) 
-        {
-            isFlash = 1;
-        }
-        else
-            isFlash = 0;
+
+        SaveMagic();
+        SaveLevelPass();
 
         PlayerPrefs.SetInt("PlayerLevel", playerLevelValue);
         PlayerPrefs.SetInt("Exp", expValue);
@@ -61,9 +43,6 @@ public class DataManager : Data
         PlayerPrefs.SetInt("HP", hpValue);
         PlayerPrefs.SetInt("MP", mpValue);
         PlayerPrefs.SetInt("SP", spValue);
-        PlayerPrefs.SetInt("FireUsing", isFire  );
-        PlayerPrefs.SetInt("IceUsing", isIce    );
-        PlayerPrefs.SetInt("FlashUsing", isFlash);
         PlayerPrefs.Save();
     }
 
@@ -77,27 +56,9 @@ public class DataManager : Data
         StateController.HPValue = PlayerPrefs.GetInt("HP", hpValue);
         StateController.MPValue = PlayerPrefs.GetInt("MP", mpValue);
         StateController.SPValue = PlayerPrefs.GetInt("SP", spValue);
-        PlayerPrefs.GetInt("FireUsing", isFire);
-        PlayerPrefs.GetInt("IceUsing", isIce    );
-        PlayerPrefs.GetInt("FlashUsing", isFlash);
 
-        //set fire magic for use
-        if (PlayerPrefs.GetInt("FireUsing", isFire) == 1)
-            ShopPanelController.spellFireUsing = true;
-        else
-            ShopPanelController.spellFireUsing = false;
-        // set ice magic for use
-        if (PlayerPrefs.GetInt("IceUsing", isIce) == 1)
-            ShopPanelController.spellIceUsing = true;
-        else
-            ShopPanelController.spellIceUsing = false;
-        // set flash magic for use
-        if (PlayerPrefs.GetInt("FlashUsing", isFlash) == 1)
-            ShopPanelController.spellFlashUsing = true;
-        else
-            ShopPanelController.spellFlashUsing = false;
-
-
+        LoadMagic();
+        LoadLevelPass();
         stateController.UpdateUIForLoad();
     }
 }

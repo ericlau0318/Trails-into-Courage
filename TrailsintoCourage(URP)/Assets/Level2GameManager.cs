@@ -8,17 +8,6 @@ public class Level2GameManager : MonoBehaviour
 {
     public GameObject WinPanel;
     public static bool IsLevel2Pass=true;
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void BackToMainTown()
     {
         SceneManager.LoadScene("Main Town");
