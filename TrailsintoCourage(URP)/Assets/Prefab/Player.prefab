@@ -199,7 +199,12 @@ MonoBehaviour:
   weapon: {fileID: 7669443511648536755, guid: 82be703730670b348aa7b08d622a31d3, type: 3}
   weaponHolder: {fileID: 4614428897415161602}
   attackCoolDown: 1
-  spell: {fileID: 4192257203904126702, guid: 0b1266e9fe6ad254987c1cb0159fe03b, type: 3}
+  spellFire: {fileID: 4192257203904126702, guid: 0b1266e9fe6ad254987c1cb0159fe03b,
+    type: 3}
+  spellIce: {fileID: 4025053693285880564, guid: 0ff405812e4512145ad8eecce6a70bb5,
+    type: 3}
+  spellFlash: {fileID: 3883947006121239810, guid: e7cb7feed0880984da9a4908fee5e909,
+    type: 3}
   spellHolder: {fileID: 3390449212833921542}
   spellManaCost: 10
   spellCoolDown: 1
