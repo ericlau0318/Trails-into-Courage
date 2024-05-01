@@ -129,6 +129,7 @@ MonoBehaviour:
   spellspeed: 10
   rotationSpeed: 0
   destroyDelay: 2
+  fireExplosion: {fileID: 0}
   Explosion: {fileID: 7809726241217551564, guid: aa55b8b792202ac4ba51920b47ed80c7,
     type: 3}
 --- !u!54 &3097172460383886315

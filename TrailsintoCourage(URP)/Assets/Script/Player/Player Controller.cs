@@ -52,7 +52,12 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
 
     private PlayerState playerState;
-    public float CheckGroundPointSize=0.2f;
+    public float CheckGroundPointSize=0.01f;
+
+    public AudioSource SwordAttackAudio;
+    public AudioSource SpellCastAudio;
+    public AudioSource jumpAudio;
+
 
 
     private void Start()
@@ -161,6 +166,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space) && isGrounded)
         {
             anim.SetTrigger("Jump");
+            jumpAudio.Play();
             if (pressSpaceTime * 30 <= MinJumpVelocity)
             {
                 rb.velocity = new Vector3(rb.velocity.x, MinJumpVelocity, rb.velocity.z);
@@ -190,6 +196,7 @@ public class PlayerController : MonoBehaviour
             if (attackCD >= attackCoolDown)
             {
                 attackCD = 0;
+                SwordAttackAudio.Play();
                 anim.SetTrigger("WeaponAttack");
                 StartCoroutine(WeaponAttack(0.5f));
             }
@@ -209,6 +216,7 @@ public class PlayerController : MonoBehaviour
             if (spellCD >= spellCoolDown)
             {
                 spellCD = 0;
+                SpellCastAudio.Play();
                 anim.SetTrigger("SpellCast");
                 StartCoroutine(SpellCast(0.5f));
                 playerState.UseMana(spellManaCost);

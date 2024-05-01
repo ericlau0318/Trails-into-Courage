@@ -14,9 +14,9 @@ public class PlayerState : MonoBehaviour
     private Slider manaSlider;
     private Slider staminaSlider;
 
-    public static float maxHealth = 100f;
+    public static float maxHealth = 50f;
     public float currentHealth;
-    public static float maxMana = 100f;
+    public static float maxMana = 50f;
     public float currentMana;
     public static float maxStamina = 50f;
     public float currentStamina;
@@ -44,7 +44,7 @@ public class PlayerState : MonoBehaviour
     private bool canRecoverMana = true;
     private bool canRecoverStamina = true;
 
-    //rivate Animator anim;
+    public AudioSource getHurt;
 
     private void Start()
     {
@@ -124,7 +124,8 @@ public class PlayerState : MonoBehaviour
     {
         if (isInvincible == false)
         {
-           // anim.SetTrigger("Invincible");
+            // anim.SetTrigger("Invincible");
+            getHurt.Play();
             currentHealth -= damage;
             Debug.Log("HP: " + currentHealth);
             StartCoroutine(InvincibleTime(0.5f));
