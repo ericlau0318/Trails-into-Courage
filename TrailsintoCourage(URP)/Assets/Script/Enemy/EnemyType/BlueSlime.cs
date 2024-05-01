@@ -41,8 +41,8 @@ public class BlueSlime : GrassLandType
     // Blue Slime settin value / component
     private void InitialBlueSlime()
     {
-        damage                  =       2;
-        enemyHealth             =       20;
+        damage                  =       3;
+        enemyHealth             =       30;
         exp                     =       4;
         attackPeriod            =       0.8f;
         movingSpeed             =       2.5f;

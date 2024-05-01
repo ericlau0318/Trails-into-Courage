@@ -61,7 +61,7 @@ public class Boss : EnemyValue
     // Boss setting / component
     private void InitialBoss()
     {
-        enemyHealth                 =       100;
+        enemyHealth                 =       200;
         recoverHealth               =       3;
         exp                         =       20;
         movingSpeed                 =       4;
