@@ -8,6 +8,7 @@ public class BlueSlime : GrassLandType
 {
     private readonly string blueSlime = "blueSlime";
     private Rigidbody rb;
+    public float rotateAngle;
     // enemy setting
     private float attackTime;
     [SerializeField]
@@ -33,7 +34,7 @@ public class BlueSlime : GrassLandType
             UpdateEnemyUI(currentHealth, maxHealth);
             UpdateCurrentPosition(this.gameObject);
             CheckAttack();
-            ChasingPlayerGrassLand(this.gameObject, rb, isAttack, inAttackArea, movingSpeed);
+            ChasingPlayerGrassLand(this.gameObject, rb, isAttack, inAttackArea, movingSpeed, rotateAngle);
             GrassLandEnemyDied(exp);
         }       
     }
@@ -48,7 +49,7 @@ public class BlueSlime : GrassLandType
         attackRadius            =       3f;
         senseRadius             =       4;
         rotateSpeed             =       125f;
-
+        rotateAngle             =       90;   
         maxHealth               =       enemyHealth;
         currentHealth           =       maxHealth;
         rb                      =       GetComponent<Rigidbody>();

@@ -9,6 +9,7 @@ public class Magician : GrassLandType
     
     public GameObject magic;
     public GameObject magicPosition;
+    public float rotateAngle;
     // enemy setting
     private float attackTime;
     [SerializeField]
@@ -35,7 +36,7 @@ public class Magician : GrassLandType
             UpdateEnemyUI(currentHealth, maxHealth);
             UpdateCurrentPosition(this.gameObject);
             CheckAttack();
-            ChasingPlayerGrassLand(this.gameObject, rb, isAttack, inAttackArea, movingSpeed);
+            ChasingPlayerGrassLand(this.gameObject, rb, isAttack, inAttackArea, movingSpeed, rotateAngle);
             GrassLandEnemyDied(exp);
         }
     }
