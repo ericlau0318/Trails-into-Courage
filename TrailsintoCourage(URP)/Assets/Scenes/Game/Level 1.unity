@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1806177381}
-  m_IndirectSpecularColor: {r: 0.5850987, g: 0.84752524, b: 0.97429526, a: 1}
+  m_IndirectSpecularColor: {r: 0.58511615, g: 0.84757364, b: 0.97433037, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2103,89 +2103,6 @@ RectTransform:
   m_AnchoredPosition: {x: -138, y: -315}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1001 &783046472
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 375148921650361612, guid: 2be3dbc046047704bb3763b1115d7208,
-        type: 3}
-      propertyPath: m_Name
-      value: Skeleton_Mage
-      objectReference: {fileID: 0}
-    - target: {fileID: 870520344580587541, guid: 2be3dbc046047704bb3763b1115d7208,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 870520344580587541, guid: 2be3dbc046047704bb3763b1115d7208,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 870520344580587541, guid: 2be3dbc046047704bb3763b1115d7208,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1044583705465024438, guid: 2be3dbc046047704bb3763b1115d7208,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1044583705465024438, guid: 2be3dbc046047704bb3763b1115d7208,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1044583705465024438, guid: 2be3dbc046047704bb3763b1115d7208,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1044583705465024438, guid: 2be3dbc046047704bb3763b1115d7208,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1044583705465024438, guid: 2be3dbc046047704bb3763b1115d7208,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1044583705465024438, guid: 2be3dbc046047704bb3763b1115d7208,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1044583705465024438, guid: 2be3dbc046047704bb3763b1115d7208,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1044583705465024438, guid: 2be3dbc046047704bb3763b1115d7208,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1044583705465024438, guid: 2be3dbc046047704bb3763b1115d7208,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1044583705465024438, guid: 2be3dbc046047704bb3763b1115d7208,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2be3dbc046047704bb3763b1115d7208, type: 3}
 --- !u!1 &825404561
 GameObject:
   m_ObjectHideFlags: 0
@@ -6792,4 +6709,3 @@ SceneRoots:
   - {fileID: 377862237}
   - {fileID: 477870176}
   - {fileID: 6984331861955336407}
-  - {fileID: 783046472}
