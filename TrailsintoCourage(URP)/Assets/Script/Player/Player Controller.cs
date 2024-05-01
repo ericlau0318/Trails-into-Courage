@@ -37,7 +37,9 @@ public class PlayerController : MonoBehaviour
     private float attackCD;
     public float attackCoolDown = 1f;
 
-    public GameObject spell;
+    public GameObject spellFire;
+    public GameObject spellIce;
+    public GameObject spellFlash;
     private bool isCastingSpell = false;
     public GameObject spellHolder;
     public float spellManaCost = 10f;
@@ -250,8 +252,22 @@ public class PlayerController : MonoBehaviour
     IEnumerator SpellCast(float duration)
     {
         yield return new WaitForSeconds(duration);
-        GameObject spellObject = Instantiate(spell, spellHolder.transform.position, spellHolder.transform.rotation);
 
+
+        if (ShopPanelController.spellFireUsing == true)
+        {
+            GameObject spellObject = Instantiate(spellFire, spellHolder.transform.position, spellHolder.transform.rotation);
+        }
+        if (ShopPanelController.spellIceUsing == true)
+        {
+            Vector3 spawnPosition = spellHolder.transform.position + spellHolder.transform.forward * 3f;
+            GameObject spellObject = Instantiate(spellIce, spawnPosition, spellHolder.transform.rotation * Quaternion.Euler(-90f, 0f, 0f));
+        }
+        if (ShopPanelController.spellFlashUsing == true)
+        {
+            Vector3 spawnPosition = spellHolder.transform.position + spellHolder.transform.forward * 5f+ spellHolder.transform.up*5f;
+            GameObject spellObject = Instantiate(spellFlash, spawnPosition, spellHolder.transform.rotation);
+        }
     }
 
     private void PlayerAnimation()

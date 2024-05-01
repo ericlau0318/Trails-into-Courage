@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.14703749, g: 0.3639866, b: 0.57992274, a: 1}
+  m_IndirectSpecularColor: {r: 0.1470247, g: 0.36394262, b: 0.5799059, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1130,6 +1130,12 @@ PrefabInstance:
       propertyPath: staminaBar
       value: 
       objectReference: {fileID: 1344029719}
+    - target: {fileID: 5762672570019846332, guid: 5564e08ee5a8fd04b91d0f4e682bba05,
+        type: 3}
+      propertyPath: spellFire
+      value: 
+      objectReference: {fileID: 4192257203904126702, guid: 0b1266e9fe6ad254987c1cb0159fe03b,
+        type: 3}
     - target: {fileID: 5762672570019846332, guid: 5564e08ee5a8fd04b91d0f4e682bba05,
         type: 3}
       propertyPath: attackCoolDown

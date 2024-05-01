@@ -15,7 +15,7 @@ public class Spellattack : MonoBehaviour
     private void Update()
     {
         transform.position +=   spellspeed *  Time.deltaTime * transform.forward;
-        transform.Rotate(0f, 0f, rotationSpeed * Time.deltaTime);
+        //transform.Rotate(0f, 0f, rotationSpeed * Time.deltaTime);
     }
     private void OnTriggerEnter(Collider other)
     {
