@@ -38,7 +38,7 @@ public class EnemyValue : MonoBehaviour
     private Slider healthSlider;
 
     // player attack demage
-    public void EnemyHurtBySpell(Collider other, string enemyType)
+    public void EnemyHurtByMagic(Collider other, string enemyType)
     {
         if (other.gameObject.name == "Fireball 1(Clone)")
         {
@@ -55,6 +55,8 @@ public class EnemyValue : MonoBehaviour
             hurtTime = 0.5f;
         }
     }
+
+
     public void EnemyDied(int exp)
     {
         if(enemyHealth <= 0)

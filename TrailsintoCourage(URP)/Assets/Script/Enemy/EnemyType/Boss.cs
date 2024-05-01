@@ -150,7 +150,7 @@ public class Boss : EnemyValue
     }
     private void OnTriggerEnter(Collider other)
     {
-        EnemyHurtBySpell(other, boss);
+        EnemyHurtByMagic(other, boss);
         EnemyHurtBySword(other, boss);
 
         if (other.CompareTag("Player"))

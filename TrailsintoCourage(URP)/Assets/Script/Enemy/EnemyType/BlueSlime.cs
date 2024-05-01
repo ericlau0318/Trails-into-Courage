@@ -83,7 +83,7 @@ public class BlueSlime : GrassLandType
     }
     private void OnTriggerEnter(Collider other)
     {
-        EnemyHurtBySpell(other, blueSlime);
+        EnemyHurtByMagic(other, blueSlime);
         EnemyHurtBySword(other, blueSlime);
     }
     private void OnCollisionStay(Collision collision)

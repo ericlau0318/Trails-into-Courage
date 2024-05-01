@@ -88,7 +88,7 @@ public class LavaSlime : EnemyValue
     }
     private void OnTriggerEnter(Collider other)
     {
-        EnemyHurtBySpell(other, lavaSlime);
+        EnemyHurtByMagic(other, lavaSlime);
         EnemyHurtBySword(other, lavaSlime);
     }
     private void ChasingPlayer()

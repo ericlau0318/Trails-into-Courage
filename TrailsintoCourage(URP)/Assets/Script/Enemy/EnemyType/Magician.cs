@@ -48,8 +48,8 @@ public class Magician : GrassLandType
         attackPeriod            =       3.5f;
         exp                     =       4;
         movingSpeed             =       2f;
-        attackRadius            =       7f;
-        senseRadius             =       8f;
+        attackRadius            =       8.5f;
+        senseRadius             =       10f;
         rotateSpeed             =       125f;
     
         hurtTime                =       0.5f;
@@ -76,20 +76,24 @@ public class Magician : GrassLandType
         if (attackTime <= 0 && inAttackArea && !isAttack && enemyHealth > 0)
         {   // atual attack
             isAttack = true;
-            // spawn magic to atatck
-            Instantiate(magic, magicPosition.transform.position, Quaternion.identity);
-            // reset attack period time
-            attackTime = attackPeriod;
+            enemyAnimator.SetTrigger("Magic");
         }
-        else if (attackTime > 0)
+        if (attackTime > 0)
         {   // count attack period time
             attackTime -= Time.deltaTime;
-            isAttack = false;
         }
     }
     private void OnTriggerEnter(Collider other)
     {
-        EnemyHurtBySpell(other, magician);
+        EnemyHurtByMagic(other, magician);
         EnemyHurtBySword(other, magician);
+    }
+    private void FinishMagic()
+    {
+        // spawn magic to atatck
+        Instantiate(magic, magicPosition.transform.position, Quaternion.identity);
+        // reset attack period time
+        attackTime = attackPeriod;
+        isAttack = false;
     }
 }

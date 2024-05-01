@@ -89,7 +89,7 @@ public class Mummy : EnemyValue
     }
     private void OnTriggerEnter(Collider other)
     {
-        EnemyHurtBySpell(other, mummy);
+        EnemyHurtByMagic(other, mummy);
         EnemyHurtBySword(other, mummy);
 
         if (other.CompareTag("Player") && damageTime <0)
