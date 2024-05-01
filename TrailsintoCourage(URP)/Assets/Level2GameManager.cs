@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Level2GameManager : MonoBehaviour
 {
     public GameObject WinPanel;
-    public static bool IsLevel2Pass;
+    public static bool IsLevel2Pass=true;
     void Start()
     {
         

@@ -13,22 +13,22 @@ public class ShopPanelController : MonoBehaviour
     public Text UsingBtn1Text;
     public Text UsingBtn2Text;
     public Text UsingBtn3Text;
-    public static bool skillOneUsing;
-    public static bool skillTwoUsing;
-    public static bool skillThreeUsing;
+    public static bool spellFireUsing=true;
+    public static bool spellIceUsing;
+    public static bool spellFlashUsing;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (skillOneUsing == true)
+        if (spellFireUsing == true)
         {
             IsUseBtn1();
         }
-        if (skillTwoUsing == true)
+        if (spellIceUsing == true)
         {
             IsUseBtn2();
         }
-        if (skillThreeUsing == true)
+        if (spellFlashUsing == true)
         {
             IsUseBtn3();
         }
@@ -45,27 +45,27 @@ public class ShopPanelController : MonoBehaviour
     }
     public void IsUseBtn1()
     {
-        skillOneUsing = true;
-        skillTwoUsing = false;
-        skillThreeUsing = false;
+        spellFireUsing = true;
+        spellIceUsing = false;
+        spellFlashUsing = false;
         UsingBtn1Text.text = "Is Use";
         UsingBtn2Text.text = "Not Use";
         UsingBtn3Text.text = "Not Use";
     }
     public void IsUseBtn2()
     {
-        skillOneUsing = false;
-        skillTwoUsing = true;
-        skillThreeUsing = false;
+        spellFireUsing = false;
+        spellIceUsing = true;
+        spellFlashUsing = false;
         UsingBtn1Text.text = "Not Use";
         UsingBtn2Text.text = "Is Use";
         UsingBtn3Text.text = "Not Use";
     }
     public void IsUseBtn3()
     {
-        skillOneUsing = false;
-        skillTwoUsing = false;
-        skillThreeUsing = true;
+        spellFireUsing = false;
+        spellIceUsing = false;
+        spellFlashUsing = true;
         UsingBtn1Text.text = "Not Use";
         UsingBtn2Text.text = "Not Use";
         UsingBtn3Text.text = "Is Use";
