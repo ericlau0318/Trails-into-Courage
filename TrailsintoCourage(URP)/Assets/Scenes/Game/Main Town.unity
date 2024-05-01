@@ -1228,7 +1228,7 @@ GameObject:
   - component: {fileID: 711339496}
   - component: {fileID: 711339495}
   m_Layer: 5
-  m_Name: Ice Skills
+  m_Name: Unlock Ice Skills Txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1286,9 +1286,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Unlock Ice Abilitiy,
+  m_Text: 'To unlock Ice Abilitiy,
 
-    Talk to me after pass level 2'
+    Talk to me after pass level 1'
 --- !u!222 &711339496
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1328,18 +1328,18 @@ RectTransform:
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1827346296}
-  - {fileID: 1986672412}
   - {fileID: 1400249343}
-  - {fileID: 711339494}
-  - {fileID: 1828160243}
-  - {fileID: 1536173299}
   - {fileID: 763115300}
+  - {fileID: 1827346296}
+  - {fileID: 1828160243}
+  - {fileID: 1236515810}
+  - {fileID: 1986672412}
+  - {fileID: 1536173299}
+  - {fileID: 1684581547}
+  - {fileID: 711339494}
+  - {fileID: 878403320}
   - {fileID: 2031407640}
   - {fileID: 209774631}
-  - {fileID: 1236515810}
-  - {fileID: 1684581547}
-  - {fileID: 878403320}
   - {fileID: 1726588527}
   m_Father: {fileID: 1141027502}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1893,7 +1893,7 @@ GameObject:
   - component: {fileID: 878403322}
   - component: {fileID: 878403321}
   m_Layer: 5
-  m_Name: Thunder Skills
+  m_Name: Unlock Lightning Skills Txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1951,7 +1951,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Unlock Ice Abilitiy,
+  m_Text: 'To unlock Lightning Abilitiy,
 
     Talk to me after pass level 2'
 --- !u!222 &878403322
@@ -2159,7 +2159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -372.49997, y: -275}
+  m_AnchoredPosition: {x: -190, y: -275}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1236515811
@@ -2189,13 +2189,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 100
-    m_Alignment: 4
+    m_Alignment: 5
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Items to Unlock :'
+  m_Text: 'lightning Magic :'
 --- !u!222 &1236515812
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2585,7 +2585,7 @@ GameObject:
   - component: {fileID: 1536173301}
   - component: {fileID: 1536173300}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: IceImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3063,7 +3063,7 @@ GameObject:
   - component: {fileID: 1684581549}
   - component: {fileID: 1684581548}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: LightningImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3411,7 +3411,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -372.49997, y: 39}
+  m_AnchoredPosition: {x: -190, y: 39}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1827346297
@@ -3441,13 +3441,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 100
-    m_Alignment: 4
+    m_Alignment: 5
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Items to Unlock :'
+  m_Text: 'Fire Ball :'
 --- !u!222 &1827346298
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3490,7 +3490,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -372.49997, y: -121.250015}
+  m_AnchoredPosition: {x: -190, y: -121.250015}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1828160244
@@ -3520,13 +3520,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 100
-    m_Alignment: 4
+    m_Alignment: 5
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Items to Unlock :'
+  m_Text: 'Ice Magic :'
 --- !u!222 &1828160245
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3753,7 +3753,7 @@ GameObject:
   - component: {fileID: 1986672414}
   - component: {fileID: 1986672413}
   m_Layer: 5
-  m_Name: Image
+  m_Name: FireBallImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
