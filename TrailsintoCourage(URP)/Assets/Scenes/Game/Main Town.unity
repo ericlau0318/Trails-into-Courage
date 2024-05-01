@@ -4063,6 +4063,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4071275397887599612, guid: c066b8b4fc8135b47b72880741eab2a0,
         type: 3}
+      propertyPath: npcId
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071275397887599612, guid: c066b8b4fc8135b47b72880741eab2a0,
+        type: 3}
       propertyPath: ShopPanel
       value: 
       objectReference: {fileID: 729557432}
