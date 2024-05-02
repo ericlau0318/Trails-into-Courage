@@ -17,6 +17,9 @@ public class Demon : EnemyValue
     // UI hp
     private float maxHealth;
     private float currentHealth;
+    public GameObject rightArm, leftArm;
+    private BoxCollider lefttArmCollider, rightArmCollider;
+    public float rotateAngle;
 
     // Start is called before the first frame update
     void Start()
@@ -42,9 +45,10 @@ public class Demon : EnemyValue
             CheckAttack();
             if (this.name == ("DemonStand"))
             {
+                senseRadius = 9;
                 if (DetectCircleArea(senseRadius) && !isAttack && !inAttackArea)
                 {
-                    Rotation(playerCurrentPosition, this.gameObject, rb, 90);
+                    Rotation(playerCurrentPosition, this.gameObject, rb, rotateAngle);
                     transform.position = Vector3.MoveTowards(transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
                 }
             }
@@ -60,16 +64,19 @@ public class Demon : EnemyValue
     {
         damage                  =       8;
         enemyHealth             =       100;
-        exp                     =       7;
-        attackPeriod            =       2.5f;
-        movingSpeed             =       2f;
-        attackRadius            =       3f;
-        senseRadius             =       6;
+        exp                     =       10;
+        attackPeriod            =       1.6f;
+        movingSpeed             =       2.3f;
+        attackRadius            =       3;
+        senseRadius             =       6f;
         rotateSpeed             =       125f;
 
         maxHealth               =       enemyHealth;
         currentHealth           =       maxHealth;
         rb                      =       GetComponent<Rigidbody>();
+        rightArmCollider        =       rightArm.GetComponent<BoxCollider>();
+        lefttArmCollider        =       leftArm.GetComponent<BoxCollider>();
+
 
         isAttack                =       false;
         inAttackArea            =       false;
@@ -94,13 +101,16 @@ public class Demon : EnemyValue
         if (attackTime > 0)
         {   // count attack period time
             attackTime -= Time.deltaTime;
-            isAttack = false;
         }
     }
     private void OnTriggerEnter(Collider other)
     {
         EnemyHurtByMagic(other, demon);
         EnemyHurtBySword(other, demon);
+        if (other.CompareTag("Player"))
+        {
+            playerState.TakeDamage(damage);
+        }
     }
     private void ChasingPlayer()
     {
@@ -116,33 +126,33 @@ public class Demon : EnemyValue
                 if (movingToPoint1)
                 {
                     target = point2;
-                    Rotation(target.transform.position, this.gameObject, rb, 90);
+                    Rotation(target.transform.position, this.gameObject, rb, rotateAngle);
                     movingToPoint1 = false;
                 }
                 else
                 {
                     target = point1;
-                    Rotation(target.transform.position, this.gameObject, rb, 90);
+                    Rotation(target.transform.position, this.gameObject, rb, rotateAngle);
                     movingToPoint1 = true;
                 }
             }
         }
         else if (DetectCircleArea(senseRadius) && !isAttack && !inAttackArea)
         {
-            Rotation(playerCurrentPosition, this.gameObject, rb, 90);
+            Rotation(playerCurrentPosition, this.gameObject, rb, rotateAngle);
             transform.position = Vector3.MoveTowards(transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
         }
     }
-    private void OnCollisionEnter(Collision collision)
+    private void StartAttack()
     {
-        if (isAttack)
-        {
-            if (collision.collider.CompareTag("Player"))
-            {
-                playerState.TakeDamage(damage);
-                // reset attack period time
-                attackTime = attackPeriod;
-            }
-        }
+        lefttArmCollider.enabled    =       true;
+        rightArmCollider.enabled    =       true;
+    }
+    private void EndAttack() 
+    {
+        lefttArmCollider.enabled    =       false;
+        rightArmCollider.enabled    =       false;
+        attackTime                  =       attackPeriod;
+        isAttack                    =       false;
     }
 }
