@@ -9208,6 +9208,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_closedoor
       objectReference: {fileID: 0}
+    - target: {fileID: 8523772855540137367, guid: 1367f52343f81ff4797db02c1525b9b9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8804625046137572299, guid: 1367f52343f81ff4797db02c1525b9b9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0554
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
