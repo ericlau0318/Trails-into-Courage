@@ -138,13 +138,10 @@ public class DialogueManager : MonoBehaviour
     }
     public void DisplayNextSentence()
     {
-        if (interactable.hasCompletedDialogue)
+        if (sentences.Count == 0 || choice1Sentences.Count == 0 || choice2Sentences.Count == 0)
         {
-            if(sentences.Count == 0 || choice1Sentences.Count == 0 || choice2Sentences.Count == 0)
-            {
-                EndDialogue(interactable);
-                return;
-            }
+            EndDialogue(interactable);
+            return;
         }
         interactable.sentencesNumber++;
         if (!interactable.choiceMode && interactable.sentencesNumber >= 0 && interactable.sentencesNumber == interactable.sentenceChoiceNumber && !awaitingChoice)
