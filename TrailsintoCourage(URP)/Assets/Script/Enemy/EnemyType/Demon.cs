@@ -11,6 +11,7 @@ public class Demon : EnemyValue
     public Transform point1;
     private Transform target;
     // enemy setting
+    [SerializeField]
     private float attackTime;
     [SerializeField]
     private bool isAttack, inAttackArea, movingToPoint1;
@@ -65,7 +66,7 @@ public class Demon : EnemyValue
         damage                  =       8;
         enemyHealth             =       100;
         exp                     =       10;
-        attackPeriod            =       1.6f;
+        attackPeriod            =       1.5f;
         movingSpeed             =       2.3f;
         attackRadius            =       3;
         senseRadius             =       6f;

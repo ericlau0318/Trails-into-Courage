@@ -58,7 +58,7 @@ public class LavaSlime : EnemyValue
     // Archer setting / component
     private void InitialLavaSlime()
     {
-        damage                  =       5;
+        damage                  =       6;
         enemyHealth             =       70;
         exp                     =       6;
         attackPeriod            =       1f;
@@ -95,7 +95,6 @@ public class LavaSlime : EnemyValue
         if (attackTime > 0)
         {   // count attack period time
             attackTime -= Time.deltaTime;
-            isAttack = false;
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -141,9 +140,12 @@ public class LavaSlime : EnemyValue
             if (collision.collider.CompareTag("Player"))
             {
                 playerState.TakeDamage(damage);
-                // reset attack period time
-                attackTime = attackPeriod;
             }
         }
+    }
+    private void EndAttack()
+    {
+        attackTime = attackPeriod;
+        isAttack = false;
     }
 }
