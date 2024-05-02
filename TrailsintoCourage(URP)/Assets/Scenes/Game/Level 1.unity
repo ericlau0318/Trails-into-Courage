@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1806177381}
-  m_IndirectSpecularColor: {r: 0.59017533, g: 0.8547595, b: 0.98257446, a: 1}
+  m_IndirectSpecularColor: {r: 0.58511615, g: 0.84757364, b: 0.97433037, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -160,7 +160,7 @@ MonoBehaviour:
   desert: 0
   volcano: 0
   enemy:
-  - {fileID: 560001178365454048, guid: b073474b19c1f6f4abd707827465df34, type: 3}
+  - {fileID: 375148921650361612, guid: 2be3dbc046047704bb3763b1115d7208, type: 3}
   - {fileID: 1804314485223645936, guid: 7522be51953fb934a967a14c0f5eaa64, type: 3}
   monsterCount: 0
   maxMonsterCount: 10
@@ -195,7 +195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &86593031
 Transform:
   m_ObjectHideFlags: 0

@@ -7,18 +7,7 @@ using UnityEngine.SceneManagement;
 public class Level2GameManager : MonoBehaviour
 {
     public GameObject WinPanel;
-
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    public static bool IsLevel2Pass=true;
     public void BackToMainTown()
     {
         SceneManager.LoadScene("Main Town");
@@ -28,6 +17,7 @@ public class Level2GameManager : MonoBehaviour
     {
         if(other.gameObject.tag == "Player"){
             WinPanel.SetActive(true);
+            IsLevel2Pass = true;
         }
     }
 

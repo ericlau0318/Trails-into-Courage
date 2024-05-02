@@ -38,13 +38,24 @@ public class EnemyValue : MonoBehaviour
     private Slider healthSlider;
 
     // player attack demage
-    public void EnemyHurtBySpell(Collider other, string enemyType)
+    public void EnemyHurtByMagic(Collider other, string enemyType)
     {
-        if (other.gameObject.name == "Fireball 1(Clone)")
+        if (other.gameObject.name == "Fireball 1(Clone)" )
         {
             enemyHealth -= PlayerState.spellDamage;
             Debug.Log(enemyType + "_HP: " + enemyHealth);
         }
+        else if(other.gameObject.name == "IceEffect 1(Clone)")
+        {
+            enemyHealth -= PlayerState.spellDamage * 1.2f;
+            Debug.Log(enemyType + "_HP: " + enemyHealth);
+        }
+        else if(other.gameObject.name == "Lightning(Clone)") 
+        {
+            enemyHealth -= PlayerState.spellDamage * 1.25f;
+            Debug.Log(enemyType + "_HP: " + enemyHealth);
+        }
+
     }
     public void EnemyHurtBySword(Collider other, string enemyType)
     {
@@ -55,6 +66,8 @@ public class EnemyValue : MonoBehaviour
             hurtTime = 0.5f;
         }
     }
+
+
     public void EnemyDied(int exp)
     {
         if(enemyHealth <= 0)

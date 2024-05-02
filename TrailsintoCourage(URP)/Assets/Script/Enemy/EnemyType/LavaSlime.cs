@@ -43,10 +43,10 @@ public class LavaSlime : EnemyValue
     // Archer setting / component
     private void InitialMummy()
     {
-        damage                  =       4;
-        enemyHealth             =       20;
+        damage                  =       6;
+        enemyHealth             =       70;
         exp                     =       7;
-        attackPeriod            =       1.5f;
+        attackPeriod            =       1;
         movingSpeed             =       2f;
         attackRadius            =       3f;
         senseRadius             =       6;
@@ -88,7 +88,7 @@ public class LavaSlime : EnemyValue
     }
     private void OnTriggerEnter(Collider other)
     {
-        EnemyHurtBySpell(other, lavaSlime);
+        EnemyHurtByMagic(other, lavaSlime);
         EnemyHurtBySword(other, lavaSlime);
     }
     private void ChasingPlayer()

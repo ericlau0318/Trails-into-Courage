@@ -6,10 +6,10 @@ public class GrassLandType : EnemyValue
 {
     public Level1GameManager level1GameManager;
     
-    public void ChasingPlayerGrassLand(GameObject enemy, Rigidbody rb, bool isAttack, bool inAttackArea, float movingSpeed)
+    public void ChasingPlayerGrassLand(GameObject enemy, Rigidbody rb, bool isAttack, bool inAttackArea, float movingSpeed, float rotateAngle)
     {
         // inital setting is 90 angle, but someone moodle 0 angle is different rotation state so need to try different change
-        Rotation(playerCurrentPosition, enemy, rb, 90);
+        Rotation(playerCurrentPosition, enemy, rb, rotateAngle);
         if (spawner.grassLand && !isAttack && !inAttackArea)
         {
             enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);

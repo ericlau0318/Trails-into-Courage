@@ -8,6 +8,7 @@ public class BlueSlime : GrassLandType
 {
     private readonly string blueSlime = "blueSlime";
     private Rigidbody rb;
+    public float rotateAngle;
     // enemy setting
     private float attackTime;
     [SerializeField]
@@ -33,22 +34,22 @@ public class BlueSlime : GrassLandType
             UpdateEnemyUI(currentHealth, maxHealth);
             UpdateCurrentPosition(this.gameObject);
             CheckAttack();
-            ChasingPlayerGrassLand(this.gameObject, rb, isAttack, inAttackArea, movingSpeed);
+            ChasingPlayerGrassLand(this.gameObject, rb, isAttack, inAttackArea, movingSpeed, rotateAngle);
             GrassLandEnemyDied(exp);
         }       
     }
     // Blue Slime settin value / component
     private void InitialBlueSlime()
     {
-        damage                  =       2;
-        enemyHealth             =       20;
+        damage                  =       3;
+        enemyHealth             =       30;
         exp                     =       4;
         attackPeriod            =       0.8f;
         movingSpeed             =       2.5f;
         attackRadius            =       3f;
         senseRadius             =       4;
         rotateSpeed             =       125f;
-
+        rotateAngle             =       90;   
         maxHealth               =       enemyHealth;
         currentHealth           =       maxHealth;
         rb                      =       GetComponent<Rigidbody>();
@@ -82,7 +83,7 @@ public class BlueSlime : GrassLandType
     }
     private void OnTriggerEnter(Collider other)
     {
-        EnemyHurtBySpell(other, blueSlime);
+        EnemyHurtByMagic(other, blueSlime);
         EnemyHurtBySword(other, blueSlime);
     }
     private void OnCollisionStay(Collision collision)

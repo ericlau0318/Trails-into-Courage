@@ -26,7 +26,25 @@ public class Interactable : MonoBehaviour
     public bool hasCompletedDialogue = false;
 
     public Animator GirlAnimator;
-     bool Talking;
+    public bool isGirlTalking;
+    public  GameObject ShopPanel;
+    public bool showShopPanelAfterDialogue = false;
+    public string uniqueID;
+    private void Awake()
+    {
+        LoadState();
+    }
+    public void SaveState() {
+        PlayerPrefs.SetInt(uniqueID + "_choiceMode", choiceMode ? 1 : 0);
+        PlayerPrefs.SetInt(uniqueID + "_completedDialogue", hasCompletedDialogue ? 1 : 0);
+        PlayerPrefs.Save();
+    }
+
+    public void LoadState() {
+        choiceMode = PlayerPrefs.GetInt(uniqueID + "_choiceMode", 0) == 1;
+        hasCompletedDialogue = PlayerPrefs.GetInt(uniqueID + "_completedDialogue", 0) == 1;
+    }
+
     void Start()
     {
         dialogueAnimator = GameObject.Find("DialogueBox").GetComponent<Animator>();
@@ -39,18 +57,27 @@ public class Interactable : MonoBehaviour
         {
             dialogueBox.SetActive(true);
         }
+        if (gameObject.tag == "Girl" && !playerCurrentlyInZone)
+        {
+            showShopPanelAfterDialogue = true;
+            ShopPanel.SetActive(false);
+        }
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (playerCurrentlyInZone && !isPlayerInZone && !hasInteracted)
             {
-                GirlAnimator.SetTrigger("Talking");
+                if (gameObject.tag == "Girl")
+                {
+                    GirlAnimator.SetTrigger("Talking");
+                    hasCompletedDialogue = false;
+                }
                 PlayerController.isPlayerTalking = true;
                 dialogueManager.StartDialogue(dialogue, this);
                 hasInteracted = true;
             }
             if (!playerCurrentlyInZone)
             {
-                Debug.Log(playerCurrentlyInZone);
+                //Debug.Log(playerCurrentlyInZone);
                 hasInteracted = false;
                 isPlayerInZone = false;
             }
@@ -60,7 +87,6 @@ public class Interactable : MonoBehaviour
         {
             CloseDialogue();
         }
-
     }
     void CloseDialogue()
     {

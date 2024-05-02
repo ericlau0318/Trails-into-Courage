@@ -15,16 +15,21 @@ public class Spellattack : MonoBehaviour
     private void Update()
     {
         transform.position +=   spellspeed *  Time.deltaTime * transform.forward;
-        transform.Rotate(0f, 0f, rotationSpeed * Time.deltaTime);
+        //transform.Rotate(0f, 0f, rotationSpeed * Time.deltaTime);
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject)
+        if (other.gameObject.name == "FireRing(Clone)")
+        {
+
+        }
+        else if (other.gameObject)
         {
             Instantiate(Explosion, transform.position, transform.rotation);
             this.gameObject.SetActive(false);
             Explosion.SetActive(true);
             Destroy(gameObject , 0.5f);
         }
+        
     }
 }

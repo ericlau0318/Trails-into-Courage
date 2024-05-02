@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEditor.Searcher;
 using UnityEngine;
 
@@ -15,50 +16,62 @@ public class Boss : EnemyValue
     private float longAttackRadius, shortAttackRadius;
     public GameObject fireRing, magicBall, mutiMagicBall;
     public Transform magicPosition01, magicPosition02, magicPosition03;
-
+    public GameObject sword;
+    private BoxCollider swordCollider;
     // enemy setting
+    [SerializeField]
     private float longAttackTime, longSpecialAttackTime, shortAttackTime;
     private float longAttackPeriod, shortAttackPeriod, longSpecialAttackPeriod;
+    private float damageTime;
     [SerializeField]
     private bool isAttack, inLongAttackArea, switchLongMod;
     // UI hp
     public float maxHealth;
     public float currentHealth;
+    private float halfHealth;
     public float rotate;
     public float recoverHealth;
+    public AnimatorStateInfo stateInfo;
     // Start is called before the first frame update
     void Start()
     {
         InitialBoss();
-        InitialObjectCollect(this.gameObject);
+        InitialObjectCollect(this.gameObject);      
         switchLongMod = true;
     }
     // Update is called once per frame
     void Update()
     {
         currentHealth = enemyHealth;
-        hurtTime -= Time.deltaTime;
-        DrawLine();
+        if (hurtTime > 0)
+        {
+            hurtTime -= Time.deltaTime;
+        }
+        if (damageTime > 0)
+        {
+            damageTime -= Time.deltaTime;
+        }
         UpdateEnemyUI(currentHealth, maxHealth);
         UpdateCurrentPosition(this.gameObject);
         CheckAttack();
         ChasingPlayer();
+        DrawLine();
         EnemyDied(exp);
     }
     // Boss setting / component
     private void InitialBoss()
     {
-        enemyHealth                 =       100;
+        enemyHealth                 =       200;
         recoverHealth               =       3;
         exp                         =       20;
         movingSpeed                 =       4;
         shortDamage                 =       8;
         longSpecialDamage           =       7;
         longDamage                  =       5;
-
+        damageTime                  =       1;
         longAttackPeriod            =       2;
         longSpecialAttackPeriod     =       4;
-        shortAttackPeriod           =       2;
+        shortAttackPeriod           =       1;
         longAttackRadius            =       14;
         shortAttackRadius           =       1.5f;
 
@@ -66,8 +79,9 @@ public class Boss : EnemyValue
 
         maxHealth                   =       enemyHealth;
         currentHealth               =       maxHealth;
+        halfHealth                  =       maxHealth / 2;
         rb                          =       GetComponent<Rigidbody>();
-
+        swordCollider               =       sword.GetComponent<BoxCollider>();
         isAttack                    =       false;
         inLongAttackArea            =       false;
         switchLongMod               =       true;
@@ -78,6 +92,7 @@ public class Boss : EnemyValue
         if (Vector3.Distance(transform.position, playerCurrentPosition) > 9.5f)
         {
             switchLongMod = true;
+            swordCollider.enabled = false;
             // check inside or outside the attack area
             if (DetectCircleArea(longAttackRadius))
             {
@@ -92,71 +107,55 @@ public class Boss : EnemyValue
         {
             switchLongMod = false;
         }
-
         // attack fector attack time/ attack area/ attacking?
-        if (switchLongMod && inLongAttackArea && !isAttack && enemyHealth > 0)
+        if (switchLongMod && inLongAttackArea && enemyHealth > 0)
         {   // atual attack
-            isAttack = true;
-            if (longAttackTime <= 0)
+            if (longAttackTime <= 0 && !isAttack)
             {
-                if (enemyHealth > maxHealth / 2)
-                {
-                    Instantiate(magicBall, magicPosition01.transform.position, Quaternion.identity);
-                    Debug.Log("longSimple");
-                    // reset attack period time
-                    longAttackTime = longAttackPeriod;
-                }
-                else
-                {
-                    Instantiate(magicBall, magicPosition01.transform.position, Quaternion.identity);
-                    Instantiate(mutiMagicBall, magicPosition02.transform.position, Quaternion.identity);
-                    Instantiate(mutiMagicBall, magicPosition03.transform.position, Quaternion.identity);
-                    Debug.Log("longSimple");
-                    // reset attack period time
-                    longAttackTime = longAttackPeriod;
-                }
+                isAttack = true;
+                enemyAnimator.SetTrigger("MultipleMagic");
+                Debug.Log("longSimple");
+
             }
-            else if (enemyHealth <= maxHealth / 2 && longSpecialAttackTime <= 0)
+            if (enemyHealth <= halfHealth && longSpecialAttackTime <= 0 && !isAttack)
             {
-                Instantiate(fireRing, playerCurrentPosition, Quaternion.identity);
+                isAttack = true;
+                enemyAnimator.SetTrigger("Magic");
                 Debug.Log("longSpecial");
-                // reset attack period time
-                longSpecialAttackTime = longSpecialAttackPeriod;
             }
         }
+        // attack fector attack time/ attack area/ attacking?
+        if (shortAttackTime <= 0 && DetectCircleArea(shortAttackRadius) && !isAttack && enemyHealth > 0)
+        {   // atual attack           
+            isAttack = true;
+            enemyAnimator.SetTrigger("Sword");
+            Debug.Log("short");
+        }
         // count attack period time
-        else if (longAttackTime > 0)
+        if (longAttackTime > 0)
         {
             longAttackTime -= Time.deltaTime;
-            isAttack = false;
         }
 
         if (longSpecialAttackTime > 0)
         {
             longSpecialAttackTime -= Time.deltaTime;
-            isAttack = false;
-        }
-
-        // attack fector attack time/ attack area/ attacking?
-        if (shortAttackTime <= 0 && DetectCircleArea(shortAttackRadius) && !isAttack && enemyHealth > 0)
-        {   // atual attack
-            isAttack = true;
-            //enemyAnimator.SetTrigger("isAttack");
-            Debug.Log("short");
-            // reset attack period time
-            shortAttackTime = shortAttackPeriod;
-            isAttack = false;
         }
         // count attack period time
-        else if (shortAttackTime > 0)
+        if (shortAttackTime > 0)
         {
             shortAttackTime -= Time.deltaTime;
         }
     }
     private void OnTriggerEnter(Collider other)
     {
-        EnemyHurtBySpell(other, boss);
+        EnemyHurtByMagic(other, boss);
         EnemyHurtBySword(other, boss);
+
+        if (other.CompareTag("Player"))
+        {
+            playerState.TakeDamage(shortDamage);
+        }
     }
     private void ChasingPlayer()
     {
@@ -179,6 +178,39 @@ public class Boss : EnemyValue
                 transform.position = Vector3.MoveTowards(transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
             }
         }
+    }
+
+    //check animation finish
+    private void FinishSwordAttack()
+    {
+        // reset attack period time
+        shortAttackTime = shortAttackPeriod;
+        swordCollider.enabled = false;
+        isAttack = false;
+    }
+    private void StartSwordAttack()
+    {
+        swordCollider.enabled = true;
+    }
+    private void FinishMagicAttack()
+    {
+        // reset attack period time
+        Instantiate(fireRing, playerCurrentPosition, Quaternion.identity);
+        longSpecialAttackTime       =       longSpecialAttackPeriod;
+        isAttack                    =       false;
+    }
+    private void FinishMultipleMagic()
+    {
+        if(enemyHealth <= halfHealth)
+        {
+            Instantiate(magicBall, magicPosition01.transform.position, Quaternion.identity);
+            Instantiate(mutiMagicBall, magicPosition02.transform.position, Quaternion.identity);
+            Instantiate(mutiMagicBall, magicPosition03.transform.position, Quaternion.identity);
+        }
+        else
+            Instantiate(magicBall, magicPosition01.transform.position, Quaternion.identity);
+        longAttackTime              =       longAttackPeriod;
+        isAttack                    =       false;
     }
     private void DrawLine()
     {   // sense area point
