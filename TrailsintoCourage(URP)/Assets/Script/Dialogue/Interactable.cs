@@ -29,6 +29,22 @@ public class Interactable : MonoBehaviour
     public bool isGirlTalking;
     public  GameObject ShopPanel;
     public bool showShopPanelAfterDialogue = false;
+    public string uniqueID;
+    private void Awake()
+    {
+        LoadState();
+    }
+    public void SaveState() {
+        PlayerPrefs.SetInt(uniqueID + "_choiceMode", choiceMode ? 1 : 0);
+        PlayerPrefs.SetInt(uniqueID + "_completedDialogue", hasCompletedDialogue ? 1 : 0);
+        PlayerPrefs.Save();
+    }
+
+    public void LoadState() {
+        choiceMode = PlayerPrefs.GetInt(uniqueID + "_choiceMode", 0) == 0;
+        hasCompletedDialogue = PlayerPrefs.GetInt(uniqueID + "_completedDialogue", 0) == 0;
+    }
+
     void Start()
     {
         dialogueAnimator = GameObject.Find("DialogueBox").GetComponent<Animator>();

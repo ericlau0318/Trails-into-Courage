@@ -90,9 +90,15 @@ public class DialogueManager : MonoBehaviour
     }
     public void DisplayNextSentence()
     {
-        if (sentences.Count == 0 || choice1Sentences.Count == 0 || choice2Sentences.Count == 0)
+        /*if (sentences.Count == 0 || choice1Sentences.Count == 0 || choice2Sentences.Count == 0)
         //if (sentences.Count == 0)
         {
+            EndDialogue(interactable);
+            return;
+        }*/
+        if (sentences.Count == 0)
+        {
+            // End the dialogue if there are no sentences left to display.
             EndDialogue(interactable);
             return;
         }
@@ -132,8 +138,10 @@ public class DialogueManager : MonoBehaviour
         animator.SetBool("IsOpen", false);
         StartCoroutine(CheckPlayerInZoneAfterDelay(1f));
         isDialogueActive = false;
-        interactable.hasCompletedDialogue = true;
+        //npc.hasCompletedDialogue = true;
+        npc.choiceMode = true;
         PlayerController.isPlayerTalking = false;
+        npc.SaveState();
         if (npc.showShopPanelAfterDialogue && npc.sentencesNumber == 1)
         {
             npc.ShopPanel.SetActive(true);
