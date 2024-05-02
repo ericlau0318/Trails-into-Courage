@@ -1773,9 +1773,9 @@ GameObject:
   - component: {fileID: 1494646743495420847}
   - component: {fileID: 2274568094327270481}
   - component: {fileID: 855930998011675189}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: pPlane1
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4188,9 +4188,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3847696716754221961}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Boss_scene
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
