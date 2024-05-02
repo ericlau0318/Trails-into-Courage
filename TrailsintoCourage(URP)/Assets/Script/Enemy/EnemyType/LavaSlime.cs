@@ -29,33 +29,39 @@ public class LavaSlime : EnemyValue
     // Update is called once per frame
     void Update()
     {
-        currentHealth = enemyHealth;
-        hurtTime -= Time.deltaTime;
-        DrawLineArea();
-        UpdateEnemyUI(currentHealth, maxHealth);
-        UpdateCurrentPosition(this.gameObject);
-        CheckAttack();
-        if(this.name == ("LavaSlimeStand"))
+        if(!Level3GameManager.IsLevel3Pass)
         {
-            if (DetectCircleArea(senseRadius) && !isAttack && !inAttackArea)
+            currentHealth = enemyHealth;
+            if(hurtTime > 0)
             {
-                Rotation(playerCurrentPosition, this.gameObject, rb, 90);
-                transform.position = Vector3.MoveTowards(transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
+                hurtTime -= Time.deltaTime;
             }
+            DrawLineArea();
+            UpdateEnemyUI(currentHealth, maxHealth);
+            UpdateCurrentPosition(this.gameObject);
+            CheckAttack();
+            if (this.name == ("LavaSlimeStand"))
+            {
+                if (DetectCircleArea(senseRadius) && !isAttack && !inAttackArea)
+                {
+                    Rotation(playerCurrentPosition, this.gameObject, rb, 90);
+                    transform.position = Vector3.MoveTowards(transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
+                }
+            }
+            else
+            {
+                ChasingPlayer();
+            }
+            EnemyDied(exp);
         }
-        else
-        {
-            ChasingPlayer();
-        }
-        EnemyDied(exp);
     }
     // Archer setting / component
     private void InitialLavaSlime()
     {
-        damage                  =       6;
+        damage                  =       5;
         enemyHealth             =       70;
         exp                     =       7;
-        attackPeriod            =       1;
+        attackPeriod            =       1.2f;
         movingSpeed             =       2f;
         attackRadius            =       3f;
         senseRadius             =       6;

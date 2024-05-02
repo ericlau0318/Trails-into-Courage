@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Demon : EnemyValue
 {
-    private readonly string Devil = "Devil";
+    private readonly string demon = "Demon";
     private Rigidbody rb;
 
     public Transform point2;
@@ -29,25 +29,31 @@ public class Demon : EnemyValue
     // Update is called once per frame
     void Update()
     {
-        currentHealth = enemyHealth;
-        hurtTime -= Time.deltaTime;
-        DrawLineArea();
-        UpdateEnemyUI(currentHealth, maxHealth);
-        UpdateCurrentPosition(this.gameObject);
-        CheckAttack();
-        if (this.name == ("LavaSlimeStand"))
+        if (!Level3GameManager.IsLevel3Pass)
         {
-            if (DetectCircleArea(senseRadius) && !isAttack && !inAttackArea)
+            currentHealth = enemyHealth;
+            if(hurtTime > 0)
             {
-                Rotation(playerCurrentPosition, this.gameObject, rb, 90);
-                transform.position = Vector3.MoveTowards(transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
+                hurtTime -= Time.deltaTime;
             }
+            DrawLineArea();
+            UpdateEnemyUI(currentHealth, maxHealth);
+            UpdateCurrentPosition(this.gameObject);
+            CheckAttack();
+            if (this.name == ("DemonStand"))
+            {
+                if (DetectCircleArea(senseRadius) && !isAttack && !inAttackArea)
+                {
+                    Rotation(playerCurrentPosition, this.gameObject, rb, 90);
+                    transform.position = Vector3.MoveTowards(transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
+                }
+            }
+            else
+            {
+                ChasingPlayer();
+            }
+            EnemyDied(exp);
         }
-        else
-        {
-            ChasingPlayer();
-        }
-        EnemyDied(exp);
     }
     // Archer setting / component
     private void InitialDemon()
@@ -93,8 +99,8 @@ public class Demon : EnemyValue
     }
     private void OnTriggerEnter(Collider other)
     {
-        EnemyHurtByMagic(other, Devil);
-        EnemyHurtBySword(other, Devil);
+        EnemyHurtByMagic(other, demon);
+        EnemyHurtBySword(other, demon);
     }
     private void ChasingPlayer()
     {
