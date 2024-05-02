@@ -41,8 +41,8 @@ public class Interactable : MonoBehaviour
     }
 
     public void LoadState() {
-        choiceMode = PlayerPrefs.GetInt(uniqueID + "_choiceMode", 0) == 0;
-        hasCompletedDialogue = PlayerPrefs.GetInt(uniqueID + "_completedDialogue", 0) == 0;
+        choiceMode = PlayerPrefs.GetInt(uniqueID + "_choiceMode", 0) == 1;
+        hasCompletedDialogue = PlayerPrefs.GetInt(uniqueID + "_completedDialogue", 0) == 1;
     }
 
     void Start()
