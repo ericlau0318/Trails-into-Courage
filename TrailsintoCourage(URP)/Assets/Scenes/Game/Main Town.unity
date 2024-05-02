@@ -4906,6 +4906,7 @@ MonoBehaviour:
   isGirlTalking: 0
   ShopPanel: {fileID: 729557432}
   showShopPanelAfterDialogue: 0
+  uniqueID: 
 --- !u!136 &389718606
 CapsuleCollider:
   m_ObjectHideFlags: 0
