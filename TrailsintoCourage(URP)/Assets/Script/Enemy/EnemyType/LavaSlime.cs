@@ -23,7 +23,7 @@ public class LavaSlime : EnemyValue
     // Start is called before the first frame update
     void Start()
     {
-        InitialMummy();
+        InitialLavaSlime();
         InitialObjectCollect(this.gameObject);
         target = point1;
         movingToPoint1 = true;
@@ -41,7 +41,7 @@ public class LavaSlime : EnemyValue
         EnemyDied(exp);
     }
     // Archer setting / component
-    private void InitialMummy()
+    private void InitialLavaSlime()
     {
         damage                  =       6;
         enemyHealth             =       70;
@@ -75,13 +75,10 @@ public class LavaSlime : EnemyValue
         {   // atual attack
             isAttack = true;
             // attack
-            Instantiate(fireBall, magicPoint.transform.position, Quaternion.identity);
-            // reset attack period time
-            attackTime = attackPeriod;
+            enemyAnimator.SetTrigger("isAttack");
         }
-        // count attack period time
-        else if (attackTime > 0)
-        {
+        if (attackTime > 0)
+        {   // count attack period time
             attackTime -= Time.deltaTime;
             isAttack = false;
         }
@@ -93,39 +90,44 @@ public class LavaSlime : EnemyValue
     }
     private void ChasingPlayer()
     {
-        if (spawner.volcano && enemyHealth > 00)
+        if (enemyHealth > 00 && !DetectCircleArea(senseRadius))
         {   // check for swaning/??¡Á? or not
-
             // check sence area if false swan to walk point to point
-            if (!DetectCircleArea(senseRadius))
-            {
-                transform.position = Vector3.MoveTowards(transform.position, target.position, movingSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, target.position, movingSpeed * Time.deltaTime);
 
-                // Check if the target is reached
-                if (Vector3.Distance(transform.position, target.position) < 0.1f)
+            // Check if the target is reached
+            if (Vector3.Distance(transform.position, target.position) < 0.1f)
+            {
+                // Toggle the target
+                if (movingToPoint1)
                 {
-                    // Toggle the target
-                    if (movingToPoint1)
-                    {
-
-                        target = point2;
-                        Rotation(target.transform.position, this.gameObject, rb, 90);
-                        movingToPoint1 = false;
-                    }
-                    else
-                    {
-                        target = point1;
-                        Rotation(target.transform.position, this.gameObject, rb, 90);
-                        movingToPoint1 = true;
-                    }
+                    target = point2;
+                    Rotation(target.transform.position, this.gameObject, rb, 90);
+                    movingToPoint1 = false;
                 }
-
+                else
+                {
+                    target = point1;
+                    Rotation(target.transform.position, this.gameObject, rb, 90);
+                    movingToPoint1 = true;
+                }
             }
-
-            else if (DetectCircleArea(senseRadius) && !isAttack && !inAttackArea)
+        }
+        else if (DetectCircleArea(senseRadius) && !isAttack && !inAttackArea)
+        {
+            Rotation(playerCurrentPosition, this.gameObject, rb, 90);
+            transform.position = Vector3.MoveTowards(transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (isAttack)
+        {
+            if (collision.collider.CompareTag("Player"))
             {
-                Rotation(playerCurrentPosition, this.gameObject, rb, 90);
-                transform.position = Vector3.MoveTowards(transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
+                playerState.TakeDamage(damage);
+                // reset attack period time
+                attackTime = attackPeriod;
             }
         }
     }
