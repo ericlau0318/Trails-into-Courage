@@ -42,5 +42,6 @@ public class Level1GameManager : MonoBehaviour
     public void BackToMainTown()
     {
         SceneManager.LoadScene("Main Town");
+        DataManager.Instance.AutoSave();
     }
 }
