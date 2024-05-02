@@ -19,18 +19,22 @@ public class DataManager : Data
         }
         else
             _instance = this;
-        stateController = FindObjectOfType<StateController>();
+        stateController         =       FindObjectOfType<StateController>();
     }
     public void AutoSave()
     {
-        playerLevelValue = StateController.Level;
-        expValue = StateController.Exp;
-        statePointValue = StateController.StatePoint;
-        strValue = StateController.STRValue;
-        intValue = StateController.INTValue;
-        hpValue = StateController.HPValue;
-        mpValue = StateController.MPValue;
-        spValue = StateController.SPValue;
+        playerLevelValue        =       StateController.Level;
+        expValue                =       StateController.Exp;
+        statePointValue         =       StateController.StatePoint;
+        strValue                =       StateController.STRValue;
+        intValue                =       StateController.INTValue;
+        hpValue                 =       StateController.HPValue;
+        mpValue                 =       StateController.MPValue;
+        spValue                 =       StateController.SPValue;
+
+        SaveMagic();
+        SaveLevelPass();
+
         PlayerPrefs.SetInt("PlayerLevel", playerLevelValue);
         PlayerPrefs.SetInt("Exp", expValue);
         PlayerPrefs.SetInt("StatePoint", statePointValue);
@@ -52,7 +56,9 @@ public class DataManager : Data
         StateController.HPValue = PlayerPrefs.GetInt("HP", hpValue);
         StateController.MPValue = PlayerPrefs.GetInt("MP", mpValue);
         StateController.SPValue = PlayerPrefs.GetInt("SP", spValue);
+
+        LoadMagic();
+        LoadLevelPass();
         stateController.UpdateUIForLoad();
     }
-
 }

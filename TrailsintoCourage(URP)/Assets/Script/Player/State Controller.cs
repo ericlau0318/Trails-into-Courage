@@ -97,6 +97,7 @@ public class StateController : MonoBehaviour
             {
                 PlayerState.StatePanelOpen = false;
                 StartCoroutine(MovePanel(initialPosition, returnMoveDuration));
+                DataManager.Instance.AutoSave();
                 Debug.Log("Start");
             }
             else

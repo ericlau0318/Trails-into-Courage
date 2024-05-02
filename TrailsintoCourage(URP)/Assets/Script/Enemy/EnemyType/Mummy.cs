@@ -43,8 +43,8 @@ public class Mummy : EnemyValue
     // Archer setting / component
     private void InitialMummy()
     {
-        damage                   =     4;
-        enemyHealth              =     30;
+        damage                   =     5;
+        enemyHealth              =     60;
         exp                      =     6;
         attackPeriod             =     1.5f;
         movingSpeed              =     3f;
@@ -89,7 +89,7 @@ public class Mummy : EnemyValue
     }
     private void OnTriggerEnter(Collider other)
     {
-        EnemyHurtBySpell(other, mummy);
+        EnemyHurtByMagic(other, mummy);
         EnemyHurtBySword(other, mummy);
 
         if (other.CompareTag("Player") && damageTime <0)

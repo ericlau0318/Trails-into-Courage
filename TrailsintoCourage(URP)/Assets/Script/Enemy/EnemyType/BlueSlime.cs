@@ -41,8 +41,8 @@ public class BlueSlime : GrassLandType
     // Blue Slime settin value / component
     private void InitialBlueSlime()
     {
-        damage                  =       2;
-        enemyHealth             =       20;
+        damage                  =       3;
+        enemyHealth             =       30;
         exp                     =       4;
         attackPeriod            =       0.8f;
         movingSpeed             =       2.5f;
@@ -83,7 +83,7 @@ public class BlueSlime : GrassLandType
     }
     private void OnTriggerEnter(Collider other)
     {
-        EnemyHurtBySpell(other, blueSlime);
+        EnemyHurtByMagic(other, blueSlime);
         EnemyHurtBySword(other, blueSlime);
     }
     private void OnCollisionStay(Collision collision)

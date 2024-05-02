@@ -61,7 +61,7 @@ public class Boss : EnemyValue
     // Boss setting / component
     private void InitialBoss()
     {
-        enemyHealth                 =       100;
+        enemyHealth                 =       200;
         recoverHealth               =       3;
         exp                         =       20;
         movingSpeed                 =       4;
@@ -150,7 +150,7 @@ public class Boss : EnemyValue
     }
     private void OnTriggerEnter(Collider other)
     {
-        EnemyHurtBySpell(other, boss);
+        EnemyHurtByMagic(other, boss);
         EnemyHurtBySword(other, boss);
 
         if (other.CompareTag("Player"))
