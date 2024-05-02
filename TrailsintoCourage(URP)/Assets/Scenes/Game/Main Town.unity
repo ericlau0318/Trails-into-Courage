@@ -1334,7 +1334,7 @@ PrefabInstance:
     - target: {fileID: 2722490684285888515, guid: c3d41d39e1df8be45b14eb3ce37ba383,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3030203582134651275, guid: c3d41d39e1df8be45b14eb3ce37ba383,
         type: 3}
@@ -28652,6 +28652,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DialogueManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1533148046675461108, guid: 79b3ffdb30f609547a9dff346bf4e1d2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3140159099874766904, guid: 79b3ffdb30f609547a9dff346bf4e1d2,
         type: 3}
