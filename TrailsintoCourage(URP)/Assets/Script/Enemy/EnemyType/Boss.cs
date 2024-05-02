@@ -126,8 +126,7 @@ public class Boss : EnemyValue
         }
         // attack fector attack time/ attack area/ attacking?
         if (shortAttackTime <= 0 && DetectCircleArea(shortAttackRadius) && !isAttack && enemyHealth > 0)
-        {   // atual attack
-            swordCollider.enabled = false;
+        {   // atual attack           
             isAttack = true;
             enemyAnimator.SetTrigger("Sword");
             Debug.Log("short");
@@ -186,8 +185,12 @@ public class Boss : EnemyValue
     {
         // reset attack period time
         shortAttackTime = shortAttackPeriod;
-        swordCollider.enabled = true;
+        swordCollider.enabled = false;
         isAttack = false;
+    }
+    private void StartSwordAttack()
+    {
+        swordCollider.enabled = true;
     }
     private void FinishMagicAttack()
     {

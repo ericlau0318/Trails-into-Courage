@@ -450,17 +450,17 @@ PrefabInstance:
     - target: {fileID: 5777977065786820738, guid: f391cafb65705ef4e8baa3d6b12e1fa9,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 5777977065786820738, guid: f391cafb65705ef4e8baa3d6b12e1fa9,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 5777977065786820738, guid: f391cafb65705ef4e8baa3d6b12e1fa9,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 5777977065786820738, guid: f391cafb65705ef4e8baa3d6b12e1fa9,
         type: 3}
@@ -729,9 +729,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.21505725
-  m_Height: 1.3061124
+  m_Height: 1.3339772
   m_Direction: 1
-  m_Center: {x: 0.0025983453, y: 0.6946295, z: -0.00537014}
+  m_Center: {x: 0.0025983453, y: 0.6806971, z: -0.00537014}
 --- !u!114 &3590931645564539499
 MonoBehaviour:
   m_ObjectHideFlags: 0
