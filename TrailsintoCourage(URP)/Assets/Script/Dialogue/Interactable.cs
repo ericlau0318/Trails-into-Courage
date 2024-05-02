@@ -34,15 +34,16 @@ public class Interactable : MonoBehaviour
     {
         LoadState();
     }
-    public void SaveState() {
-        PlayerPrefs.SetInt(uniqueID + "_choiceMode", choiceMode ? 1 : 0);
-        PlayerPrefs.SetInt(uniqueID + "_completedDialogue", hasCompletedDialogue ? 1 : 0);
-        PlayerPrefs.Save();
+    public void SaveState()
+    {
+        GameStateManager.SaveState(uniqueID + "_choiceMode", choiceMode);
+        GameStateManager.SaveState(uniqueID + "_completedDialogue", hasCompletedDialogue);
     }
 
-    public void LoadState() {
-        choiceMode = PlayerPrefs.GetInt(uniqueID + "_choiceMode", 0) == 1;
-        hasCompletedDialogue = PlayerPrefs.GetInt(uniqueID + "_completedDialogue", 0) == 1;
+    public void LoadState()
+    {
+        choiceMode = GameStateManager.LoadState(uniqueID + "_choiceMode", false);
+        hasCompletedDialogue = GameStateManager.LoadState(uniqueID + "_completedDialogue", false);
     }
 
     void Update()
