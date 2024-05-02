@@ -469,6 +469,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mummy7
       objectReference: {fileID: 0}
+    - target: {fileID: 2529331591312010699, guid: 323be8914f00b664c8a7f1130ba6d217,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4048593851860756463, guid: 323be8914f00b664c8a7f1130ba6d217,
         type: 3}
       propertyPath: m_AnchorMax.x

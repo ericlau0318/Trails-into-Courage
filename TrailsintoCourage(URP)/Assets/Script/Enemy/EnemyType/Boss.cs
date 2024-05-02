@@ -9,6 +9,7 @@ public class Boss : EnemyValue
 {
     private readonly string boss = "BOSS";
     private Rigidbody rb;
+    public AudioSource SwordAttackAudio,SpellCastAudio;
     // attack mood/state
     [SerializeField]
     private int shortDamage;
@@ -110,6 +111,7 @@ public class Boss : EnemyValue
         // attack fector attack time/ attack area/ attacking?
         if (switchLongMod && inLongAttackArea && enemyHealth > 0)
         {   // atual attack
+            SpellCastAudio.Play();
             if (longAttackTime <= 0 && !isAttack)
             {
                 isAttack = true;
@@ -126,7 +128,9 @@ public class Boss : EnemyValue
         }
         // attack fector attack time/ attack area/ attacking?
         if (shortAttackTime <= 0 && DetectCircleArea(shortAttackRadius) && !isAttack && enemyHealth > 0)
-        {   // atual attack           
+        {   // atual attack
+            SwordAttackAudio.Play();
+            swordCollider.enabled = false;
             isAttack = true;
             enemyAnimator.SetTrigger("Sword");
             Debug.Log("short");
@@ -185,12 +189,8 @@ public class Boss : EnemyValue
     {
         // reset attack period time
         shortAttackTime = shortAttackPeriod;
-        swordCollider.enabled = false;
-        isAttack = false;
-    }
-    private void StartSwordAttack()
-    {
         swordCollider.enabled = true;
+        isAttack = false;
     }
     private void FinishMagicAttack()
     {

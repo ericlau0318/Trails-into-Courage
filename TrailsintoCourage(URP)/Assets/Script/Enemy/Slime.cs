@@ -9,7 +9,7 @@ public class Slime : MonoBehaviour
     private Rigidbody rb;
     public Animator animator;
     public GameObject player;
-    private float rotatespeed = 100f;
+    //private float rotatespeed = 100f;
     void Start()
     {
         rb = GetComponent<Rigidbody>();

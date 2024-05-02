@@ -48,7 +48,7 @@ public class ShopPanelController : MonoBehaviour
         spellFireUsing = true;
         spellIceUsing = false;
         spellFlashUsing = false;
-        UsingBtn1Text.text = "Is Use";
+        UsingBtn1Text.text = "Using";
         UsingBtn2Text.text = "Not Use";
         UsingBtn3Text.text = "Not Use";
     }
@@ -58,7 +58,7 @@ public class ShopPanelController : MonoBehaviour
         spellIceUsing = true;
         spellFlashUsing = false;
         UsingBtn1Text.text = "Not Use";
-        UsingBtn2Text.text = "Is Use";
+        UsingBtn2Text.text = "Using";
         UsingBtn3Text.text = "Not Use";
     }
     public void IsUseBtn3()
@@ -68,6 +68,6 @@ public class ShopPanelController : MonoBehaviour
         spellFlashUsing = true;
         UsingBtn1Text.text = "Not Use";
         UsingBtn2Text.text = "Not Use";
-        UsingBtn3Text.text = "Is Use";
+        UsingBtn3Text.text = "Using";
     }
 }
