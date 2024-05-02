@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Level3GameManager : MonoBehaviour
 {
     public GameObject WinPanel;
-    public static bool IsLevel3Pass = true;
+    public static bool IsLevel3Pass=false;
     public void BackToMainTown()
     {
         SceneManager.LoadScene("Main Town");

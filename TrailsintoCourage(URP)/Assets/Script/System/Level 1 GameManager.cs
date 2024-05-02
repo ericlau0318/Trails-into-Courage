@@ -12,7 +12,7 @@ public class Level1GameManager : MonoBehaviour
     public GameObject WinPanel;
     public int targetNumber=50;
     public bool fullfillTarget;
-    public static bool IsLevel1Pass=true;
+    public static bool IsLevel1Pass=false;
     void Start()
     {
         KilledEnemy = 0;
