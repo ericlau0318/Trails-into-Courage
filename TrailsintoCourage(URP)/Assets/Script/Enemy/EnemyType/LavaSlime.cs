@@ -37,7 +37,18 @@ public class LavaSlime : EnemyValue
         UpdateEnemyUI(currentHealth, maxHealth);
         UpdateCurrentPosition(this.gameObject);
         CheckAttack();
-        ChasingPlayer();
+        if(this.name == ("LavaSlimeStand"))
+        {
+            if (DetectCircleArea(senseRadius) && !isAttack && !inAttackArea)
+            {
+                Rotation(playerCurrentPosition, this.gameObject, rb, 90);
+                transform.position = Vector3.MoveTowards(transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
+            }
+        }
+        else
+        {
+            ChasingPlayer();
+        }
         EnemyDied(exp);
     }
     // Archer setting / component
