@@ -68,12 +68,13 @@ public class Data : MonoBehaviour
         { isLevel1 = 1; }
         else
             isLevel1 = 0;
-        // save level2 pass
+        // save level 2 pass
         if (Level2GameManager.IsLevel2Pass)
         { isLevel2 = 1; }
         else
             isLevel2 = 0;
-        if (true)
+        //save level 3 pass 
+        if (Level3GameManager.IsLevel3Pass)
         { isLevel3 = 1; }
         else
             isLevel3 = 0;
@@ -103,10 +104,10 @@ public class Data : MonoBehaviour
             Level2GameManager.IsLevel2Pass = false;
         if (isLevel3 == 1)
         {
-
+            Level3GameManager.IsLevel3Pass = true;
         }
         else
-            isLevel3 = 0;
+            Level3GameManager.IsLevel3Pass = false;
     }
 
 }               
