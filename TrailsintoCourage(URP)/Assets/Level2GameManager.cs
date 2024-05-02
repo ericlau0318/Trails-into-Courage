@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Level2GameManager : MonoBehaviour
 {
     public GameObject WinPanel;
-    public static bool IsLevel2Pass=true;
+    public static bool IsLevel2Pass=false;
     public void BackToMainTown()
     {
         SceneManager.LoadScene("Main Town");
