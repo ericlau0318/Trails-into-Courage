@@ -60,11 +60,11 @@ public class LavaSlime : EnemyValue
     {
         damage                  =       5;
         enemyHealth             =       70;
-        exp                     =       7;
-        attackPeriod            =       1.2f;
-        movingSpeed             =       2f;
-        attackRadius            =       3f;
-        senseRadius             =       6;
+        exp                     =       6;
+        attackPeriod            =       1f;
+        movingSpeed             =       2.8f;
+        attackRadius            =       2f;
+        senseRadius             =       5;
         rotateSpeed             =       125f;
 
         maxHealth = enemyHealth;

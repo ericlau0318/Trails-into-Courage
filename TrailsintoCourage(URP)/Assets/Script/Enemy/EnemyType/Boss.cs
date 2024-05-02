@@ -63,7 +63,7 @@ public class Boss : EnemyValue
     private void InitialBoss()
     {
         enemyHealth                 =       200;
-        recoverHealth               =       3;
+        recoverHealth               =       2;
         exp                         =       20;
         movingSpeed                 =       4;
         shortDamage                 =       8;
@@ -185,7 +185,6 @@ public class Boss : EnemyValue
     private void StartSwordAttack()
     {
         swordCollider.enabled = true;
-        isAttack = false;
     }
 
     //check animation finish
