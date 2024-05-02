@@ -6757,6 +6757,21 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 5748118883714021554, guid: b0c2869390036bd44b5bb35d80f5e1df,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5748118883714021554, guid: b0c2869390036bd44b5bb35d80f5e1df,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5748118883714021554, guid: b0c2869390036bd44b5bb35d80f5e1df,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5875416434378373425, guid: b0c2869390036bd44b5bb35d80f5e1df,
         type: 3}
       propertyPath: m_Pivot.x
@@ -6942,7 +6957,7 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8785863400482362092, guid: b0c2869390036bd44b5bb35d80f5e1df,
         type: 3}
-      insertIndex: 3
+      insertIndex: -1
       addedObject: {fileID: 927532715}
     - targetCorrespondingSourceObject: {fileID: 8785863400482362092, guid: b0c2869390036bd44b5bb35d80f5e1df,
         type: 3}
