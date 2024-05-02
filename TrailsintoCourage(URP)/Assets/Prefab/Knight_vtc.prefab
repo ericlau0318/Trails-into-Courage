@@ -3128,7 +3128,7 @@ GameObject:
   - component: {fileID: 2560190071732709249}
   m_Layer: 0
   m_Name: Knight_vtc
-  m_TagString: Untagged
+  m_TagString: Knight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3143,7 +3143,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -3.957621, y: 0, z: 4.116452}
-  m_LocalScale: {x: 1.8, y: 1.8, z: 1.8}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6078934844493812567}
@@ -3201,6 +3201,10 @@ MonoBehaviour:
   choiceMode: 0
   hasCompletedDialogue: 0
   GirlAnimator: {fileID: 0}
+  isGirlTalking: 0
+  ShopPanel: {fileID: 0}
+  showShopPanelAfterDialogue: 0
+  uniqueID: 
 --- !u!95 &379177537468935286
 Animator:
   serializedVersion: 5

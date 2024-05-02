@@ -140,6 +140,7 @@ public class DialogueManager : MonoBehaviour
         isDialogueActive = false;
         //npc.hasCompletedDialogue = true;
         npc.choiceMode = true;
+   
         PlayerController.isPlayerTalking = false;
         npc.SaveState();
         if (npc.showShopPanelAfterDialogue && npc.sentencesNumber == 1)
