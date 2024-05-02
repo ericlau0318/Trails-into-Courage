@@ -45,11 +45,6 @@ public class Interactable : MonoBehaviour
         hasCompletedDialogue = PlayerPrefs.GetInt(uniqueID + "_completedDialogue", 0) == 1;
     }
 
-    void Start()
-    {
-        dialogueAnimator = GameObject.Find("DialogueBox").GetComponent<Animator>();
-        GirlAnimator = GameObject.Find("Girl").GetComponent<Animator>();
-    }
     void Update()
     {
         bool playerCurrentlyInZone = Physics.CheckSphere(transform.position, sphereRadius, LayerMask.GetMask("Player"));
