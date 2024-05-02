@@ -240,37 +240,6 @@ Transform:
   - {fileID: 820386083015510724}
   m_Father: {fileID: 5236223479647508119}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2103213648417113057
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5506077603180252585}
-  m_Layer: 0
-  m_Name: MagicPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5506077603180252585
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2103213648417113057}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0145, y: 0.0042, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5236223479647508119}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3018581536937459370
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,7 +450,6 @@ Transform:
   - {fileID: 2077213526987097554}
   - {fileID: 3820401647361086336}
   - {fileID: 1733898623749703738}
-  - {fileID: 5506077603180252585}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &3813407717201145759
@@ -581,9 +549,6 @@ MonoBehaviour:
   stateController: {fileID: 0}
   playerState: {fileID: 0}
   healthSlider: {fileID: 0}
-  fireBall: {fileID: 1568549803077103259, guid: f76b5a4d5e8b0344c8de693c1a39d7f3,
-    type: 3}
-  magicPoint: {fileID: 5506077603180252585}
   point2: {fileID: 0}
   point1: {fileID: 0}
   isAttack: 0

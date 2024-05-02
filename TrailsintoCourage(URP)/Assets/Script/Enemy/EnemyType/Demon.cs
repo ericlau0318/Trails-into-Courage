@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LavaSlime : EnemyValue
+public class Demon : EnemyValue
 {
-    private readonly string lavaSlime = "LavaSlime";
+    private readonly string Devil = "Devil";
     private Rigidbody rb;
 
     public Transform point2;
@@ -21,7 +21,7 @@ public class LavaSlime : EnemyValue
     // Start is called before the first frame update
     void Start()
     {
-        InitialLavaSlime();
+        InitialDemon();
         InitialObjectCollect(this.gameObject);
         target = point1;
         movingToPoint1 = true;
@@ -35,7 +35,7 @@ public class LavaSlime : EnemyValue
         UpdateEnemyUI(currentHealth, maxHealth);
         UpdateCurrentPosition(this.gameObject);
         CheckAttack();
-        if(this.name == ("LavaSlimeStand"))
+        if (this.name == ("LavaSlimeStand"))
         {
             if (DetectCircleArea(senseRadius) && !isAttack && !inAttackArea)
             {
@@ -50,24 +50,23 @@ public class LavaSlime : EnemyValue
         EnemyDied(exp);
     }
     // Archer setting / component
-    private void InitialLavaSlime()
+    private void InitialDemon()
     {
-        damage                  =       6;
-        enemyHealth             =       70;
+        damage                  =       8;
+        enemyHealth             =       100;
         exp                     =       7;
-        attackPeriod            =       1;
+        attackPeriod            =       2.5f;
         movingSpeed             =       2f;
         attackRadius            =       3f;
         senseRadius             =       6;
         rotateSpeed             =       125f;
 
-        maxHealth = enemyHealth;
-        currentHealth = maxHealth;
-        rb = GetComponent<Rigidbody>();
+        maxHealth               =       enemyHealth;
+        currentHealth           =       maxHealth;
+        rb                      =       GetComponent<Rigidbody>();
 
-        isAttack = false;
-        inAttackArea = false;
-
+        isAttack                =       false;
+        inAttackArea            =       false;
     }
     private void CheckAttack()
     {   // check inside or outside the attack area
@@ -94,8 +93,8 @@ public class LavaSlime : EnemyValue
     }
     private void OnTriggerEnter(Collider other)
     {
-        EnemyHurtByMagic(other, lavaSlime);
-        EnemyHurtBySword(other, lavaSlime);
+        EnemyHurtByMagic(other, Devil);
+        EnemyHurtBySword(other, Devil);
     }
     private void ChasingPlayer()
     {
