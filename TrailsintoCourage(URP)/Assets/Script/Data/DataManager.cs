@@ -6,6 +6,9 @@ using static UnityEngine.Rendering.DebugUI;
 public class DataManager : Data
 {
     private StateController stateController;
+    private Interactable interactable;
+    public int knightFirstTalk = 1;
+
     private static DataManager _instance;
     public static DataManager Instance
     {
@@ -20,6 +23,7 @@ public class DataManager : Data
         else
             _instance = this;
         stateController         =       FindObjectOfType<StateController>();
+        interactable            =       FindObjectOfType<Interactable>();
     }
     public void AutoSave()
     {
@@ -60,5 +64,27 @@ public class DataManager : Data
         LoadMagic();
         LoadLevelPass();
         stateController.UpdateUIForLoad();
+    }
+
+    public void SaveNPCTalk()
+    {
+        if(!interactable.isFirstTalk)
+        {
+            knightFirstTalk = 0;
+        }
+        else
+            knightFirstTalk = 1;
+        PlayerPrefs.SetInt("Knight_First_Talk", knightFirstTalk);
+        PlayerPrefs.Save();
+    }
+    public void LoadNPCTalk() 
+    {
+        PlayerPrefs.GetInt("Knight_First_Talk", knightFirstTalk);
+        if (knightFirstTalk == 0)
+        {
+            interactable.isFirstTalk = false;
+        }
+        else
+            interactable.isFirstTalk = true;
     }
 }

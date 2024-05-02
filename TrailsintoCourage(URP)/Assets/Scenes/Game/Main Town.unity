@@ -2269,6 +2269,7 @@ MonoBehaviour:
   isGirlTalking: 0
   ShopPanel: {fileID: 729557432}
   showShopPanelAfterDialogue: 0
+  isFirstTalk: 0
 --- !u!136 &389718606
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14386,6 +14387,16 @@ PrefabInstance:
       propertyPath: dialogueAnimator
       value: 
       objectReference: {fileID: 927532716}
+    - target: {fileID: 4071275397887599612, guid: c066b8b4fc8135b47b72880741eab2a0,
+        type: 3}
+      propertyPath: dialogue.finishSentences.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071275397887599612, guid: c066b8b4fc8135b47b72880741eab2a0,
+        type: 3}
+      propertyPath: dialogue.finishSentences.Array.data[1]
+      value: It sounds that you are ready now, please remember to visit me again.
+      objectReference: {fileID: 0}
     - target: {fileID: 7010126704490243132, guid: c066b8b4fc8135b47b72880741eab2a0,
         type: 3}
       propertyPath: m_Name

@@ -49,7 +49,7 @@ public class DialogueManager : MonoBehaviour
         nameText.text = dialogue.name;
         npc.sentencesNumber = 0;
 
-        if (interactable.choiceMode == true || npc.hasCompletedDialogue )
+        if (interactable.choiceMode == true || npc.hasCompletedDialogue)
         {
             finishSentences.Clear();
             foreach (string sentence in dialogue.finishSentences)
@@ -81,7 +81,55 @@ public class DialogueManager : MonoBehaviour
                 finishSentences.Enqueue(sentence);
             }
         }
+        choiceButton1.GetComponentInChildren<Text>().text = npc.choice1Text;
+        choiceButton2.GetComponentInChildren<Text>().text = npc.choice2Text;
+        DisplayNextSentence();
+        isDialogueActive = false;
+        showAllSentence = true;
+    }
 
+    public void StartKnightDialogue(Dialogue dialogue, Interactable npc)
+    {
+        interactable = npc;
+        animator.SetBool("IsOpen", true);
+        nameText.text = dialogue.name;
+        npc.sentencesNumber = 0;
+
+
+        if(npc.isFirstTalk)
+        {
+            sentences.Clear();
+            foreach (string sentence in dialogue.sentences)
+            {
+                sentences.Enqueue(sentence);
+            }
+            choice1Sentences.Clear();
+            foreach (string sentence in dialogue.choice1Sentences)
+            {
+                choice1Sentences.Enqueue(sentence);
+            }
+
+            choice2Sentences.Clear();
+            foreach (string sentence in dialogue.choice2Sentences)
+            {
+                choice2Sentences.Enqueue(sentence);
+            }
+            finishSentences.Clear();
+            foreach (string sentence in dialogue.finishSentences)
+            {
+                finishSentences.Enqueue(sentence);
+            }
+            npc.isFirstTalk = false;
+            DataManager.Instance.SaveNPCTalk();
+        }
+        else
+        {
+            finishSentences.Clear();
+            foreach (string sentence in dialogue.finishSentences)
+            {
+                sentences.Enqueue(sentence);
+            }
+        }
         choiceButton1.GetComponentInChildren<Text>().text = npc.choice1Text;
         choiceButton2.GetComponentInChildren<Text>().text = npc.choice2Text;
         DisplayNextSentence();
@@ -90,11 +138,13 @@ public class DialogueManager : MonoBehaviour
     }
     public void DisplayNextSentence()
     {
-        if (sentences.Count == 0 || choice1Sentences.Count == 0 || choice2Sentences.Count == 0)
-        //if (sentences.Count == 0)
+        if (interactable.hasCompletedDialogue)
         {
-            EndDialogue(interactable);
-            return;
+            if(sentences.Count == 0 || choice1Sentences.Count == 0 || choice2Sentences.Count == 0)
+            {
+                EndDialogue(interactable);
+                return;
+            }
         }
         interactable.sentencesNumber++;
         if (!interactable.choiceMode && interactable.sentencesNumber >= 0 && interactable.sentencesNumber == interactable.sentenceChoiceNumber && !awaitingChoice)

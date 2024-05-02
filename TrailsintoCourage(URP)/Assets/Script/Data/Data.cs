@@ -108,5 +108,4 @@ public class Data : MonoBehaviour
         else
             isLevel3 = 0;
     }
-
 }               

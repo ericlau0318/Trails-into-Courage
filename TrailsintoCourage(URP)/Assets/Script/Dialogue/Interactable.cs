@@ -29,6 +29,7 @@ public class Interactable : MonoBehaviour
     public bool isGirlTalking;
     public  GameObject ShopPanel;
     public bool showShopPanelAfterDialogue = false;
+    public bool isFirstTalk;
     void Start()
     {
         dialogueAnimator = GameObject.Find("DialogueBox").GetComponent<Animator>();
@@ -50,13 +51,21 @@ public class Interactable : MonoBehaviour
         {
             if (playerCurrentlyInZone && !isPlayerInZone && !hasInteracted)
             {
+                DataManager.Instance.LoadNPCTalk();
                 if (gameObject.tag == "Girl")
                 {
                     GirlAnimator.SetTrigger("Talking");
                     hasCompletedDialogue = false;
+                    PlayerController.isPlayerTalking = true;
+                    dialogueManager.StartDialogue(dialogue, this);
                 }
-                PlayerController.isPlayerTalking = true;
-                dialogueManager.StartDialogue(dialogue, this);
+
+                if (gameObject.name == ("Knight_vtc"))
+                {
+                    hasCompletedDialogue = false;
+                    PlayerController.isPlayerTalking = true;
+                    dialogueManager.StartKnightDialogue(dialogue, this);
+                }
                 hasInteracted = true;
             }
             if (!playerCurrentlyInZone)
