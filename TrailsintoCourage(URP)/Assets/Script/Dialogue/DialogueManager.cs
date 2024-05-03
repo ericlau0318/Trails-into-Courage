@@ -52,9 +52,9 @@ public class DialogueManager : MonoBehaviour
         choice1Sentences.Clear();
         choice2Sentences.Clear();
         finishSentences.Clear();
-        if (Interactable.choiceMode == true || npc.hasCompletedDialogue )
+        if (Interactable.choiceMode == true || npc.hasCompletedDialogue || npc.knightValue == 1)
         {
-            LoadFinishSentense(dialogue);
+            LoadFinishSentense(dialogue, npc);
         }
         else
         {
@@ -87,13 +87,14 @@ public class DialogueManager : MonoBehaviour
         isDialogueActive = false;
         showAllSentence = true;
     }
-    public void LoadFinishSentense(Dialogue dialogue)
+    public void LoadFinishSentense(Dialogue dialogue, Interactable npc)
     {
         finishSentences.Clear();
         foreach (string sentence in dialogue.finishSentences)
         {
             sentences.Enqueue(sentence);
         }
+        npc.isKnight = true;
     }
     public void DisplayNextSentence()
     {
@@ -142,12 +143,12 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue(Interactable npc)
     {
-        interactable = npc;
         animator.SetBool("IsOpen", false);
         StartCoroutine(CheckPlayerInZoneAfterDelay(1f));
         isDialogueActive = false;
         //npc.hasCompletedDialogue = true;
-        interactable.LoadChoiceState();
+        interactable.knightValue = 1;
+        npc.LoadChoiceState();
         PlayerController.isPlayerTalking = false;
         if (npc.showShopPanelAfterDialogue && npc.sentencesNumber == 1)
         {
