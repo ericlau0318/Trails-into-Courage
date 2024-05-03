@@ -30,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 4192257203904126702}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 140.01044, y: 21.89, z: 85.86}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.08, y: 0.08, z: 0.08}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -129,7 +129,6 @@ MonoBehaviour:
   spellspeed: 10
   rotationSpeed: 0
   destroyDelay: 2
-  fireExplosion: {fileID: 0}
   Explosion: {fileID: 7809726241217551564, guid: aa55b8b792202ac4ba51920b47ed80c7,
     type: 3}
 --- !u!54 &3097172460383886315
