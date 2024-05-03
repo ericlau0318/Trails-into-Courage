@@ -129,7 +129,7 @@ public class Boss : EnemyValue
         // attack fector attack time/ attack area/ attacking?
         if (shortAttackTime <= 0 && DetectCircleArea(shortAttackRadius) && !isAttack && enemyHealth > 0)
         {   // atual attack
-            SwordAttackAudio.Play();
+            //SwordAttackAudio.Play();
             isAttack = true;
             enemyAnimator.SetTrigger("Sword");
             Debug.Log("short");
@@ -184,6 +184,7 @@ public class Boss : EnemyValue
     }
     private void StartSwordAttack()
     {
+        SwordAttackAudio.Play();
         swordCollider.enabled = true;
     }
 

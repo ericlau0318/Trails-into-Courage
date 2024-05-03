@@ -12,7 +12,11 @@ public class Level3GameManager : MonoBehaviour
         SceneManager.LoadScene("Main Town");
         DataManager.Instance.AutoSave();
     }
-
+    public void BacktoMainMenu()
+    {
+        SceneManager.LoadScene("Main Menu");
+        DataManager.Instance.AutoSave();
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")

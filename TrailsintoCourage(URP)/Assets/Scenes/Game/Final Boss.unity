@@ -470,6 +470,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1099483391}
     m_Modifications:
+    - target: {fileID: 266786023696124509, guid: aee6fc1cd0294a54da5a2f07fd69e984,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -650
+      objectReference: {fileID: 0}
     - target: {fileID: 4297186302223103467, guid: aee6fc1cd0294a54da5a2f07fd69e984,
         type: 3}
       propertyPath: m_Pivot.x
@@ -570,15 +575,61 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7219738022137317882, guid: aee6fc1cd0294a54da5a2f07fd69e984,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7219738022137317882, guid: aee6fc1cd0294a54da5a2f07fd69e984,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5f036c0fca27b7e459b92913f2475e22,
+        type: 3}
+    - target: {fileID: 7219738022137317882, guid: aee6fc1cd0294a54da5a2f07fd69e984,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7219738022137317882, guid: aee6fc1cd0294a54da5a2f07fd69e984,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7219738022137317882, guid: aee6fc1cd0294a54da5a2f07fd69e984,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7219738022137317882, guid: aee6fc1cd0294a54da5a2f07fd69e984,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8478101749347661667, guid: aee6fc1cd0294a54da5a2f07fd69e984,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 8758846242093115760, guid: aee6fc1cd0294a54da5a2f07fd69e984,
         type: 3}
       propertyPath: m_Name
-      value: GameOverPanel
+      value: GameEndPanel
       objectReference: {fileID: 0}
     - target: {fileID: 8758846242093115760, guid: aee6fc1cd0294a54da5a2f07fd69e984,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9216113501067131749, guid: aee6fc1cd0294a54da5a2f07fd69e984,
+        type: 3}
+      propertyPath: m_Text
+      value: I can't beat him......
+      objectReference: {fileID: 0}
+    - target: {fileID: 9216113501067131749, guid: aee6fc1cd0294a54da5a2f07fd69e984,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 80
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1797,7 +1848,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7452640671721635345, guid: b0c2869390036bd44b5bb35d80f5e1df, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8785863400482362092, guid: b0c2869390036bd44b5bb35d80f5e1df,
         type: 3}

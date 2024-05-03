@@ -15,7 +15,7 @@ public class PlayerState : MonoBehaviour
     private Slider staminaSlider;
 
     public static float maxHealth = 50f;
-    public float currentHealth;
+    public  float currentHealth;
     public static float maxMana = 50f;
     public float currentMana;
     public static float maxStamina = 50f;
