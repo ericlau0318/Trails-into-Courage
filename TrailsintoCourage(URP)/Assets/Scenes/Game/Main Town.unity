@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1470247, g: 0.36394262, b: 0.5799059, a: 1}
+  m_IndirectSpecularColor: {r: 0.14703749, g: 0.3639866, b: 0.57992274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4774,7 +4774,7 @@ MonoBehaviour:
     choice2Sentences:
     - 11111111
     finishSentences:
-    - 1111111111111111
+    - 1111111111111
   sphereRadius: 4
   hasInteracted: 0
   dialogueAnimator: {fileID: 927532716}
@@ -4787,6 +4787,7 @@ MonoBehaviour:
   showShopPanelAfterDialogue: 0
   uniqueID: 
   isKnight: 0
+  knightValue: 0
 --- !u!136 &389718606
 CapsuleCollider:
   m_ObjectHideFlags: 0

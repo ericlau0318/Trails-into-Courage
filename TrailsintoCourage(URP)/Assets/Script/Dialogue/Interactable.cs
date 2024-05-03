@@ -82,15 +82,16 @@ public class Interactable : MonoBehaviour
             {
                 if (gameObject.tag == "Knight")
                 {
-                    isKnight = true;
+                    //isKnight = true;
                     if (isKnight == true)
                     {
-                        dialogueManager.LoadFinishSentense(dialogue, this);
+                        dialogueManager.LoadFinishSentense(dialogue);
+                        choiceMode = true;
                     }
                 }
                 else if (gameObject.tag == "Girl")
                 {
-                    knightValue = 0;
+                    //knightValue = 0;
                     isKnight = false;
                     choiceMode = false;
                     GirlAnimator.SetTrigger("Talking");
@@ -98,7 +99,7 @@ public class Interactable : MonoBehaviour
                 }
                 else
                 {
-                    knightValue = 0;
+                    //knightValue = 0;
                     isKnight = false;
                     choiceMode = false;
                 }
@@ -123,7 +124,7 @@ public class Interactable : MonoBehaviour
     public bool LoadChoiceState()
     {
         //SaveState();
-        return isKnight = false;
+        return isKnight = true;
     }
     void CloseDialogue()
     {
