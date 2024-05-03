@@ -995,24 +995,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1892656445}
         m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
-        m_MethodName: StartGame
+        m_MethodName: ContinueGame
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1048855934}
-        m_TargetAssemblyTypeName: DataManager, Assembly-CSharp
-        m_MethodName: LoadSavedData
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1185,18 +1173,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be1301e47639e5f4eb2dd7ef93614a93, type: 3}
---- !u!114 &1048855934 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7808725260059576712, guid: be1301e47639e5f4eb2dd7ef93614a93,
-    type: 3}
-  m_PrefabInstance: {fileID: 1048855933}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d840beb6d8b6afa4cb482782b315013b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1057334744
 GameObject:
   m_ObjectHideFlags: 0

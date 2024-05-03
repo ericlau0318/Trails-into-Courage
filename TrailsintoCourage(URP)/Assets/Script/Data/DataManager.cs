@@ -45,9 +45,14 @@ public class DataManager : Data
         if (firstStart == 1) 
         {
             PlayVideo.first = true;
+            MainMenuManager.first = true;
         }
         else
+        {
             PlayVideo.first = false;
+            MainMenuManager.first = false;
+        }
+
     }
     private void SavePlayerData()
     {
