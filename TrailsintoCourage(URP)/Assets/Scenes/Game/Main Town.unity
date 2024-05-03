@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1470247, g: 0.36394262, b: 0.5799059, a: 1}
+  m_IndirectSpecularColor: {r: 0.14703749, g: 0.3639866, b: 0.57992274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -148,6 +148,11 @@ PrefabInstance:
       objectReference: {fileID: 389718607}
     - target: {fileID: 6447267220890059912, guid: 16c9ed2e0bbd27b4a9a36428a4df8ba6,
         type: 3}
+      propertyPath: dialogue.name
+      value: God
+      objectReference: {fileID: 0}
+    - target: {fileID: 6447267220890059912, guid: 16c9ed2e0bbd27b4a9a36428a4df8ba6,
+        type: 3}
       propertyPath: dialogueManager
       value: 
       objectReference: {fileID: 1245073666}
@@ -156,6 +161,16 @@ PrefabInstance:
       propertyPath: dialogueAnimator
       value: 
       objectReference: {fileID: 927532716}
+    - target: {fileID: 6447267220890059912, guid: 16c9ed2e0bbd27b4a9a36428a4df8ba6,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6447267220890059912, guid: 16c9ed2e0bbd27b4a9a36428a4df8ba6,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[0]
+      value: I believe you can pass the level more easily with different magic.
+      objectReference: {fileID: 0}
     - target: {fileID: 6948978661996295845, guid: 16c9ed2e0bbd27b4a9a36428a4df8ba6,
         type: 3}
       propertyPath: m_Name
@@ -1172,17 +1187,17 @@ PrefabInstance:
     - target: {fileID: 7583170651322624473, guid: ad0aeab23aca06d45a53cd9168ad0d2f,
         type: 3}
       propertyPath: dialogue.sentences.Array.size
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7583170651322624473, guid: ad0aeab23aca06d45a53cd9168ad0d2f,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
-      value: 111111111
+      value: Are you curious about what inside the lake?
       objectReference: {fileID: 0}
     - target: {fileID: 7583170651322624473, guid: ad0aeab23aca06d45a53cd9168ad0d2f,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[1]
-      value: 22222
+      value: "I\u2019m more curious about what inside the lava."
       objectReference: {fileID: 0}
     - target: {fileID: 7583170651322624473, guid: ad0aeab23aca06d45a53cd9168ad0d2f,
         type: 3}
@@ -1298,6 +1313,26 @@ PrefabInstance:
       propertyPath: dialogueAnimator
       value: 
       objectReference: {fileID: 927532716}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: sentenceChoiceNumber
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[0]
+      value: ....
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4110813327969920042, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
         type: 3}
       propertyPath: m_Name
@@ -2612,30 +2647,12 @@ Transform:
   - {fileID: 1804084024}
   m_Father: {fileID: 1151889882}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &134088646 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7010126704490243132, guid: c066b8b4fc8135b47b72880741eab2a0,
-    type: 3}
-  m_PrefabInstance: {fileID: 2036430586}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &134088647 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7638995246712274566, guid: c066b8b4fc8135b47b72880741eab2a0,
     type: 3}
   m_PrefabInstance: {fileID: 2036430586}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &134088649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 134088646}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cc6b1e1615e2a146ab4b4d6b4629bfd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &145301337
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3634,17 +3651,17 @@ PrefabInstance:
     - target: {fileID: 7583170651322624473, guid: ad0aeab23aca06d45a53cd9168ad0d2f,
         type: 3}
       propertyPath: dialogue.sentences.Array.size
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7583170651322624473, guid: ad0aeab23aca06d45a53cd9168ad0d2f,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
-      value: 111111111
+      value: I want to challenge outside the world.
       objectReference: {fileID: 0}
     - target: {fileID: 7583170651322624473, guid: ad0aeab23aca06d45a53cd9168ad0d2f,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[1]
-      value: 22222
+      value: Have you seen outside the world?
       objectReference: {fileID: 0}
     - target: {fileID: 7583170651322624473, guid: ad0aeab23aca06d45a53cd9168ad0d2f,
         type: 3}
@@ -4835,6 +4852,11 @@ PrefabInstance:
       objectReference: {fileID: 389718607}
     - target: {fileID: 4071275397887599612, guid: c066b8b4fc8135b47b72880741eab2a0,
         type: 3}
+      propertyPath: dialogue.name
+      value: 'Knight Omar '
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071275397887599612, guid: c066b8b4fc8135b47b72880741eab2a0,
+        type: 3}
       propertyPath: dialogueManager
       value: 
       objectReference: {fileID: 1245073666}
@@ -4843,10 +4865,45 @@ PrefabInstance:
       propertyPath: dialogueAnimator
       value: 
       objectReference: {fileID: 927532716}
+    - target: {fileID: 4071275397887599612, guid: c066b8b4fc8135b47b72880741eab2a0,
+        type: 3}
+      propertyPath: sentenceChoiceNumber
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071275397887599612, guid: c066b8b4fc8135b47b72880741eab2a0,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071275397887599612, guid: c066b8b4fc8135b47b72880741eab2a0,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[0]
+      value: it is not the first level you come, i think?
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071275397887599612, guid: c066b8b4fc8135b47b72880741eab2a0,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[1]
+      value: No one wants to come twice behind the castle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071275397887599612, guid: c066b8b4fc8135b47b72880741eab2a0,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[2]
+      value: Good luck, hope you successful.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071275397887599612, guid: c066b8b4fc8135b47b72880741eab2a0,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[3]
+      value: It is not scary.
+      objectReference: {fileID: 0}
     - target: {fileID: 7010126704490243132, guid: c066b8b4fc8135b47b72880741eab2a0,
         type: 3}
       propertyPath: m_Name
       value: Knight_vtc (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7010126704490243132, guid: c066b8b4fc8135b47b72880741eab2a0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7638995246712274566, guid: c066b8b4fc8135b47b72880741eab2a0,
         type: 3}
@@ -4901,11 +4958,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7010126704490243132, guid: c066b8b4fc8135b47b72880741eab2a0,
-        type: 3}
-      insertIndex: 3
-      addedObject: {fileID: 697575759}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c066b8b4fc8135b47b72880741eab2a0, type: 3}
 --- !u!1 &307742083 stripped
 GameObject:
@@ -5682,11 +5735,12 @@ MonoBehaviour:
   dialogue:
     name: Girl
     sentences:
-    - Do u want to buy some magical items??
-    choice1Sentences:
-    - 111111111
-    choice2Sentences:
-    - 11111111
+    - I am the strongest magician in the city.
+    - Learning new magic is how I enjoy my daily life.
+    - Are you interested in Learning new magic ?
+    - Welcome to communicate with me again.
+    choice1Sentences: []
+    choice2Sentences: []
     finishSentences:
     - 1111111111111
   sphereRadius: 4
@@ -12079,30 +12133,12 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.8382514, y: 1.764721, z: 3.9356215}
   m_Center: {x: 0, y: 0.7353003, z: 1.7069861}
---- !u!1 &697575756 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7010126704490243132, guid: c066b8b4fc8135b47b72880741eab2a0,
-    type: 3}
-  m_PrefabInstance: {fileID: 302950514}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &697575757 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7638995246712274566, guid: c066b8b4fc8135b47b72880741eab2a0,
     type: 3}
   m_PrefabInstance: {fileID: 302950514}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &697575759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 697575756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cc6b1e1615e2a146ab4b4d6b4629bfd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &729557432 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2300358176474495444, guid: b0c2869390036bd44b5bb35d80f5e1df,
@@ -14440,6 +14476,26 @@ PrefabInstance:
       propertyPath: dialogueAnimator
       value: 
       objectReference: {fileID: 927532716}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: sentenceChoiceNumber
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[0]
+      value: People will not ask anyone about their past in this world
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[1]
+      value: I believe you don't want to share too much, right?
+      objectReference: {fileID: 0}
     - target: {fileID: 4110813327969920042, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
         type: 3}
       propertyPath: m_Name
@@ -16103,18 +16159,22 @@ PrefabInstance:
     - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
         type: 3}
       propertyPath: dialogue.sentences.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
-      value: Did you heard that there is a demon sword in the world?
+      value: Are you seek for change?
       objectReference: {fileID: 0}
     - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[1]
-      value: 'Everybody are scared about this sword , because it will curse human
-        heart '
+      value: Maybe portal is the answer.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[2]
+      value: Do nothing maybe also the answer
       objectReference: {fileID: 0}
     - target: {fileID: 4110813327969920042, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
         type: 3}
@@ -17723,17 +17783,17 @@ PrefabInstance:
     - target: {fileID: 7583170651322624473, guid: ad0aeab23aca06d45a53cd9168ad0d2f,
         type: 3}
       propertyPath: dialogue.sentences.Array.size
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7583170651322624473, guid: ad0aeab23aca06d45a53cd9168ad0d2f,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
-      value: 111111111
+      value: Welcome to magical world.
       objectReference: {fileID: 0}
     - target: {fileID: 7583170651322624473, guid: ad0aeab23aca06d45a53cd9168ad0d2f,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[1]
-      value: 22222
+      value: Welcome people come from earth.
       objectReference: {fileID: 0}
     - target: {fileID: 7583170651322624473, guid: ad0aeab23aca06d45a53cd9168ad0d2f,
         type: 3}
@@ -20711,6 +20771,31 @@ PrefabInstance:
       propertyPath: dialogueAnimator
       value: 
       objectReference: {fileID: 927532716}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: sentenceChoiceNumber
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[0]
+      value: A few people already has a powerful power.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[1]
+      value: Most of them are reborner.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[2]
+      value: Do you have a powerful power too?
+      objectReference: {fileID: 0}
     - target: {fileID: 4110813327969920042, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
         type: 3}
       propertyPath: m_Name
@@ -21515,30 +21600,12 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.36097735, y: 0.14694206, z: 0.017928088}
   m_Center: {x: -0.00010297537, y: 0.07243294, z: 0.00030217587}
---- !u!1 &1264803585 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7010126704490243132, guid: c066b8b4fc8135b47b72880741eab2a0,
-    type: 3}
-  m_PrefabInstance: {fileID: 2098537157}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1264803586 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7638995246712274566, guid: c066b8b4fc8135b47b72880741eab2a0,
     type: 3}
   m_PrefabInstance: {fileID: 2098537157}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1264803588
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1264803585}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cc6b1e1615e2a146ab4b4d6b4629bfd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1266868084
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21912,6 +21979,21 @@ PrefabInstance:
       propertyPath: dialogueAnimator
       value: 
       objectReference: {fileID: 927532716}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: sentenceChoiceNumber
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[0]
+      value: I want to be alone for a while
+      objectReference: {fileID: 0}
     - target: {fileID: 4110813327969920042, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
         type: 3}
       propertyPath: m_Name
@@ -23166,22 +23248,22 @@ PrefabInstance:
     - target: {fileID: 7583170651322624473, guid: ad0aeab23aca06d45a53cd9168ad0d2f,
         type: 3}
       propertyPath: dialogue.sentences.Array.size
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7583170651322624473, guid: ad0aeab23aca06d45a53cd9168ad0d2f,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
-      value: 111111111
+      value: "Don\u2019t you think slimes are cute"
       objectReference: {fileID: 0}
     - target: {fileID: 7583170651322624473, guid: ad0aeab23aca06d45a53cd9168ad0d2f,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[1]
-      value: 22222
+      value: Don't mind , i just talk to myself.
       objectReference: {fileID: 0}
     - target: {fileID: 7583170651322624473, guid: ad0aeab23aca06d45a53cd9168ad0d2f,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[2]
-      value: 22222
+      value: It is recommended that you do not touch the slimes.
       objectReference: {fileID: 0}
     - target: {fileID: 7583170651322624473, guid: ad0aeab23aca06d45a53cd9168ad0d2f,
         type: 3}
@@ -24449,17 +24531,17 @@ PrefabInstance:
     - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
         type: 3}
       propertyPath: dialogue.sentences.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
-      value: 'i heard that '
+      value: Are you a new reborner?
       objectReference: {fileID: 0}
     - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[1]
-      value: 
+      value: I'm wonder how many times you had reborn.
       objectReference: {fileID: 0}
     - target: {fileID: 4110813327969920042, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
         type: 3}
@@ -28753,12 +28835,12 @@ PrefabInstance:
     - target: {fileID: 6447267220890059912, guid: 16c9ed2e0bbd27b4a9a36428a4df8ba6,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
-      value: 123.
+      value: Do you have courage to solve this situation.
       objectReference: {fileID: 0}
     - target: {fileID: 6447267220890059912, guid: 16c9ed2e0bbd27b4a9a36428a4df8ba6,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[1]
-      value: 123
+      value: You look like you had the experience before.
       objectReference: {fileID: 0}
     - target: {fileID: 6948978661996295845, guid: 16c9ed2e0bbd27b4a9a36428a4df8ba6,
         type: 3}
@@ -34874,6 +34956,21 @@ PrefabInstance:
       propertyPath: dialogueAnimator
       value: 
       objectReference: {fileID: 927532716}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: sentenceChoiceNumber
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[0]
+      value: If you have seen me somewhere.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[1]
+      value: It is just a coincidence.
+      objectReference: {fileID: 0}
     - target: {fileID: 4110813327969920042, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
         type: 3}
       propertyPath: m_Name
@@ -35470,6 +35567,61 @@ PrefabInstance:
       propertyPath: dialogueAnimator
       value: 
       objectReference: {fileID: 927532716}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: sentenceChoiceNumber
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[0]
+      value: What is the truck?
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[1]
+      value: Why do people who came from Earth remind it?
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[2]
+      value: maybe i have illusion
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: dialogue.choice1Sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: dialogue.choice2Sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: dialogue.choice1Sentences.Array.data[0]
+      value: I saw him just leave , hope u can see him again.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: dialogue.choice1Sentences.Array.data[1]
+      value: maybe i have illusion
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: dialogue.choice2Sentences.Array.data[0]
+      value: maybe i have illusion
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: dialogue.choice2Sentences.Array.data[1]
+      value: maybe i have illusion
+      objectReference: {fileID: 0}
     - target: {fileID: 4110813327969920042, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
         type: 3}
       propertyPath: m_Name
@@ -35869,6 +36021,11 @@ PrefabInstance:
       objectReference: {fileID: 389718607}
     - target: {fileID: 4071275397887599612, guid: c066b8b4fc8135b47b72880741eab2a0,
         type: 3}
+      propertyPath: dialogue.name
+      value: 'Knight Marco '
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071275397887599612, guid: c066b8b4fc8135b47b72880741eab2a0,
+        type: 3}
       propertyPath: dialogueManager
       value: 
       objectReference: {fileID: 1245073666}
@@ -35877,10 +36034,45 @@ PrefabInstance:
       propertyPath: dialogueAnimator
       value: 
       objectReference: {fileID: 927532716}
+    - target: {fileID: 4071275397887599612, guid: c066b8b4fc8135b47b72880741eab2a0,
+        type: 3}
+      propertyPath: sentenceChoiceNumber
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071275397887599612, guid: c066b8b4fc8135b47b72880741eab2a0,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071275397887599612, guid: c066b8b4fc8135b47b72880741eab2a0,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[0]
+      value: It is not everyone that can pass through these levels.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071275397887599612, guid: c066b8b4fc8135b47b72880741eab2a0,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[1]
+      value: Can you prove that you have enough courage to go forward?
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071275397887599612, guid: c066b8b4fc8135b47b72880741eab2a0,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[2]
+      value: "\rTry to become the king of this world."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071275397887599612, guid: c066b8b4fc8135b47b72880741eab2a0,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[3]
+      value: It is not scary.
+      objectReference: {fileID: 0}
     - target: {fileID: 7010126704490243132, guid: c066b8b4fc8135b47b72880741eab2a0,
         type: 3}
       propertyPath: m_Name
       value: Knight_vtc (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7010126704490243132, guid: c066b8b4fc8135b47b72880741eab2a0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7638995246712274566, guid: c066b8b4fc8135b47b72880741eab2a0,
         type: 3}
@@ -35935,11 +36127,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7010126704490243132, guid: c066b8b4fc8135b47b72880741eab2a0,
-        type: 3}
-      insertIndex: 3
-      addedObject: {fileID: 134088649}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c066b8b4fc8135b47b72880741eab2a0, type: 3}
 --- !u!1 &2040299172
 GameObject:
@@ -36590,6 +36778,11 @@ PrefabInstance:
       objectReference: {fileID: 389718607}
     - target: {fileID: 4071275397887599612, guid: c066b8b4fc8135b47b72880741eab2a0,
         type: 3}
+      propertyPath: dialogue.name
+      value: 'Knight Kai '
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071275397887599612, guid: c066b8b4fc8135b47b72880741eab2a0,
+        type: 3}
       propertyPath: dialogueManager
       value: 
       objectReference: {fileID: 1245073666}
@@ -36598,10 +36791,45 @@ PrefabInstance:
       propertyPath: dialogueAnimator
       value: 
       objectReference: {fileID: 927532716}
+    - target: {fileID: 4071275397887599612, guid: c066b8b4fc8135b47b72880741eab2a0,
+        type: 3}
+      propertyPath: sentenceChoiceNumber
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071275397887599612, guid: c066b8b4fc8135b47b72880741eab2a0,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071275397887599612, guid: c066b8b4fc8135b47b72880741eab2a0,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[0]
+      value: People who come in usally can't  come back.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071275397887599612, guid: c066b8b4fc8135b47b72880741eab2a0,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[1]
+      value: Are you sure you have enough strength to go in?
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071275397887599612, guid: c066b8b4fc8135b47b72880741eab2a0,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[2]
+      value: It seems like you have more courage than others.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071275397887599612, guid: c066b8b4fc8135b47b72880741eab2a0,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[3]
+      value: I hope i can believe you.
+      objectReference: {fileID: 0}
     - target: {fileID: 7010126704490243132, guid: c066b8b4fc8135b47b72880741eab2a0,
         type: 3}
       propertyPath: m_Name
       value: Knight_vtc (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7010126704490243132, guid: c066b8b4fc8135b47b72880741eab2a0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7638995246712274566, guid: c066b8b4fc8135b47b72880741eab2a0,
         type: 3}
@@ -36656,11 +36884,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7010126704490243132, guid: c066b8b4fc8135b47b72880741eab2a0,
-        type: 3}
-      insertIndex: 3
-      addedObject: {fileID: 1264803588}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c066b8b4fc8135b47b72880741eab2a0, type: 3}
 --- !u!1001 &2099694900
 PrefabInstance:
@@ -37118,12 +37342,12 @@ PrefabInstance:
     - target: {fileID: 7583170651322624473, guid: ad0aeab23aca06d45a53cd9168ad0d2f,
         type: 3}
       propertyPath: dialogue.sentences.Array.size
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7583170651322624473, guid: ad0aeab23aca06d45a53cd9168ad0d2f,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
-      value: 111111111
+      value: Carefully exploring the main towns is also part of the gameplay
       objectReference: {fileID: 0}
     - target: {fileID: 7583170651322624473, guid: ad0aeab23aca06d45a53cd9168ad0d2f,
         type: 3}
@@ -37179,6 +37403,11 @@ PrefabInstance:
       propertyPath: GirlAnimator
       value: 
       objectReference: {fileID: 389718607}
+    - target: {fileID: 4071275397887599612, guid: c066b8b4fc8135b47b72880741eab2a0,
+        type: 3}
+      propertyPath: dialogue.name
+      value: 'Knight Kenny '
+      objectReference: {fileID: 0}
     - target: {fileID: 4071275397887599612, guid: c066b8b4fc8135b47b72880741eab2a0,
         type: 3}
       propertyPath: dialogueManager
@@ -37278,6 +37507,11 @@ PrefabInstance:
       objectReference: {fileID: 389718607}
     - target: {fileID: 6447267220890059912, guid: 16c9ed2e0bbd27b4a9a36428a4df8ba6,
         type: 3}
+      propertyPath: dialogue.name
+      value: God
+      objectReference: {fileID: 0}
+    - target: {fileID: 6447267220890059912, guid: 16c9ed2e0bbd27b4a9a36428a4df8ba6,
+        type: 3}
       propertyPath: dialogueManager
       value: 
       objectReference: {fileID: 1245073666}
@@ -37286,6 +37520,21 @@ PrefabInstance:
       propertyPath: dialogueAnimator
       value: 
       objectReference: {fileID: 927532716}
+    - target: {fileID: 6447267220890059912, guid: 16c9ed2e0bbd27b4a9a36428a4df8ba6,
+        type: 3}
+      propertyPath: sentenceChoiceNumber
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6447267220890059912, guid: 16c9ed2e0bbd27b4a9a36428a4df8ba6,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[0]
+      value: Are you curious that who caused you death.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6447267220890059912, guid: 16c9ed2e0bbd27b4a9a36428a4df8ba6,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[1]
+      value: "\rThere may be more than one person who is reborn."
+      objectReference: {fileID: 0}
     - target: {fileID: 6948978661996295845, guid: 16c9ed2e0bbd27b4a9a36428a4df8ba6,
         type: 3}
       propertyPath: m_Name
@@ -37436,13 +37685,44 @@ PrefabInstance:
       objectReference: {fileID: 927532716}
     - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
         type: 3}
+      propertyPath: sentenceChoiceNumber
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
-      value: 
+      value: A few times ago, there was a man who looked like he came from the same
+        village as you.
       objectReference: {fileID: 0}
     - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[1]
-      value: 
+      value: Let me look at you closely.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[2]
+      value: I saw someone look like you.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[3]
+      value: Do you know him?
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[4]
+      value: I saw him just leave , hope u can see him again.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[5]
+      value: maybe i have illusion.
       objectReference: {fileID: 0}
     - target: {fileID: 4110813327969920042, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
         type: 3}
@@ -37633,17 +37913,17 @@ PrefabInstance:
     - target: {fileID: 7583170651322624473, guid: ad0aeab23aca06d45a53cd9168ad0d2f,
         type: 3}
       propertyPath: dialogue.sentences.Array.size
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7583170651322624473, guid: ad0aeab23aca06d45a53cd9168ad0d2f,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
-      value: 111111111
+      value: Are you the one that get bulled?
       objectReference: {fileID: 0}
     - target: {fileID: 7583170651322624473, guid: ad0aeab23aca06d45a53cd9168ad0d2f,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[1]
-      value: 22222
+      value: He told me not talk too much.
       objectReference: {fileID: 0}
     - target: {fileID: 7583170651322624473, guid: ad0aeab23aca06d45a53cd9168ad0d2f,
         type: 3}

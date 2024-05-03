@@ -153,7 +153,7 @@ public class DialogueManager : MonoBehaviour
         }
         //npc.isKnight = false;
         PlayerController.isPlayerTalking = false;
-        if (npc.showShopPanelAfterDialogue && npc.sentencesNumber == 1)
+        if (npc.showShopPanelAfterDialogue && npc.sentencesNumber == 4)
         {
             npc.ShopPanel.SetActive(true);
             PlayerController.isPlayerTalking = true;
