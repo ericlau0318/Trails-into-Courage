@@ -26,7 +26,28 @@ public class DataManager : Data
         SavePlayerData();
         SaveMagic();
         SaveLevelPass();
+        SaveFirstVideo();
         PlayerPrefs.Save();
+    }
+    public void SaveFirstVideo() 
+    {
+        if(PlayVideo.first)
+        {
+            firstStart = 1;
+        }
+        else
+            firstStart = 0;
+        PlayerPrefs.SetInt("FirstVideo", firstStart);
+    }
+    public void LoadFirstVideo()
+    {
+        PlayerPrefs.GetInt("FirstVideo", firstStart);
+        if (firstStart == 1) 
+        {
+            PlayVideo.first = true;
+        }
+        else
+            PlayVideo.first = false;
     }
     private void SavePlayerData()
     {
@@ -60,6 +81,7 @@ public class DataManager : Data
         StateController.MPValue            =            PlayerPrefs.GetInt("MP", mpValue);
         StateController.SPValue            =            PlayerPrefs.GetInt("SP", spValue);
 
+        LoadFirstVideo();
         LoadMagic();
         LoadLevelPass();
         stateController.UpdateUIForLoad();

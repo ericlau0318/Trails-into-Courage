@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.14703749, g: 0.3639866, b: 0.57992274, a: 1}
+  m_IndirectSpecularColor: {r: 0.1470247, g: 0.36394262, b: 0.5799059, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4780,13 +4780,13 @@ MonoBehaviour:
   dialogueAnimator: {fileID: 927532716}
   isPlayerInZone: 0
   dialogueBox: {fileID: 927532714}
-  choiceMode: 0
   hasCompletedDialogue: 0
   GirlAnimator: {fileID: 389718607}
   isGirlTalking: 0
   ShopPanel: {fileID: 729557432}
   showShopPanelAfterDialogue: 0
   uniqueID: 
+  isKnight: 0
 --- !u!136 &389718606
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -32242,11 +32242,94 @@ PrefabInstance:
       propertyPath: m_Name
       value: LoadingScene
       objectReference: {fileID: 0}
+    - target: {fileID: 2259696965265250673, guid: b73ec28311beca14cb7531218259bfa6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b73ec28311beca14cb7531218259bfa6, type: 3}
+--- !u!1001 &6265084942381145582
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3543653477963826294, guid: 073ba22eea2356648afda3fb9d50f5bf,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3543653477963826294, guid: 073ba22eea2356648afda3fb9d50f5bf,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3543653477963826294, guid: 073ba22eea2356648afda3fb9d50f5bf,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3543653477963826294, guid: 073ba22eea2356648afda3fb9d50f5bf,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3543653477963826294, guid: 073ba22eea2356648afda3fb9d50f5bf,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3543653477963826294, guid: 073ba22eea2356648afda3fb9d50f5bf,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3543653477963826294, guid: 073ba22eea2356648afda3fb9d50f5bf,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3543653477963826294, guid: 073ba22eea2356648afda3fb9d50f5bf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3543653477963826294, guid: 073ba22eea2356648afda3fb9d50f5bf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3543653477963826294, guid: 073ba22eea2356648afda3fb9d50f5bf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4785461967443424065, guid: 073ba22eea2356648afda3fb9d50f5bf,
+        type: 3}
+      propertyPath: LoadingScreen
+      value: 
+      objectReference: {fileID: 967632451}
+    - target: {fileID: 4834700619542030509, guid: 073ba22eea2356648afda3fb9d50f5bf,
+        type: 3}
+      propertyPath: m_TargetCamera
+      value: 
+      objectReference: {fileID: 825404562}
+    - target: {fileID: 6962927783151760132, guid: 073ba22eea2356648afda3fb9d50f5bf,
+        type: 3}
+      propertyPath: m_Name
+      value: StartStory
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 073ba22eea2356648afda3fb9d50f5bf, type: 3}
 --- !u!1001 &7671112985525442117
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32473,3 +32556,4 @@ SceneRoots:
   - {fileID: 781242391556473917}
   - {fileID: 2375269004524871204}
   - {fileID: 7671112985525442117}
+  - {fileID: 6265084942381145582}

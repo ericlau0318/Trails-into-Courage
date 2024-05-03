@@ -79,7 +79,6 @@ public class EnemyValue : MonoBehaviour
         if(isdead)
         {
             stateController.GainExp(exp);
-            isdead = false;
         }
     }
     // collect UI object / state controller 

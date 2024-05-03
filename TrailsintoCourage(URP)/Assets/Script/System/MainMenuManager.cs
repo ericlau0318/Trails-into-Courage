@@ -23,6 +23,7 @@ public class MainMenuManager : MonoBehaviour
     public void StartGame(int nextSceneIndex)
     {
         //SceneManager.LoadScene("Main Town");
+        PlayVideo.first = true;
         loadingScene.LoadScene(nextSceneIndex);
     }
 
