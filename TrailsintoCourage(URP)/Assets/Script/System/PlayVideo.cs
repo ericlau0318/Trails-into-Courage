@@ -6,7 +6,7 @@ using UnityEngine.Video;
 public class PlayVideo : MonoBehaviour
 {
     private VideoPlayer videoPlayer;
-    public GameObject LoadingScreen;
+    public GameObject loadingPanel;
     public GameObject canvas;
     public static bool first;
     // Start is called before the first frame update
@@ -16,11 +16,11 @@ public class PlayVideo : MonoBehaviour
     }
     private void Update()
     {
-        if(!LoadingScreen.activeSelf && first)
+        if(!loadingPanel.activeSelf && first)
         {
             videoPlayer.Play();
-            first = false;
             canvas.SetActive(false);
+            first = false;
             videoPlayer.loopPointReached += OnVideoComplete;
         }
     }
@@ -30,8 +30,6 @@ public class PlayVideo : MonoBehaviour
         Debug.Log("Video completed!");
         canvas.SetActive(true);
         videoPlayer.Stop();
-
-
     }
 
 }
