@@ -47,12 +47,12 @@ public class EnemyValue : MonoBehaviour
         }
         else if(other.gameObject.name == "IceEffect 1(Clone)")
         {
-            enemyHealth -= PlayerState.spellDamage * 1.2f;
+            enemyHealth -= PlayerState.spellDamage * 1.25f;
             Debug.Log(enemyType + "_HP: " + enemyHealth);
         }
         else if(other.gameObject.name == "Lightning(Clone)") 
         {
-            enemyHealth -= PlayerState.spellDamage * 1.25f;
+            enemyHealth -= PlayerState.spellDamage * 1.5f;
             Debug.Log(enemyType + "_HP: " + enemyHealth);
         }
 
