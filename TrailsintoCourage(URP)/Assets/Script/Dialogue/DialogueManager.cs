@@ -23,7 +23,7 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> finishSentences;
     public bool isDialogueActive = false;
     private bool FinalChoice = false;
-
+    public DialogueKnight dialogueKnight;
     void Start()
     {
         sentences = new Queue<string>();
@@ -52,9 +52,9 @@ public class DialogueManager : MonoBehaviour
         choice1Sentences.Clear();
         choice2Sentences.Clear();
         finishSentences.Clear();
-        if (Interactable.choiceMode == true || npc.hasCompletedDialogue || npc.knightValue == 1)
+        if (Interactable.choiceMode == true || npc.hasCompletedDialogue || DialogueKnight.knightValue == 1)
         {
-            LoadFinishSentense(dialogue, npc);
+            LoadFinishSentense(dialogue);
         }
         else
         {
@@ -87,14 +87,13 @@ public class DialogueManager : MonoBehaviour
         isDialogueActive = false;
         showAllSentence = true;
     }
-    public void LoadFinishSentense(Dialogue dialogue, Interactable npc)
+    public void LoadFinishSentense(Dialogue dialogue)
     {
         finishSentences.Clear();
         foreach (string sentence in dialogue.finishSentences)
         {
             sentences.Enqueue(sentence);
         }
-        npc.isKnight = true;
     }
     public void DisplayNextSentence()
     {
@@ -147,8 +146,12 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(CheckPlayerInZoneAfterDelay(1f));
         isDialogueActive = false;
         //npc.hasCompletedDialogue = true;
-        interactable.knightValue = 1;
-        npc.LoadChoiceState();
+        if (npc.tag == "Knight")
+        {
+            DialogueKnight.IsKnight = true;
+            npc.LoadChoiceState();
+        }
+        //npc.isKnight = false;
         PlayerController.isPlayerTalking = false;
         if (npc.showShopPanelAfterDialogue && npc.sentencesNumber == 1)
         {
