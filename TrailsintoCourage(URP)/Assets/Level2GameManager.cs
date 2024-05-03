@@ -11,6 +11,7 @@ public class Level2GameManager : MonoBehaviour
     public void BackToMainTown()
     {
         SceneManager.LoadScene("Main Town");
+        DataManager.Instance.AutoSave();
     }
 
     private void OnTriggerEnter(Collider other)

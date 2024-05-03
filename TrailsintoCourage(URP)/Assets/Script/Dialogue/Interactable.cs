@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,7 +22,7 @@ public class Interactable : MonoBehaviour
 
     public bool isPlayerInZone = false;
     public GameObject dialogueBox;
-    public bool choiceMode = false;
+    public static bool choiceMode = false;
     private bool allowRepeatedChoices;
     public bool hasCompletedDialogue = false;
 
@@ -29,11 +30,39 @@ public class Interactable : MonoBehaviour
     public bool isGirlTalking;
     public  GameObject ShopPanel;
     public bool showShopPanelAfterDialogue = false;
-    void Start()
+    public string uniqueID;
+ 
+    private void Awake()
     {
-        dialogueAnimator = GameObject.Find("DialogueBox").GetComponent<Animator>();
-        GirlAnimator = GameObject.Find("Girl").GetComponent<Animator>();
+        uniqueID = GenerateUniqueIDBasedOnProperties();
+        StartNewGame();
     }
+    private string GenerateUniqueIDBasedOnProperties()
+    {
+        var hash = (gameObject.name + transform.position.ToString()).GetHashCode();
+        return hash.ToString();
+    }
+    public void SaveState()
+    {
+        PlayerPrefs.SetInt(uniqueID + "_choiceMode", choiceMode ? 1 : 0);
+        PlayerPrefs.SetInt(uniqueID + "_completedDialogue", hasCompletedDialogue ? 1 : 0);
+        PlayerPrefs.Save();
+    }
+    public void StartNewGame()
+    {
+        foreach (var npc in FindObjectsOfType<Interactable>())
+        {
+            //npc.choiceMode = false;
+            npc.hasCompletedDialogue = false;
+            npc.SaveState();  // Save these initial states
+        }
+    }
+    public void LoadState()
+    {
+        choiceMode = PlayerPrefs.GetInt(uniqueID + "_choiceMode", 0) == 1;
+        hasCompletedDialogue = PlayerPrefs.GetInt(uniqueID + "_completedDialogue", 0) == 1;
+    }
+
     void Update()
     {
         bool playerCurrentlyInZone = Physics.CheckSphere(transform.position, sphereRadius, LayerMask.GetMask("Player"));
@@ -50,10 +79,28 @@ public class Interactable : MonoBehaviour
         {
             if (playerCurrentlyInZone && !isPlayerInZone && !hasInteracted)
             {
-                if (gameObject.tag == "Girl")
+                if (gameObject.tag == "Knight")
                 {
+                    //isKnight = true;
+                    if (DialogueKnight.IsKnight == true)
+                    {
+                        dialogueManager.LoadFinishSentense(dialogue);
+                        choiceMode = true;
+                    }
+                }
+                else if (gameObject.tag == "Girl")
+                {
+                    //knightValue = 0;
+                    //DialogueKnight.IsKnight = false;
+                    choiceMode = false;
                     GirlAnimator.SetTrigger("Talking");
                     hasCompletedDialogue = false;
+                }
+                else
+                {
+                    //knightValue = 0;
+                    //DialogueKnight.IsKnight = false;
+                    choiceMode = false;
                 }
                 PlayerController.isPlayerTalking = true;
                 dialogueManager.StartDialogue(dialogue, this);
@@ -71,6 +118,12 @@ public class Interactable : MonoBehaviour
         {
             CloseDialogue();
         }
+    }
+
+    public bool LoadChoiceState()
+    {
+        //SaveState();
+        return DialogueKnight.IsKnight = true;
     }
     void CloseDialogue()
     {

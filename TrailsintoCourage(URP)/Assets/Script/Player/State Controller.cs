@@ -64,7 +64,7 @@ public class StateController : MonoBehaviour
         UpdateValueText(SPValue, SPValueText);
 
         initialPosition = panelRectTransform.anchoredPosition;
-        targetPosition = Vector2.zero;
+        targetPosition = new Vector2(0f,-93f);
         GameOverPanel.SetActive(false);
         currentSceneName = SceneManager.GetActiveScene().name;
 

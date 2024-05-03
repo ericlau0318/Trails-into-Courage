@@ -1,0 +1,179 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3877004584901384571
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 1c359165266f6b74a9f9eea686327d49,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1c359165266f6b74a9f9eea686327d49,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1c359165266f6b74a9f9eea686327d49,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1c359165266f6b74a9f9eea686327d49,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.39
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1c359165266f6b74a9f9eea686327d49,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1c359165266f6b74a9f9eea686327d49,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.84
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1c359165266f6b74a9f9eea686327d49,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1c359165266f6b74a9f9eea686327d49,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1c359165266f6b74a9f9eea686327d49,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1c359165266f6b74a9f9eea686327d49,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1c359165266f6b74a9f9eea686327d49,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1c359165266f6b74a9f9eea686327d49,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1c359165266f6b74a9f9eea686327d49,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1c359165266f6b74a9f9eea686327d49,
+        type: 3}
+      propertyPath: m_Name
+      value: NPC_boy@Breathing Idle Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 1c359165266f6b74a9f9eea686327d49,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 69f85cadd0bd599489b34aff5b7e574d, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1c359165266f6b74a9f9eea686327d49,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9108673175174439702}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1c359165266f6b74a9f9eea686327d49,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3641251566630352331}
+  m_SourcePrefab: {fileID: 100100000, guid: 1c359165266f6b74a9f9eea686327d49, type: 3}
+--- !u!1 &4110813327969920042 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1c359165266f6b74a9f9eea686327d49,
+    type: 3}
+  m_PrefabInstance: {fileID: 3877004584901384571}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &9108673175174439702
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4110813327969920042}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.27829617
+  m_Height: 1.6443763
+  m_Direction: 1
+  m_Center: {x: -0.021161556, y: 0.8293808, z: 0.0000000047798143}
+--- !u!114 &3641251566630352331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4110813327969920042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 209664f0148826649880a16e660ceda1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionDistance: 3
+  dialogueManager: {fileID: 0}
+  sentencesNumber: 0
+  choice2Number: 0
+  sentenceChoiceNumber: 2
+  choice1Text: 'Yes '
+  choice2Text: No
+  dialogue:
+    name: Knight
+    sentences:
+    - Good morning, my friend.
+    - It is not scary.
+    choice1Sentences:
+    - Sure enough, it works! I'm not afraid to tell you that this city should require
+      me to recognize people, but are you ready?
+    - It sounds that you are ready now, please remember to visit me again.
+    choice2Sentences:
+    - 'Impossible, unless you''ve had plastic surgery,
+
+      it is not the first
+      time go out the town'
+    - Don't jokes with me, my Vision is absolutely the best among all knights, you
+      are new here!
+    - No, you definitely are.
+    - No way, your equipment is so useless.
+    - But i think you are the first time go out the town
+    finishSentences:
+    - It sounds that you are ready now, please remember to visit me again.
+  sphereRadius: 4
+  hasInteracted: 0
+  dialogueAnimator: {fileID: 0}
+  isPlayerInZone: 0
+  dialogueBox: {fileID: 0}
+  choiceMode: 0
+  hasCompletedDialogue: 0
+  GirlAnimator: {fileID: 0}
+  isGirlTalking: 0
+  ShopPanel: {fileID: 0}
+  showShopPanelAfterDialogue: 0
+  uniqueID: 

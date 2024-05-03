@@ -63,7 +63,7 @@ public class Boss : EnemyValue
     private void InitialBoss()
     {
         enemyHealth                 =       200;
-        recoverHealth               =       3;
+        recoverHealth               =       2;
         exp                         =       20;
         movingSpeed                 =       4;
         shortDamage                 =       8;
@@ -129,8 +129,7 @@ public class Boss : EnemyValue
         // attack fector attack time/ attack area/ attacking?
         if (shortAttackTime <= 0 && DetectCircleArea(shortAttackRadius) && !isAttack && enemyHealth > 0)
         {   // atual attack
-            SwordAttackAudio.Play();
-            swordCollider.enabled = false;
+            //SwordAttackAudio.Play();
             isAttack = true;
             enemyAnimator.SetTrigger("Sword");
             Debug.Log("short");
@@ -183,13 +182,18 @@ public class Boss : EnemyValue
             }
         }
     }
+    private void StartSwordAttack()
+    {
+        SwordAttackAudio.Play();
+        swordCollider.enabled = true;
+    }
 
     //check animation finish
     private void FinishSwordAttack()
     {
         // reset attack period time
         shortAttackTime = shortAttackPeriod;
-        swordCollider.enabled = true;
+        swordCollider.enabled = false;
         isAttack = false;
     }
     private void FinishMagicAttack()

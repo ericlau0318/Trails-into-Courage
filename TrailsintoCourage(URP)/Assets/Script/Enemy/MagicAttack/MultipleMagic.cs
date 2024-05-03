@@ -31,7 +31,7 @@ public class MultipleMagic : EnemyMagic
         {
             DestroyMagic(hitEffect);
         }
-        else if (other.gameObject.name == "Fireball 1(Clone)")
+        else if (other.CompareTag("Ground") || other.gameObject.name == "Fireball 1(Clone)" || other.gameObject.name == "Sword(Clone)")
         {
             DestroyMagic(hitEffect);
         }

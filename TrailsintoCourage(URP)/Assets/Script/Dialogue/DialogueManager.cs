@@ -23,7 +23,7 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> finishSentences;
     public bool isDialogueActive = false;
     private bool FinalChoice = false;
-
+    public DialogueKnight dialogueKnight;
     void Start()
     {
         sentences = new Queue<string>();
@@ -48,14 +48,13 @@ public class DialogueManager : MonoBehaviour
         animator.SetBool("IsOpen", true);
         nameText.text = dialogue.name;
         npc.sentencesNumber = 0;
-
-        if (interactable.choiceMode == true || npc.hasCompletedDialogue )
+        sentences.Clear();
+        choice1Sentences.Clear();
+        choice2Sentences.Clear();
+        finishSentences.Clear();
+        if (Interactable.choiceMode == true || npc.hasCompletedDialogue || DialogueKnight.knightValue == 1)
         {
-            finishSentences.Clear();
-            foreach (string sentence in dialogue.finishSentences)
-            {
-                sentences.Enqueue(sentence);
-            }
+            LoadFinishSentense(dialogue);
         }
         else
         {
@@ -88,16 +87,30 @@ public class DialogueManager : MonoBehaviour
         isDialogueActive = false;
         showAllSentence = true;
     }
+    public void LoadFinishSentense(Dialogue dialogue)
+    {
+        finishSentences.Clear();
+        foreach (string sentence in dialogue.finishSentences)
+        {
+            sentences.Enqueue(sentence);
+        }
+    }
     public void DisplayNextSentence()
     {
-        if (sentences.Count == 0 || choice1Sentences.Count == 0 || choice2Sentences.Count == 0)
+        /*if (sentences.Count == 0 || choice1Sentences.Count == 0 || choice2Sentences.Count == 0)
         //if (sentences.Count == 0)
         {
             EndDialogue(interactable);
             return;
+        }*/
+        if (sentences.Count == 0)
+        {
+            // End the dialogue if there are no sentences left to display.
+            EndDialogue(interactable);
+            return;
         }
         interactable.sentencesNumber++;
-        if (!interactable.choiceMode && interactable.sentencesNumber >= 0 && interactable.sentencesNumber == interactable.sentenceChoiceNumber && !awaitingChoice)
+        if (!Interactable.choiceMode && interactable.sentencesNumber >= 0 && interactable.sentencesNumber == interactable.sentenceChoiceNumber && !awaitingChoice)
         {
             choiceButton1.gameObject.SetActive(true);
             choiceButton2.gameObject.SetActive(true);
@@ -132,7 +145,13 @@ public class DialogueManager : MonoBehaviour
         animator.SetBool("IsOpen", false);
         StartCoroutine(CheckPlayerInZoneAfterDelay(1f));
         isDialogueActive = false;
-        interactable.hasCompletedDialogue = true;
+        //npc.hasCompletedDialogue = true;
+        if (npc.tag == "Knight")
+        {
+            DialogueKnight.IsKnight = true;
+            npc.LoadChoiceState();
+        }
+        //npc.isKnight = false;
         PlayerController.isPlayerTalking = false;
         if (npc.showShopPanelAfterDialogue && npc.sentencesNumber == 1)
         {
@@ -166,7 +185,7 @@ public class DialogueManager : MonoBehaviour
         if (!showAllSentence)
         {
             LoadChoiceSentences(choice1Sentences);
-            interactable.choiceMode = true;
+            Interactable.choiceMode = true;
             choiceButton1.gameObject.SetActive(false);
             choiceButton2.gameObject.SetActive(false);
             awaitingChoice = false;
@@ -178,7 +197,7 @@ public class DialogueManager : MonoBehaviour
         if (!showAllSentence && !FinalChoice)
         {
             LoadChoiceSentences(choice2Sentences);
-            interactable.choiceMode = true;
+            Interactable.choiceMode = true;
             if (sentences.Count > 0)
             {
                 choiceButton1.gameObject.SetActive(false);

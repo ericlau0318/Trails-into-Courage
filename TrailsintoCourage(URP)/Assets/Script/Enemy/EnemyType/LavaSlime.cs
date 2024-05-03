@@ -6,8 +6,6 @@ public class LavaSlime : EnemyValue
 {
     private readonly string lavaSlime = "LavaSlime";
     private Rigidbody rb;
-    public GameObject fireBall;
-    public Transform magicPoint;
 
     public Transform point2;
     public Transform point1;
@@ -23,7 +21,7 @@ public class LavaSlime : EnemyValue
     // Start is called before the first frame update
     void Start()
     {
-        InitialMummy();
+        InitialLavaSlime();
         InitialObjectCollect(this.gameObject);
         target = point1;
         movingToPoint1 = true;
@@ -31,25 +29,42 @@ public class LavaSlime : EnemyValue
     // Update is called once per frame
     void Update()
     {
-        currentHealth = enemyHealth;
-        hurtTime -= Time.deltaTime;
-        DrawLineArea();
-        UpdateEnemyUI(currentHealth, maxHealth);
-        UpdateCurrentPosition(this.gameObject);
-        CheckAttack();
-        ChasingPlayer();
-        EnemyDied(exp);
+        if(!Level3GameManager.IsLevel3Pass)
+        {
+            currentHealth = enemyHealth;
+            if(hurtTime > 0)
+            {
+                hurtTime -= Time.deltaTime;
+            }
+            DrawLineArea();
+            UpdateEnemyUI(currentHealth, maxHealth);
+            UpdateCurrentPosition(this.gameObject);
+            CheckAttack();
+            if (this.name == ("LavaSlimeStand"))
+            {
+                if (DetectCircleArea(senseRadius) && !isAttack && !inAttackArea)
+                {
+                    Rotation(playerCurrentPosition, this.gameObject, rb, 90);
+                    transform.position = Vector3.MoveTowards(transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
+                }
+            }
+            else
+            {
+                ChasingPlayer();
+            }
+            EnemyDied(exp);
+        }
     }
     // Archer setting / component
-    private void InitialMummy()
+    private void InitialLavaSlime()
     {
         damage                  =       6;
         enemyHealth             =       70;
-        exp                     =       7;
-        attackPeriod            =       1;
-        movingSpeed             =       2f;
-        attackRadius            =       3f;
-        senseRadius             =       6;
+        exp                     =       6;
+        attackPeriod            =       1f;
+        movingSpeed             =       2.8f;
+        attackRadius            =       2f;
+        senseRadius             =       5;
         rotateSpeed             =       125f;
 
         maxHealth = enemyHealth;
@@ -75,15 +90,11 @@ public class LavaSlime : EnemyValue
         {   // atual attack
             isAttack = true;
             // attack
-            Instantiate(fireBall, magicPoint.transform.position, Quaternion.identity);
-            // reset attack period time
-            attackTime = attackPeriod;
+            enemyAnimator.SetTrigger("isAttack");
         }
-        // count attack period time
-        else if (attackTime > 0)
-        {
+        if (attackTime > 0)
+        {   // count attack period time
             attackTime -= Time.deltaTime;
-            isAttack = false;
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -93,40 +104,48 @@ public class LavaSlime : EnemyValue
     }
     private void ChasingPlayer()
     {
-        if (spawner.volcano && enemyHealth > 00)
+        if (enemyHealth > 00 && !DetectCircleArea(senseRadius))
         {   // check for swaning/??¡Á? or not
-
             // check sence area if false swan to walk point to point
-            if (!DetectCircleArea(senseRadius))
-            {
-                transform.position = Vector3.MoveTowards(transform.position, target.position, movingSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, target.position, movingSpeed * Time.deltaTime);
 
-                // Check if the target is reached
-                if (Vector3.Distance(transform.position, target.position) < 0.1f)
+            // Check if the target is reached
+            if (Vector3.Distance(transform.position, target.position) < 0.1f)
+            {
+                // Toggle the target
+                if (movingToPoint1)
                 {
-                    // Toggle the target
-                    if (movingToPoint1)
-                    {
-
-                        target = point2;
-                        Rotation(target.transform.position, this.gameObject, rb, 90);
-                        movingToPoint1 = false;
-                    }
-                    else
-                    {
-                        target = point1;
-                        Rotation(target.transform.position, this.gameObject, rb, 90);
-                        movingToPoint1 = true;
-                    }
+                    target = point2;
+                    Rotation(target.transform.position, this.gameObject, rb, 90);
+                    movingToPoint1 = false;
                 }
-
-            }
-
-            else if (DetectCircleArea(senseRadius) && !isAttack && !inAttackArea)
-            {
-                Rotation(playerCurrentPosition, this.gameObject, rb, 90);
-                transform.position = Vector3.MoveTowards(transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
+                else
+                {
+                    target = point1;
+                    Rotation(target.transform.position, this.gameObject, rb, 90);
+                    movingToPoint1 = true;
+                }
             }
         }
+        else if (DetectCircleArea(senseRadius) && !isAttack && !inAttackArea)
+        {
+            Rotation(playerCurrentPosition, this.gameObject, rb, 90);
+            transform.position = Vector3.MoveTowards(transform.position, playerCurrentPosition, movingSpeed * Time.deltaTime);
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (isAttack)
+        {
+            if (collision.collider.CompareTag("Player"))
+            {
+                playerState.TakeDamage(damage);
+            }
+        }
+    }
+    private void EndAttack()
+    {
+        attackTime = attackPeriod;
+        isAttack = false;
     }
 }
