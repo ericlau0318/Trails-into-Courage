@@ -31,8 +31,7 @@ public class Interactable : MonoBehaviour
     public  GameObject ShopPanel;
     public bool showShopPanelAfterDialogue = false;
     public string uniqueID;
-    public bool isKnight;
-    public int knightValue;
+ 
     private void Awake()
     {
         uniqueID = GenerateUniqueIDBasedOnProperties();
@@ -83,7 +82,7 @@ public class Interactable : MonoBehaviour
                 if (gameObject.tag == "Knight")
                 {
                     //isKnight = true;
-                    if (isKnight == true)
+                    if (DialogueKnight.IsKnight == true)
                     {
                         dialogueManager.LoadFinishSentense(dialogue);
                         choiceMode = true;
@@ -92,7 +91,7 @@ public class Interactable : MonoBehaviour
                 else if (gameObject.tag == "Girl")
                 {
                     //knightValue = 0;
-                    isKnight = false;
+                    //DialogueKnight.IsKnight = false;
                     choiceMode = false;
                     GirlAnimator.SetTrigger("Talking");
                     hasCompletedDialogue = false;
@@ -100,7 +99,7 @@ public class Interactable : MonoBehaviour
                 else
                 {
                     //knightValue = 0;
-                    isKnight = false;
+                    //DialogueKnight.IsKnight = false;
                     choiceMode = false;
                 }
                 PlayerController.isPlayerTalking = true;
@@ -124,7 +123,7 @@ public class Interactable : MonoBehaviour
     public bool LoadChoiceState()
     {
         //SaveState();
-        return isKnight = true;
+        return DialogueKnight.IsKnight = true;
     }
     void CloseDialogue()
     {

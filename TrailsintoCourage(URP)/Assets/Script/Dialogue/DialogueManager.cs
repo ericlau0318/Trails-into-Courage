@@ -23,7 +23,7 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> finishSentences;
     public bool isDialogueActive = false;
     private bool FinalChoice = false;
-
+    public DialogueKnight dialogueKnight;
     void Start()
     {
         sentences = new Queue<string>();
@@ -52,7 +52,7 @@ public class DialogueManager : MonoBehaviour
         choice1Sentences.Clear();
         choice2Sentences.Clear();
         finishSentences.Clear();
-        if (Interactable.choiceMode == true || npc.hasCompletedDialogue || npc.knightValue == 1)
+        if (Interactable.choiceMode == true || npc.hasCompletedDialogue || DialogueKnight.knightValue == 1)
         {
             LoadFinishSentense(dialogue);
         }
@@ -148,10 +148,10 @@ public class DialogueManager : MonoBehaviour
         //npc.hasCompletedDialogue = true;
         if (npc.tag == "Knight")
         {
-            npc.knightValue = 1;
+            DialogueKnight.IsKnight = true;
             npc.LoadChoiceState();
         }
-        npc.isKnight = false;
+        //npc.isKnight = false;
         PlayerController.isPlayerTalking = false;
         if (npc.showShopPanelAfterDialogue && npc.sentencesNumber == 1)
         {
