@@ -7,6 +7,7 @@ public class PlayVideo : MonoBehaviour
 {
     private VideoPlayer videoPlayer;
     public GameObject LoadingScreen;
+    public GameObject canvas;
     public static bool first;
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,7 @@ public class PlayVideo : MonoBehaviour
         {
             videoPlayer.Play();
             first = false;
+            canvas.SetActive(false);
             videoPlayer.loopPointReached += OnVideoComplete;
         }
     }
@@ -26,7 +28,10 @@ public class PlayVideo : MonoBehaviour
     private void OnVideoComplete(VideoPlayer vp)
     {
         Debug.Log("Video completed!");
+        canvas.SetActive(true);
         videoPlayer.Stop();
+
+
     }
 
 }
