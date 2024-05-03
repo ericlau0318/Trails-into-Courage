@@ -15,6 +15,7 @@ public class Data : MonoBehaviour
     public int isFire, isIce, isFlash;
     // level pass set
     public int isLevel1, isLevel2, isLevel3;
+    public int firstStart;
 
     public void SaveMagic()
     {
