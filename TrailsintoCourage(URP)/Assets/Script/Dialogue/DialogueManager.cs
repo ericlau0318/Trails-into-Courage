@@ -48,14 +48,13 @@ public class DialogueManager : MonoBehaviour
         animator.SetBool("IsOpen", true);
         nameText.text = dialogue.name;
         npc.sentencesNumber = 0;
-
-        if (interactable.choiceMode == true || npc.hasCompletedDialogue )
+        sentences.Clear();
+        choice1Sentences.Clear();
+        choice2Sentences.Clear();
+        finishSentences.Clear();
+        if (Interactable.choiceMode == true || npc.hasCompletedDialogue )
         {
-            finishSentences.Clear();
-            foreach (string sentence in dialogue.finishSentences)
-            {
-                sentences.Enqueue(sentence);
-            }
+            LoadFinishSentense(dialogue);
         }
         else
         {
@@ -88,6 +87,14 @@ public class DialogueManager : MonoBehaviour
         isDialogueActive = false;
         showAllSentence = true;
     }
+    public void LoadFinishSentense(Dialogue dialogue)
+    {
+        finishSentences.Clear();
+        foreach (string sentence in dialogue.finishSentences)
+        {
+            sentences.Enqueue(sentence);
+        }
+    }
     public void DisplayNextSentence()
     {
         /*if (sentences.Count == 0 || choice1Sentences.Count == 0 || choice2Sentences.Count == 0)
@@ -103,7 +110,7 @@ public class DialogueManager : MonoBehaviour
             return;
         }
         interactable.sentencesNumber++;
-        if (!interactable.choiceMode && interactable.sentencesNumber >= 0 && interactable.sentencesNumber == interactable.sentenceChoiceNumber && !awaitingChoice)
+        if (!Interactable.choiceMode && interactable.sentencesNumber >= 0 && interactable.sentencesNumber == interactable.sentenceChoiceNumber && !awaitingChoice)
         {
             choiceButton1.gameObject.SetActive(true);
             choiceButton2.gameObject.SetActive(true);
@@ -135,14 +142,13 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue(Interactable npc)
     {
+        interactable = npc;
         animator.SetBool("IsOpen", false);
         StartCoroutine(CheckPlayerInZoneAfterDelay(1f));
         isDialogueActive = false;
         //npc.hasCompletedDialogue = true;
-        npc.choiceMode = true;
-   
+        interactable.LoadChoiceState();
         PlayerController.isPlayerTalking = false;
-        npc.SaveState();
         if (npc.showShopPanelAfterDialogue && npc.sentencesNumber == 1)
         {
             npc.ShopPanel.SetActive(true);
@@ -175,7 +181,7 @@ public class DialogueManager : MonoBehaviour
         if (!showAllSentence)
         {
             LoadChoiceSentences(choice1Sentences);
-            interactable.choiceMode = true;
+            Interactable.choiceMode = true;
             choiceButton1.gameObject.SetActive(false);
             choiceButton2.gameObject.SetActive(false);
             awaitingChoice = false;
@@ -187,7 +193,7 @@ public class DialogueManager : MonoBehaviour
         if (!showAllSentence && !FinalChoice)
         {
             LoadChoiceSentences(choice2Sentences);
-            interactable.choiceMode = true;
+            Interactable.choiceMode = true;
             if (sentences.Count > 0)
             {
                 choiceButton1.gameObject.SetActive(false);
