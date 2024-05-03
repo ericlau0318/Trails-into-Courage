@@ -33,6 +33,7 @@ public class Boss : EnemyValue
     public float rotate;
     public float recoverHealth;
     public AnimatorStateInfo stateInfo;
+    public GameObject WinPanel;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,6 +59,11 @@ public class Boss : EnemyValue
         ChasingPlayer();
         DrawLine();
         EnemyDied(exp);
+
+        if (isdead)
+        {
+            WinPanel.SetActive(true);
+        }
     }
     // Boss setting / component
     private void InitialBoss()
