@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1470247, g: 0.36394262, b: 0.5799059, a: 1}
+  m_IndirectSpecularColor: {r: 0.14703749, g: 0.3639866, b: 0.57992274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -15973,6 +15973,27 @@ PrefabInstance:
       propertyPath: dialogueAnimator
       value: 
       objectReference: {fileID: 927532716}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: sentenceChoiceNumber
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[0]
+      value: Did you heard that there is a demon sword in the world?
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[1]
+      value: 'Everybody are scared about this sword , because it will curse human
+        heart '
+      objectReference: {fileID: 0}
     - target: {fileID: 4110813327969920042, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
         type: 3}
       propertyPath: m_Name
@@ -24395,6 +24416,26 @@ PrefabInstance:
       propertyPath: dialogueAnimator
       value: 
       objectReference: {fileID: 927532716}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: sentenceChoiceNumber
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[0]
+      value: 'i heard that '
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4110813327969920042, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
         type: 3}
       propertyPath: m_Name
@@ -37368,6 +37409,16 @@ PrefabInstance:
       propertyPath: dialogueAnimator
       value: 
       objectReference: {fileID: 927532716}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641251566630352331, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4110813327969920042, guid: 56f7c481b4f1ddf4cbd14d0208b6d785,
         type: 3}
       propertyPath: m_Name
