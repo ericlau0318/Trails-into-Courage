@@ -14,10 +14,10 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_Fog: 1
+  m_FogColor: {r: 0.21764861, g: 0.41118416, b: 0.6320754, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.005
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.14703749, g: 0.3639866, b: 0.57992274, a: 1}
+  m_IndirectSpecularColor: {r: 0.1470247, g: 0.36394262, b: 0.5799059, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4780,13 +4780,13 @@ MonoBehaviour:
   dialogueAnimator: {fileID: 927532716}
   isPlayerInZone: 0
   dialogueBox: {fileID: 927532714}
-  choiceMode: 0
   hasCompletedDialogue: 0
   GirlAnimator: {fileID: 389718607}
   isGirlTalking: 0
   ShopPanel: {fileID: 729557432}
   showShopPanelAfterDialogue: 0
   uniqueID: 
+  isKnight: 0
 --- !u!136 &389718606
 CapsuleCollider:
   m_ObjectHideFlags: 0
