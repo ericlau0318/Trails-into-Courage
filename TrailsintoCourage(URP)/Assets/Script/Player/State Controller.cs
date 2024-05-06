@@ -126,7 +126,7 @@ public class StateController : MonoBehaviour
         {
             STRValue++;
             StatePoint--;
-            PlayerState.attackDamage = 5 + STRValue * 1;
+            PlayerState.attackDamage = 10 + STRValue * 1;
             // Debug.Log(PlayerState.attackDamage);
             //CreateGrid(STRValue,STRGridPrefab,STRGridParent,ref STRGridObjects);
             UpdateValueText(STRValue, STRValueText);
@@ -138,7 +138,7 @@ public class StateController : MonoBehaviour
         {
             INTValue++;
             StatePoint--;
-            PlayerState.spellDamage = 5 + INTValue * 2;
+            PlayerState.spellDamage = 10 + INTValue * 2;
             //CreateGrid(INTValue,INTGridPrefab,INTGridParent, ref INTGridObjects);
             UpdateValueText(INTValue, INTValueText);
         }

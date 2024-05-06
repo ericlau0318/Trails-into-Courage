@@ -202,8 +202,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TPPfixationPoint: {fileID: 6143182768510327822}
   movingSpeed: 5
-  runningSpeed: 8
-  rollingSpeed: 10
+  runningSpeed: 10
+  rollingSpeed: 12
   rollingTime: 0.25
   rollingStaminaCost: 10
   rollingCoolDown: 1
