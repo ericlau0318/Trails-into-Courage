@@ -35,7 +35,7 @@ public class Mummy : EnemyValue
             currentHealth = enemyHealth;
             hurtTime -= Time.deltaTime;
             damageTime -= Time.deltaTime;
-            DrawLineArea();
+            //DrawLineArea();
             UpdateEnemyUI(currentHealth, maxHealth);
             UpdateCurrentPosition(this.gameObject);
             CheckAttack();
