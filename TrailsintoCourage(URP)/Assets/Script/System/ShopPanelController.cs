@@ -22,6 +22,17 @@ public class ShopPanelController : MonoBehaviour
     {
         UpdateMagicShopUI();
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            IceSkillsText.SetActive(false);
+            UsingBtn2.SetActive(true);
+            ThunderSkillsText.SetActive(false);
+            UsingBtn3.SetActive(true);
+        }
+    }
     public void UpdateMagicShopUI()
     {
         if (spellFireUsing == true)
@@ -36,12 +47,12 @@ public class ShopPanelController : MonoBehaviour
         {
             IsUseBtn3();
         }
-        if (Level1GameManager.IsLevel1Pass == true)
+        if (Level1GameManager.IsLevel1Pass == true )
         {
             IceSkillsText.SetActive(false);
             UsingBtn2.SetActive(true);
         }
-        if (Level2GameManager.IsLevel2Pass == true)
+        if (Level2GameManager.IsLevel2Pass == true )
         {
             ThunderSkillsText.SetActive(false);
             UsingBtn3.SetActive(true);

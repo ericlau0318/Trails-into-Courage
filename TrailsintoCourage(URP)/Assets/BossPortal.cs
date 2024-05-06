@@ -12,13 +12,22 @@ public class BossPortal : MonoBehaviour
     {
         if(Level1GameManager.IsLevel1Pass==true && Level2GameManager.IsLevel2Pass==true && Level3GameManager.IsLevel3Pass == true)
         {
-            door.transform.position = opendoorpoint.position;
+            door.SetActive(false);
             bossportal.SetActive(true);
         }
         else
         {
             door.transform.position = closedoorpoint.position;
             bossportal.SetActive(false);
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            door.SetActive(false);
+            bossportal.SetActive(true);
         }
     }
 }
