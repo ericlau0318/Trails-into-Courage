@@ -30,15 +30,19 @@ public class Mummy : EnemyValue
     // Update is called once per frame
     void Update()
     {
-        currentHealth = enemyHealth;
-        hurtTime -= Time.deltaTime;
-        damageTime -= Time.deltaTime;
-        DrawLineArea();
-        UpdateEnemyUI(currentHealth, maxHealth);
-        UpdateCurrentPosition(this.gameObject);
-        CheckAttack();
-        ChasingPlayer();
-        EnemyDied(exp);
+        if(!Level2GameManager.fullFillTarget)
+        {
+            currentHealth = enemyHealth;
+            hurtTime -= Time.deltaTime;
+            damageTime -= Time.deltaTime;
+            DrawLineArea();
+            UpdateEnemyUI(currentHealth, maxHealth);
+            UpdateCurrentPosition(this.gameObject);
+            CheckAttack();
+            ChasingPlayer();
+            EnemyDied(exp);
+        }
+
     }
     // Archer setting / component
     private void InitialMummy()

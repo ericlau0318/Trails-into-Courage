@@ -19,7 +19,10 @@ public class EndTrip : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        StartCoroutine(GameEndScene());
+        if(gameObject.CompareTag("Player"))
+        {
+            StartCoroutine(GameEndScene());
+        }
     }
 
     public IEnumerator GameEndScene()

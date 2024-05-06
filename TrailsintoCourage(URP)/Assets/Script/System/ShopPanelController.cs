@@ -20,6 +20,10 @@ public class ShopPanelController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        UpdateMagicShopUI();
+    }
+    public void UpdateMagicShopUI()
+    {
         if (spellFireUsing == true)
         {
             IsUseBtn1();

@@ -6,7 +6,9 @@ using static UnityEngine.Rendering.DebugUI;
 public class DataManager : Data
 {
     private StateController stateController;
+    private ShopPanelController shopPanelController;
     private static DataManager _instance;
+    
     public static DataManager Instance
     {
         get { return _instance; }
@@ -90,5 +92,6 @@ public class DataManager : Data
         LoadMagic();
         LoadLevelPass();
         stateController.UpdateUIForLoad();
+        shopPanelController.UpdateMagicShopUI();
     }
 }
