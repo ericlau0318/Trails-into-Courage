@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class CameraFollow : MonoBehaviour
 {
@@ -15,6 +17,7 @@ public class CameraFollow : MonoBehaviour
     private float mouseY;
     public float maxMouseY = 60f;
     public float minMouseY = -60f;
+    private string currentSceneName;
 
     private float distance;
 
@@ -32,6 +35,15 @@ public class CameraFollow : MonoBehaviour
         {
             distance = Vector3.Distance(transform.position, TPP_FP.position);
         }
+        currentSceneName = SceneManager.GetActiveScene().name;
+        if (currentSceneName == "Level 2")
+        {
+            mouseX = -90f;
+        }
+        if (currentSceneName == "Level 3")
+        {
+            mouseX = -180f;
+        }
     }
 
     private void Update()
@@ -48,6 +60,7 @@ public class CameraFollow : MonoBehaviour
             mouseY = Mathf.Clamp(mouseY, minMouseY, maxMouseY);
         }
             Quaternion rotation = Quaternion.Euler(mouseY, mouseX, 0f);
+
             transform.rotation = rotation;
             if (firstPersonPerspective == true)
             {
