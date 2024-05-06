@@ -36,7 +36,7 @@ public class LavaSlime : EnemyValue
             {
                 hurtTime -= Time.deltaTime;
             }
-            //DrawLineArea();
+            DrawLineArea();
             UpdateEnemyUI(currentHealth, maxHealth);
             UpdateCurrentPosition(this.gameObject);
             CheckAttack();
