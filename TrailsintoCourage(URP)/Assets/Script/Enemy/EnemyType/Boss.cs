@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEditor;
-using UnityEditor.Searcher;
 using UnityEngine;
 
 public class Boss : EnemyValue
