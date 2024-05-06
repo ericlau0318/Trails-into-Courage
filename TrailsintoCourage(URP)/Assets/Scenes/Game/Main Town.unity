@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.14703749, g: 0.3639866, b: 0.57992274, a: 1}
+  m_IndirectSpecularColor: {r: 0.1470247, g: 0.36394262, b: 0.5799059, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7506,7 +7506,7 @@ PrefabInstance:
     - target: {fileID: 2300358176474495444, guid: b0c2869390036bd44b5bb35d80f5e1df,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3836410271054875782, guid: b0c2869390036bd44b5bb35d80f5e1df,
         type: 3}
@@ -7700,6 +7700,20 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: DialogueManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8585271680753593001, guid: b0c2869390036bd44b5bb35d80f5e1df,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Unlock Ice Abilitiy,
+
+        Talk to me after pass "Grassland"'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8602753790989733046, guid: b0c2869390036bd44b5bb35d80f5e1df,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Unlock Lightning Abilitiy,
+
+        Talk to me after pass "Desert"'
       objectReference: {fileID: 0}
     - target: {fileID: 8785863400482362092, guid: b0c2869390036bd44b5bb35d80f5e1df,
         type: 3}
