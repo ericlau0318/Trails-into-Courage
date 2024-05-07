@@ -9,6 +9,10 @@ public class Level2GameManager : MonoBehaviour
     public GameObject WinPanel;
     public static bool IsLevel2Pass=false;
     public static bool fullFillTarget = false;
+    private void Start()
+    {
+        fullFillTarget = false;
+    }
     public void BackToMainTown()
     {
         SceneManager.LoadScene("Main Town");
@@ -24,6 +28,4 @@ public class Level2GameManager : MonoBehaviour
 
         }
     }
-
-
 }
